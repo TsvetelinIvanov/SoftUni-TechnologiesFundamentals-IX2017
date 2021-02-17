@@ -1,6 +1,6 @@
 using System;
 
-namespace MonthPrinterIV
+namespace _04MonthPrinter
 {
     class Program
     {
