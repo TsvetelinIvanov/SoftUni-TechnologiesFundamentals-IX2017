@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace MaxSequenceOfIncreasingElementsVII
+namespace _07MaxSequenceOfIncreasingElements
 {
     class Program
     {
@@ -36,6 +36,7 @@ namespace MaxSequenceOfIncreasingElementsVII
             {
                 Console.Write(sequence[i] + " ");
             }
+            
             Console.WriteLine();
         }
     }
