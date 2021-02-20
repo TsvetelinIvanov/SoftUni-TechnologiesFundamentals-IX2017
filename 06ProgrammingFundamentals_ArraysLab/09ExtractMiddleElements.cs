@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace ExtractMiddleElementsIX
+namespace _09ExtractMiddleElements
 {
     class Program
     {
