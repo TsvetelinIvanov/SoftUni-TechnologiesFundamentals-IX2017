@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace IcarusII
+namespace _02Icarus
 {
     class Program
     {
