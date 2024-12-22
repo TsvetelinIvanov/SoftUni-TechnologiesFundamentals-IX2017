@@ -8,6 +8,7 @@ namespace _02ChooseADrinkWithPrice
             {
                 string profession = Console.ReadLine();
                 int quantity = int.Parse(Console.ReadLine());
+                
                 string drink = string.Empty;
                 double price = 0.0;
                 switch (profession)
@@ -30,6 +31,7 @@ namespace _02ChooseADrinkWithPrice
                         price = 1.20;
                         break;
                 }
+                
                 double totalPrice = price * quantity;
                 Console.WriteLine($"The {profession} has to pay {totalPrice:f2}.");
             }
