@@ -6,22 +6,22 @@ namespace _03BackIn30Minutes
     {
         static void Main(string[] args)
         {
-            int hours = int.Parse(Console.ReadLine());
-            int minutes = int.Parse(Console.ReadLine());
+            int hour = int.Parse(Console.ReadLine());
+            int minute = int.Parse(Console.ReadLine());
 
-            minutes += 30;
-            if (minutes > 59)
+            minute += 30;
+            if (minute > 59)
             {
-                hours++;
-                minutes -= 60;
+                hour++;
+                minute -= 60;
             }
             
-            if (hours > 23)
+            if (hour > 23)
             {
-                hours = 0;
+                hour = 0;
             }
 
-            Console.WriteLine($"{hours}:{minutes:d2}");
+            Console.WriteLine($"{hour}:{minute:d2}");
         }
     }
 }
