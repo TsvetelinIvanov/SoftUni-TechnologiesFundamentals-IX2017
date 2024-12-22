@@ -17,9 +17,13 @@ namespace _14MagicLetter
                     {
                         //string result = $"{i}{j}{k} ";
                         //if (!result.Contains(forbidenLetter))
+                        //{
                         //    Console.Write(result);
+                        //}
                         if (i == forbidenLetter || j == forbidenLetter || k == forbidenLetter)
-                        { }
+                        {
+                            
+                        }
                         else
                         {
                             Console.Write($"{i}{j}{k} ");
