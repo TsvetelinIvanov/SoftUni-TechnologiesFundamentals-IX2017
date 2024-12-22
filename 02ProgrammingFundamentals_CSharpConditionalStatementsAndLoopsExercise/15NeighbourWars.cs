@@ -6,8 +6,9 @@ namespace _15NeighbourWars
     {
         static void Main(string[] args)
         {
-            int peshoDemage = int.Parse(Console.ReadLine());
-            int goshoDemage = int.Parse(Console.ReadLine());
+            int peshoDamage = int.Parse(Console.ReadLine());
+            int goshoDamage = int.Parse(Console.ReadLine());
+            
             int peshoHealth = 100;
             int goshoHealth = 100;
             int turn = 0;
@@ -16,7 +17,7 @@ namespace _15NeighbourWars
                 turn++;
                 if (turn % 2 != 0)
                 {
-                    goshoHealth -= peshoDemage;
+                    goshoHealth -= peshoDamage;
                     if (goshoHealth <= 0)
                     {
                         Console.WriteLine($"Pesho won in {turn}th round.");
@@ -27,12 +28,13 @@ namespace _15NeighbourWars
                 }
                 else
                 {
-                    peshoHealth -= goshoDemage;
+                    peshoHealth -= goshoDamage;
                     if (peshoHealth <= 0)
                     {
                         Console.WriteLine($"Gosho won in {turn}th round.");
                         break;
                     }
+                    
                     Console.WriteLine($"Gosho used Thunderous fist and reduced Pesho to {peshoHealth} health.");     
                 }
 
