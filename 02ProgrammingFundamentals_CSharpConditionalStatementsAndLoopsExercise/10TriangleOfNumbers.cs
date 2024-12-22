@@ -13,6 +13,7 @@ namespace _10TriangleOfNumbers
                 {
                     Console.Write(i + " ");
                 }
+                
                 Console.WriteLine();
             }
         }
