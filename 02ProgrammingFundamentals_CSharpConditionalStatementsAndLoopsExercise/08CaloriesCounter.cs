@@ -7,27 +7,28 @@ namespace _08CaloriesCounter
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            int calories = 0;
+            int caloriesCount = 0;
             for (int i = 0; i < n; i++)
             {
                 string ingredient = Console.ReadLine().ToLower();
                 switch (ingredient)
                 {
                     case "cheese":
-                        calories += 500;
+                        caloriesCount += 500;
                         break;
                     case "tomato sauce":
-                        calories += 150;
+                        caloriesCount += 150;
                         break;
                     case "salami":
-                        calories += 600;
+                        caloriesCount += 600;
                         break;
                     case "pepper":
-                        calories += 50;
+                        caloriesCount += 50;
                         break;
                 }
             }
-            Console.WriteLine($"Total calories: {calories}");
+            
+            Console.WriteLine($"Total calories: {caloriesCount}");
         }
     }
 }
