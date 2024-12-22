@@ -9,6 +9,7 @@ namespace _13GameOfNumbers
             int N = int.Parse(Console.ReadLine());
             int M = int.Parse(Console.ReadLine());
             int magicNumber = int.Parse(Console.ReadLine());
+            
             int counter = 0;
             bool isFound = false;
             string expression = string.Empty;
@@ -28,6 +29,7 @@ namespace _13GameOfNumbers
                     }
                 }
             }
+            
             if (isFound)
             {
                 Console.WriteLine("Number found! {0}", expression);
