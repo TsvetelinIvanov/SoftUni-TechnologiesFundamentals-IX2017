@@ -6,8 +6,8 @@ namespace _04MonthPrinter
     {
         static void Main(string[] args)
         {
-            int month = int.Parse(Console.ReadLine());
-            switch (month)
+            int monthNumber = int.Parse(Console.ReadLine());
+            switch (monthNumber)
             {
                 case 1:
                     Console.WriteLine("January");
