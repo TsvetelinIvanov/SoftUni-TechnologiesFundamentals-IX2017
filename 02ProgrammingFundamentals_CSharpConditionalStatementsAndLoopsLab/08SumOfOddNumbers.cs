@@ -13,6 +13,7 @@ namespace _08SumOfOddNumbers
                 Console.WriteLine("{0}", 2 * i - 1);
                 sum += 2 * i - 1;
             }
+            
             Console.WriteLine($"Sum: {sum}");
         }
     }
