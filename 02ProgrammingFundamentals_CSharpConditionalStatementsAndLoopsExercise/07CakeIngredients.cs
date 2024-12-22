@@ -10,10 +10,15 @@ namespace _07CakeIngredients
             while (true) 
             {
                 string ingredient = Console.ReadLine();
-                if (ingredient == "Bake!") break;
+                if (ingredient == "Bake!")
+                {
+                    break;
+                }
+                
                 Console.WriteLine($"Adding ingredient {ingredient}.");
                 ingredientsCount++;
             }
+            
             Console.WriteLine($"Preparing cake with {ingredientsCount} ingredients.");
         }
     }
