@@ -8,9 +8,9 @@ namespace _06IntervalOfNumbers
         {
             int firstNumber = int.Parse(Console.ReadLine());
             int secondNumber = int.Parse(Console.ReadLine());
+            
             int startNumber = Math.Min(firstNumber, secondNumber);
             int endNumber = Math.Max(firstNumber, secondNumber);
-
             for (int i = startNumber; i <= endNumber; i++)
             {
                 Console.WriteLine(i);
