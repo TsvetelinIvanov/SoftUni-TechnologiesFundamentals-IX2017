@@ -8,40 +8,40 @@ namespace _06TheatrePromotion
         {
             string day = Console.ReadLine().ToLower();
             int age = int.Parse(Console.ReadLine());
-            int pticeChildren = 0;
-            int pticeAdults = 0;
-            int pticeSeniors = 0;
-
+            
+            int childrenPrice = 0;
+            int adultsPrice = 0;
+            int seniorsPrice = 0;
             switch (day)
             {
                 case "weekday":
-                    pticeChildren = 12;
-                    pticeAdults = 18;
-                    pticeSeniors = 12;
+                    childrenPrice = 12;
+                    adultsPrice = 18;
+                    seniorsPrice = 12;
                     break;
                 case "weekend":
-                    pticeChildren = 15;
-                    pticeAdults = 20;
-                    pticeSeniors = 15;
+                    childrenPrice = 15;
+                    adultsPrice = 20;
+                    seniorsPrice = 15;
                     break;
                 case "holiday":
-                    pticeChildren = 5;
-                    pticeAdults = 12;
-                    pticeSeniors = 10;
+                    childrenPrice = 5;
+                    adultsPrice = 12;
+                    seniorsPrice = 10;
                     break;
             }
 
             if (0 <= age && age <= 18)
             {
-                Console.WriteLine($"{pticeChildren}$");
+                Console.WriteLine($"{childrenPrice}$");
             }
             else if (age > 18 && age <= 64)
             {
-                Console.WriteLine($"{pticeAdults}$");
+                Console.WriteLine($"{adultsPrice}$");
             }
             else if (age > 64 && age <= 122)
             {
-                Console.WriteLine($"{pticeSeniors}$");
+                Console.WriteLine($"{seniorsPrice}$");
             }
             else
             {
