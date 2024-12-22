@@ -12,11 +12,15 @@ namespace _05WordInPlural
                 input = input.Remove(input.Length - 1);
                 input += "ies";
             }
-            else if (input.EndsWith("o") || input.EndsWith("ch") || input.EndsWith("s") ||
-                input.EndsWith("sh") || input.EndsWith("x") || input.EndsWith("z"))
+            else if (input.EndsWith("o") || input.EndsWith("ch") || input.EndsWith("s") || input.EndsWith("sh") || input.EndsWith("x") || input.EndsWith("z"))
+            {
                 input += "es";
+            }
             else
+            {
                 input += "s";
+            }
+            
             Console.WriteLine(input);
         }
     }
