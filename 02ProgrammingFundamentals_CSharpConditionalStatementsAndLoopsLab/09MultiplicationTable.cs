@@ -7,11 +7,11 @@ namespace _09MultiplicationTable
         static void Main(string[] args)
         {
             int number = int.Parse(Console.ReadLine());
-            int times = 1;
-            while (times <= 10)
+            int timesCount = 1;
+            while (timesCount <= 10)
             {
-                Console.WriteLine($"{number} X {times} = {number * times}");
-                times++;
+                Console.WriteLine($"{number} X {timesCount} = {number * timesCount}");
+                timesCount++;
             }
         }
     }
