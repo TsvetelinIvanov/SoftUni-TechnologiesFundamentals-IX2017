@@ -25,13 +25,15 @@ namespace _11FifeDiferentNumbers
                                     isCondition = true;
                                 }
                             }
-
                         }
                     }
                 }
             }
+            
             if (!isCondition)
+            {
                 Console.WriteLine("No");
+            }
         }
     }
 }
