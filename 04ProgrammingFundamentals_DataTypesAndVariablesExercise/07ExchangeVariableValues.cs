@@ -11,12 +11,13 @@ namespace _07ExchangeVariableValues
             Console.WriteLine("Before:");
             Console.WriteLine("a = " + a);
             Console.WriteLine("b = " + b);
-            a = b + a;
-            b = a - b;
-            a = a - b;
+
             //int c = a;
             //a = b;
             //b = c;
+            a = b + a;
+            b = a - b;
+            a = a - b;            
             Console.WriteLine("After:");
             Console.WriteLine("a = " + a);
             Console.WriteLine("b = " + b);
