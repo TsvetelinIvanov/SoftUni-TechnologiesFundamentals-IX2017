@@ -10,6 +10,7 @@ namespace _11ConvertSpeedUnits
             float hours = float.Parse(Console.ReadLine());
             float minutes = float.Parse(Console.ReadLine());
             float seconds = float.Parse(Console.ReadLine());
+            
             float kilometers = meters / 1000;
             float miles = meters / 1609;
 
