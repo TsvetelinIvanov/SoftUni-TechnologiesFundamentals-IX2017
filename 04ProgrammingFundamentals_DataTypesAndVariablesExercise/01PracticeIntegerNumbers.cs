@@ -13,6 +13,7 @@ namespace _01PracticeIntegerNumbers
             uint number5 = 2147483648;
             int number6 = -1141583228;
             long number7 = -1223372036854775808;
+            
             Console.WriteLine(number1);
             Console.WriteLine(number2);
             Console.WriteLine(number3);
