@@ -8,8 +8,9 @@ namespace _09ReverseCharacters
         {
             char lastLetter = char.Parse(Console.ReadLine());
             char middleLetter = char.Parse(Console.ReadLine());
-            char firstletter = char.Parse(Console.ReadLine());
-            string letters = "" + firstletter + middleLetter + lastLetter;
+            char firstLetter = char.Parse(Console.ReadLine());
+            
+            string letters = "" + firstLetter + middleLetter + lastLetter;
             Console.WriteLine(letters);
            // Console.WriteLine($"{firstletter}{middleLetter}{lastLetter}");
         }
