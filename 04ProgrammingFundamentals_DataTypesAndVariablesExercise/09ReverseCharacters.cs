@@ -12,7 +12,7 @@ namespace _09ReverseCharacters
             
             string letters = "" + firstLetter + middleLetter + lastLetter;
             Console.WriteLine(letters);
-           // Console.WriteLine($"{firstletter}{middleLetter}{lastLetter}");
+           // Console.WriteLine($"{firstLetter}{middleLetter}{lastLetter}");
         }
     }
 }
