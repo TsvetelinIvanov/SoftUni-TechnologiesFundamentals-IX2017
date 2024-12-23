@@ -11,6 +11,7 @@ namespace _03PracticeCharactersAndStrings
             char ch2 = 'y';
             char ch3 = 'e';
             string str2 = "I love programming";
+            
             Console.WriteLine(str1);
             Console.WriteLine(ch1);
             Console.WriteLine(ch2);
