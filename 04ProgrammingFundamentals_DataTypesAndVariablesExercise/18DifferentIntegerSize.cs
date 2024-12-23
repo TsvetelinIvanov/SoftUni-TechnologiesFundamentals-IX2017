@@ -18,6 +18,7 @@ namespace _18DifferentIntegerSize
             }
             catch (Exception)
             {
+                
             }
 
             try
@@ -28,6 +29,7 @@ namespace _18DifferentIntegerSize
             }
             catch (Exception)
             {
+                
             }
 
             try
@@ -38,6 +40,7 @@ namespace _18DifferentIntegerSize
             }
             catch (Exception)
             {
+                
             }
 
             try
@@ -48,6 +51,7 @@ namespace _18DifferentIntegerSize
             }
             catch (Exception)
             {
+                
             }
 
             try
@@ -58,6 +62,7 @@ namespace _18DifferentIntegerSize
             }
             catch (Exception)
             {
+                
             }
 
             try
@@ -68,6 +73,7 @@ namespace _18DifferentIntegerSize
             }
             catch (Exception)
             {
+                
             }
 
             try
@@ -78,6 +84,7 @@ namespace _18DifferentIntegerSize
             }
             catch (Exception)
             {
+                
             }
 
             if (isFit)
