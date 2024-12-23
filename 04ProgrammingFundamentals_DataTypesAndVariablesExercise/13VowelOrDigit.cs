@@ -31,8 +31,7 @@ namespace _13VowelOrDigit
                     break;
                 default:
                     Console.WriteLine("other");
-                    break;
-                
+                    break;                
             }
         }
     }
