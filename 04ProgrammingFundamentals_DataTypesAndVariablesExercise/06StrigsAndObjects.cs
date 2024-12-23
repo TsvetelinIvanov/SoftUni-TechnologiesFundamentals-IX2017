@@ -8,9 +8,11 @@ namespace _06StrigsAndObjects
         {
             string hello = "Hello";
             string world = "World";
-            object objHelloWorld = hello + " " + world;
-            string strHelloWorld = (string)objHelloWorld;
-            Console.WriteLine(strHelloWorld);
+            
+            object objectHelloWorld = hello + " " + world;
+            string stringHelloWorld = (string)objectHelloWorld;
+            
+            Console.WriteLine(stringHelloWorld);
         }
     }
 }
