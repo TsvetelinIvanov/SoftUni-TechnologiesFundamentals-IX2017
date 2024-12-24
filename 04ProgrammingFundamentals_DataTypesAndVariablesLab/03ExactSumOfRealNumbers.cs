@@ -13,6 +13,7 @@ namespace _03ExactSumOfRealNumbers
                 decimal m = decimal.Parse(Console.ReadLine());
                 sum += m;
             }
+            
             Console.WriteLine(sum);
         }
     }
