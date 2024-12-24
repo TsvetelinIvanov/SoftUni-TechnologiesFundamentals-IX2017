@@ -1,6 +1,6 @@
 using System;
 
-namespace _05SpetialNumbers
+namespace _05SpecialNumbers
 {
     class Program
     {
@@ -17,8 +17,8 @@ namespace _05SpetialNumbers
                     digits = digits / 10;
                 }
 
-                bool isSpetial = sumOfDigits == 5 || sumOfDigits == 7 || sumOfDigits == 11;
-                Console.WriteLine("{0} -> {1}", i, isSpetial);
+                bool isSpecial = sumOfDigits == 5 || sumOfDigits == 7 || sumOfDigits == 11;
+                Console.WriteLine("{0} -> {1}", i, isSpecial);
             }
         }
     }
