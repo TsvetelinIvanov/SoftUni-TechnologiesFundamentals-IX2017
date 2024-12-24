@@ -1,6 +1,6 @@
 using System;
 
-namespace _09RefactorSpetialNumbers
+namespace _09RefactorSpecialNumbers
 {
     class Program
     {
@@ -17,8 +17,8 @@ namespace _09RefactorSpetialNumbers
                     digits = digits / 10;
                 }
 
-                bool isSpetial = sumOfDigits == 5 || sumOfDigits == 7 || sumOfDigits == 11;
-                Console.WriteLine("{0} -> {1}", i, isSpetial);
+                bool isSpecial = sumOfDigits == 5 || sumOfDigits == 7 || sumOfDigits == 11;
+                Console.WriteLine("{0} -> {1}", i, isSpecial);
             }
         }
     }
