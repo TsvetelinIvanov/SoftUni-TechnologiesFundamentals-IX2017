@@ -13,7 +13,7 @@ namespace _03EnglishNameOfTheLastDigit
 
         static string MakeLastDigitInWord(long number)
         {
-            lastDigit %= 10;
+            int lastDigit = number % 10;
             string lastDigitString = string.Empty;
             switch (lastDigit)
             {
