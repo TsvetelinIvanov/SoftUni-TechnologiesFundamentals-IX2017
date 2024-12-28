@@ -7,9 +7,9 @@ namespace _03_EnglishNameOfTheLastDigit
         static void Main(string[] args)
         {
             long number = long.Parse(Console.ReadLine());
-            number = GetLastDigit(number);
+            int lastDigit = GetLastDigit(number);
             string[] numberNames = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            Console.WriteLine(numberNames[number]);
+            Console.WriteLine(numberNames[lastDigit]);
         }
 
         static long GetLastDigit(long n)
