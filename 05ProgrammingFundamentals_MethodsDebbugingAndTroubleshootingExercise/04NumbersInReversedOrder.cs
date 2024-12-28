@@ -8,8 +8,8 @@ namespace _04NumbersInReversedOrder
         {
             decimal number = decimal.Parse(Console.ReadLine());
             string numberString = "" + number;
-            string reversed = ReverseDigits(numberString);
-            Console.WriteLine(reversed);
+            string reversedNumberString = ReverseDigits(numberString);
+            Console.WriteLine(reversedNumberString);
         }
 
         static string ReverseDigits(string numberString)
