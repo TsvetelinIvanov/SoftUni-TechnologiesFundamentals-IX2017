@@ -9,26 +9,25 @@ namespace _07PrimesInGivenRange
         {
             int startNumber = int.Parse(Console.ReadLine());
             int endNumber = int.Parse(Console.ReadLine());
-
             if (startNumber <= endNumber)
             {
-                List<int> primes = FindPrimesInRange(startNumber, endNumber);                
-                for (int i = 0; i <= primes.Count - 2; i++)
+                List<int> primesList = FindPrimesInRange(startNumber, endNumber);                
+                for (int i = 0; i <= primesList.Count - 2; i++)
                 {
-                    Console.Write($"{primes[i]}, ");
+                    Console.Write($"{primesList[i]}, ");
                 }
 
-                Console.Write($"{primes[primes.Count - 1]}");
+                Console.Write($"{primesList[primesList.Count - 1]}");
             }            
             else
             {
-                List<int> primes = FindPrimesInRange(endNumber, startNumber);
-                for (int i = 0; i <= primes.Count - 2; i++)
+                List<int> primesList = FindPrimesInRange(endNumber, startNumber);
+                for (int i = 0; i <= primesList.Count - 2; i++)
                 {
-                    Console.Write($"{primes[i]}, ");
+                    Console.Write($"{primesList[i]}, ");
                 }
 
-                Console.Write($"{primes[primes.Count - 1]}");
+                Console.Write($"{primesList[primesList.Count - 1]}");
             }            
         }
         
@@ -43,8 +42,8 @@ namespace _07PrimesInGivenRange
                     prime = false;
                 }
                     
-                double iSqrt = Math.Sqrt(i);
-                for (int j = 2; j <= iSqrt; j++)
+                double iSquart = Math.Sqrt(i);
+                for (int j = 2; j <= iSquart; j++)
                 {
                     if (i % j == 0)
                     {
