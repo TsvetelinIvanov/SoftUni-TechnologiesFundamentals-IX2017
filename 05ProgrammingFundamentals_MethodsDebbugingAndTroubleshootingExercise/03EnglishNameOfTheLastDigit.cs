@@ -6,50 +6,50 @@ namespace _03EnglishNameOfTheLastDigit
     {
         static void Main(string[] args)
         {
-            long n = long.Parse(Console.ReadLine());
-            long nAbs = Math.Abs(n);
-            Console.WriteLine(DoLastDigitInWord(nAbs));
+            long number = long.Parse(Console.ReadLine());
+            long positiveNumber = Math.Abs(number);
+            Console.WriteLine(MakeLastDigitInWord(positiveNumber));
         }
 
-        static string DoLastDigitInWord(long number)
+        static string MakeLastDigitInWord(long number)
         {
-            number %= 10;
-            string lastDigit = string.Empty;
-            switch (number)
+            lastDigit %= 10;
+            string lastDigitString = string.Empty;
+            switch (lastDigit)
             {
                 case 0:
-                    lastDigit = "zero";
+                    lastDigitString = "zero";
                     break;
                 case 1:
-                    lastDigit = "one";
+                    lastDigitString = "one";
                     break;
                 case 2:
-                    lastDigit = "two";
+                    lastDigitString = "two";
                     break;
                 case 3:
-                    lastDigit = "three";
+                    lastDigitString = "three";
                     break;
                 case 4:
-                    lastDigit = "four";
+                    lastDigitString = "four";
                     break;
                 case 5:
-                    lastDigit = "five";
+                    lastDigitString = "five";
                     break;
                 case 6:
-                    lastDigit = "six";
+                    lastDigitString = "six";
                     break;
                 case 7:
-                    lastDigit = "seven";
+                    lastDigitString = "seven";
                     break;
                 case 8:
-                    lastDigit = "eight";
+                    lastDigitString = "eight";
                     break;
                 case 9:
-                    lastDigit = "nine";
+                    lastDigitString = "nine";
                     break;                
             }
 
-            return lastDigit;
+            return lastDigitString;
         }
     }
 }
