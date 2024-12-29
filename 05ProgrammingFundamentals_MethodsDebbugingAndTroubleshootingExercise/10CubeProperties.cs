@@ -8,6 +8,7 @@ namespace _10CubeProperties
         {
             double cubeSide = double.Parse(Console.ReadLine());
             string wishedParameter = Console.ReadLine();
+            
             double findedParameter = 0.0;
             switch (wishedParameter)
             {
@@ -31,24 +32,28 @@ namespace _10CubeProperties
         static double FindeFaceDiagonal(double side)
         {
             double faceDiagonal = Math.Sqrt(2 * side * side);
+            
             return faceDiagonal;
         }
 
         static double FindeSpaceDiagonal(double side)
         {
             double spaceDiagonal = Math.Sqrt(3 * side * side);
+            
             return spaceDiagonal;
         }
 
         static double FindeSurfaceArea(double side)
         {
             double surfaceArea = 6 * side * side;
+            
             return surfaceArea;
         }
 
         static double FindeCubeVolume(double side)
         {
             double cubeVolume = side * side * side;
+            
             return cubeVolume;
         }
     }
