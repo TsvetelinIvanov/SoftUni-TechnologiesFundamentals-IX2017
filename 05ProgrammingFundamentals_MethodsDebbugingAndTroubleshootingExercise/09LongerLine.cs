@@ -27,7 +27,6 @@ namespace _09LongerLine
 
             double lineOne = Math.Abs(Math.Sqrt(lineOneX * lineOneX + lineOneY * lineOneY));
             double lineTwo = Math.Abs(Math.Sqrt(lineTwoX * lineTwoX + lineTwoY * lineTwoY));
-
             if (lineOne >= lineTwo)
             {
                 PrintClosestPoint(x1, y1, x2, y2);
