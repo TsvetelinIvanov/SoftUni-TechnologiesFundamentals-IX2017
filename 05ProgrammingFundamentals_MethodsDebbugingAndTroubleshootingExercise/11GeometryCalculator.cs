@@ -11,14 +11,14 @@ namespace _11GeometryCalculator
             switch (figure)
             {
                 case "triangle":
-                    double side = double.Parse(Console.ReadLine());
-                    double height = double.Parse(Console.ReadLine());
-                    area = GetTriangleArea(side, height);
+                    double triangleSide = double.Parse(Console.ReadLine());
+                    double triangleHeight = double.Parse(Console.ReadLine());
+                    area = GetTriangleArea(triangleSide, triangleHeight);
                     break;
                 case "rectangle":
-                    double width = double.Parse(Console.ReadLine());
+                    double rectangleWidth = double.Parse(Console.ReadLine());
                     double rectangleHeight = double.Parse(Console.ReadLine());
-                    area = GetRectangleArea(width, rectangleHeight);
+                    area = GetRectangleArea(rectangleWidth, rectangleHeight);
                     break;
                 case "square":
                     double squareSide = double.Parse(Console.ReadLine());                    
