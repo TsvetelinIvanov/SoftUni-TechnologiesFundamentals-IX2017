@@ -9,7 +9,7 @@ namespace _12MasterNumber
             int n = int.Parse(Console.ReadLine());
             for (int i = 1; i <= n; i++)
             {
-                if (IsPalindrome(i) && SumOfDigits(i) && ContainesEvenDigit(i))
+                if (IsPalindrome(i) && IsSumOfDigitsMultipleOfSeven(i) && ContainsEvenDigit(i))
                 {
                     Console.WriteLine(i);
                 }
@@ -18,11 +18,11 @@ namespace _12MasterNumber
 
         static bool IsPalindrome(int number)
         {
-            string numberStr = number.ToString();
+            string numberString = number.ToString();
             bool isPalindrome = false;
-            for (int i = 0; i < numberStr.Length / 2; i++)
+            for (int i = 0; i < numberString.Length / 2; i++)
             {                
-                if (numberStr[i] == numberStr[(numberStr.Length - 1) - i])
+                if (numberString[i] == numberString[(numberString.Length - 1) - i])
                 {
                     isPalindrome = true;
                 }
@@ -36,9 +36,9 @@ namespace _12MasterNumber
             return isPalindrome;
         }
 
-        static bool SumOfDigits(int number)
+        static bool IsSumOfDigitsMultipleOfSeven(int number)
         {
-            bool isSumOfDigitsEqualToSeven = false;
+            bool isSumOfDigitsMultipleOfSeven = false;
             int sum = 0;
             int digit = 0;
             while (number > 0)
@@ -49,14 +49,16 @@ namespace _12MasterNumber
             }
 
             if (sum % 7 == 0)
-                isSumOfDigitsEqualToSeven = true;
+            {
+                isSumOfDigitsMultipleOfSeven = true;
+            }
 
-            return isSumOfDigitsEqualToSeven;
+            return isSumOfDigitsMultipleOfSeven;
         }
 
-        static bool ContainesEvenDigit(int number)
+        static bool ContainsEvenDigit(int number)
         {
-            bool containesEvenDigit = false;            
+            bool containsEvenDigit = false;            
             int digit = 1;
             while (number > 0)
             {
@@ -70,7 +72,7 @@ namespace _12MasterNumber
                 number /= 10;
             }
 
-            return containesEvenDigit;
+            return containsEvenDigit;
         }
     }
 }
