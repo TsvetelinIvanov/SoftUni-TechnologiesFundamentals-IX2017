@@ -1,25 +1,24 @@
 using System;
 
-namespace _15SubstringDebbuging
+namespace _15SubstringDebugging
 {
     class Program
     {
         static void Main(string[] args)
         {
+            const char SearchedCharacter = 'p';
+            
             string text = Console.ReadLine();
             int jump = int.Parse(Console.ReadLine());
-
-            const char search = 'p';
+            
             bool hasMatch = false;
-
             for (int i = 0; i <= text.Length - 1; i++)
             {
-                if (text[i] == search)
+                if (text[i] == SearchedCharacter)
                 {
                     hasMatch = true;
                     int endIndex = jump + 1;
                     string matchedString = string.Empty;
-
                     if (endIndex + i <= text.Length - 1)
                     {
                         matchedString = text.Substring(i, endIndex);
