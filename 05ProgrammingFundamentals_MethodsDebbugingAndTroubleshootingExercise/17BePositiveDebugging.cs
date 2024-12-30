@@ -8,54 +8,48 @@ namespace _17BePositiveDebugging
         static void Main(string[] args)
         {
             {
-                int countSequences = int.Parse(Console.ReadLine());
-
-                for (int i = 0; i < countSequences; i++)
+                int sequencesCount = int.Parse(Console.ReadLine());
+                for (int i = 0; i < sequencesCount; i++)
                 {
                     string[] input = Console.ReadLine().Trim().Split(' ');
-                    var numbers = new List<int>();
-
+                    List<int> numbers = new List<int>();
                     for (int j = 0; j < input.Length; j++)
                     {
                         if (!input[j].Equals(string.Empty))
                         {
-                            int num = int.Parse(input[j]);
-                            numbers.Add(num);
+                            int number = int.Parse(input[j]);
+                            numbers.Add(number);
                         }
                     }
 
                     bool found = false;
-
                     for (int j = 0; j < numbers.Count; j++)
                     {
-                        int currentNum = numbers[j];
-
-                        if (currentNum >= 0)
+                        int currentNumber = numbers[j];
+                        if (currentNumber >= 0)
                         {
                             if (found)
                             {
                                 Console.Write(" ");
                             }
 
-                            Console.Write(currentNum);
-
+                            Console.Write(currentNumber);
                             found = true;
                         }
                         else if(j + 1 < numbers.Count)
                         {
-                            currentNum += numbers[j + 1];
-
-                            if (currentNum >= 0)
+                            currentNumber += numbers[j + 1];
+                            if (currentNumber >= 0)
                             {
                                 if (found)
                                 {
                                     Console.Write(" ");
                                 }
 
-                                Console.Write(currentNum);
-
+                                Console.Write(currentNumber);
                                 found = true;
                             }
+                            
                             j++;
                         }
                     }
