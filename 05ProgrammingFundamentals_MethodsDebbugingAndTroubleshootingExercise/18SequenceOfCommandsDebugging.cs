@@ -10,41 +10,36 @@ namespace _18SequenceOfCommandsDebuggingExercise
         public static void Main()
         {
             int sizeOfArray = int.Parse(Console.ReadLine());
-
             long[] array = Console.ReadLine().Split(ArgumentsDelimiter).Select(long.Parse).ToArray();
 
-            string[] command = Console.ReadLine().Split(' ').ToArray();
-
-            while (command[0] != "stop")
+            string[] commandArguments = Console.ReadLine().Split(' ').ToArray();
+            while (commandArguments[0] != "stop")
             {
-
-                int[] args = new int[2];
-
-                if (command[0] == "add" || command[0] == "subtract" || command[0] == "multiply")
+                int[] arguments = new int[2];
+                if (commandArguments[0] == "add" || commandArguments[0] == "subtract" || commandArguments[0] == "multiply")
                 {
-                    args[0] = int.Parse(command[1]);
-                    args[1] = int.Parse(command[2]);
-                    PerformAction(array, command[0], args);
+                    arguments[0] = int.Parse(commandArguments[1]);
+                    arguments[1] = int.Parse(commandArguments[2]);
+                    
+                    PerformAction(array, commandArguments[0], arguments);
                 }
                 else
                 {
-                    PerformAction(array, command[0], args);
+                    PerformAction(array, commandArguments[0], arguments);
                 }
 
                 PrintArray(array);
-
                 Console.WriteLine();
 
-                command = Console.ReadLine().Split(' ').ToArray();
+                commandArguments = Console.ReadLine().Split(' ').ToArray();
             }
         }
 
-        static void PerformAction(long[] array, string action, int[] args)
+        private static void PerformAction(long[] array, string action, int[] arguments)
         {
 
-            int position = args[0];
-            int value = args[1];
-
+            int position = arguments[0];
+            int value = arguments[1];
             switch (action)
             {
                 case "multiply":
@@ -62,30 +57,29 @@ namespace _18SequenceOfCommandsDebuggingExercise
                 case "rshift":
                     ArrayShiftRight(array);
                     break;
-
             }
         }
 
-        private static void ArrayShiftRight(long[] array)
+         private static void ArrayShiftLeft(long[] array)
         {
-            long num = array[array.Length - 1];
-            for (int i = array.Length - 1; i >= 1; i--)
-            {
-                array[i] = array[i - 1];
-            }
-
-            array[0] = num;
-        }
-
-        private static void ArrayShiftLeft(long[] array)
-        {
-            long num = array[0];
+            long number = array[0];
             for (int i = 0; i < array.Length - 1; i++)
             {
                 array[i] = array[i + 1];
             }
 
-            array[array.Length - 1] = num;
+            array[array.Length - 1] = number;
+        }
+
+        private static void ArrayShiftRight(long[] array)
+        {
+            long number = array[array.Length - 1];
+            for (int i = array.Length - 1; i >= 1; i--)
+            {
+                array[i] = array[i - 1];
+            }
+
+            array[0] = number;
         }
 
         private static void PrintArray(long[] array)
