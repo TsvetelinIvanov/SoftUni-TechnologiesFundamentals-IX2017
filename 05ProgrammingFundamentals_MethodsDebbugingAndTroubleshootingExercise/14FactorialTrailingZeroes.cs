@@ -9,12 +9,12 @@ namespace _14FactorialTrailingZeroes
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            BigInteger factorial = DoFactorial(n);
+            BigInteger factorial = MakeFactorial(n);
             int trailingZeroesCount = CountTrailingZeroes(factorial);
             Console.WriteLine(trailingZeroesCount);
         }
 
-        static BigInteger DoFactorial(int n)
+        static BigInteger MakeFactorial(int n)
         {
             BigInteger factorial = 1;
             for (int i = 1; i <= n; i++)
