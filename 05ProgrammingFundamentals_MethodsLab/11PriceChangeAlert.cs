@@ -14,7 +14,7 @@ class PriceChangeAlert
 
             double difference = GetDifference(lastPrice, currentPrice);
             bool isSignificantDifference = IsSignificantDifference(difference, treshold);
-            string message = DoMessage(currentPrice, lastPrice, difference, isSignificantDifference);
+            string message = MakeMessage(currentPrice, lastPrice, difference, isSignificantDifference);
 
             Console.WriteLine(message);
 
@@ -22,7 +22,26 @@ class PriceChangeAlert
         }
     }
 
-    private static string DoMessage(double currentPrice, double lastPrice, double difference, bool isSignificantDifference)
+    private static double GetDifference(double firstPrice, double nextPrice)
+    {
+        double difference = (nextPrice - firstPrice) / firstPrice;
+        
+        return difference;
+    }
+
+    private static bool IsSignificantDifference(double treshold, double difference)
+    {
+        if (Math.Abs(treshold) >= difference)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private static string MakeMessage(double currentPrice, double lastPrice, double difference, bool isSignificantDifference)
     {
         string message = string.Empty;
         if (difference == 0)
@@ -43,23 +62,5 @@ class PriceChangeAlert
         }
 
         return message;
-    }
-
-    private static bool IsSignificantDifference(double treshold, double difference)
-    {
-        if (Math.Abs(treshold) >= difference)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    private static double GetDifference(double firstPrice, double nextPrice)
-    {
-        double difference = (nextPrice - firstPrice) / firstPrice;
-        return difference;
     }
 }
