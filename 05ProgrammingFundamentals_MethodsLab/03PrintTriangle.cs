@@ -12,7 +12,7 @@ namespace _03PrintTriangle
 
         static void PrintTriangle(int n)
         {
-            for (int i = 0; i < n; i++) // without blank line -> for (int i = 1; i < n; i++)
+            for (int i = 0; i < n; i++) //Without blank line -> for (int i = 1; i < n; i++)
             {
                 PrintLine(1, i);
             }
@@ -31,6 +31,7 @@ namespace _03PrintTriangle
             {
                 Console.Write(i + " ");
             }
+            
             Console.WriteLine();
         }
     }
