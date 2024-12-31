@@ -20,6 +20,7 @@ namespace _07MathPower
             {
                 result *= number;
             }
+            
             return result;
         }
     }
