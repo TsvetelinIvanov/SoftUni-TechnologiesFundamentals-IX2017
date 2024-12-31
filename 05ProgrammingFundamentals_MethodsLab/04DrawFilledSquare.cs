@@ -6,23 +6,25 @@ namespace _04DrawFilledSquare
     {
         static void Main(string[] args)
         {
-            int input = int.Parse(Console.ReadLine());
-            //PrintHeaderFooter(input);
-            //for (int i = 0; i < input - 2; i++)
+            int n = int.Parse(Console.ReadLine());
+            //PrintHeaderFooter(n);
+            //for (int i = 0; i < n - 2; i++)
             //{
-            //    PrintMiddleRow(input);
+            //    PrintMiddleRow(n);
             //}
-            //PrintHeaderFooter(input);
-            DrawSquare(input); //optimization
+            
+            //PrintHeaderFooter(n);
+            DrawSquare(input); //Optimization
         }
 
-        static void DrawSquare(int n) //optimization
+        static void DrawSquare(int n) //Optimization
         {
             PrintHeaderFooter(n);
             for (int i = 0; i < n - 2; i++)
             {
                 PrintMiddleRow(n);
             }
+            
             PrintHeaderFooter(n);
         }
 
@@ -38,6 +40,7 @@ namespace _04DrawFilledSquare
             {
                 Console.Write("\\/");
             }
+            
             Console.Write("-");
             Console.WriteLine();
         }        
