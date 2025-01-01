@@ -9,6 +9,7 @@ namespace _01LargestCommonEnd
         {
             string[] firstString = Console.ReadLine().Split(' ').ToArray();
             string[] secondString = Console.ReadLine().Split(' ').ToArray();
+            
             PrintLargestCommonEndCount(firstString, secondString);
         }
 
