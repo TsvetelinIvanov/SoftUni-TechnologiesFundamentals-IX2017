@@ -7,60 +7,56 @@ namespace _05CompareCharArrays
     {
         static void Main(string[] args)
         {
-            char[] arr1 = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(char.Parse)
-                .ToArray();
-            char[] arr2 = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(char.Parse)
-                .ToArray();
+            char[] firstArray = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(char.Parse).ToArray();
+            char[] secondArray = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(char.Parse).ToArray();
 
-            string str1 = string.Empty;
-            for (int i = 0; i < arr1.Length; i++)
+            string firstString = string.Empty;
+            for (int i = 0; i < firstArray.Length; i++)
             {
-                str1 += arr1[i];
+                firstString += firstArray[i];
             }
 
-            string str2 = string.Empty;
-            for (int i = 0; i < arr2.Length; i++)
+            string secondString = string.Empty;
+            for (int i = 0; i < secondArray.Length; i++)
             {
-                str2 += arr2[i];
+                secondString += secondArray[i];
             }
 
-            if (str1.CompareTo(str2) <= 0)
+            if (firstString.CompareTo(secondString) <= 0)
             {
-                Console.WriteLine(str1);
-                Console.WriteLine(str2);
+                Console.WriteLine(firstString);
+                Console.WriteLine(secondString);
             }
             else
             {
-                Console.WriteLine(str2);
-                Console.WriteLine(str1);
+                Console.WriteLine(secondString);
+                Console.WriteLine(firstString);
             }
 
-            //if you wish to write the shorter first:            
-            //if (arr1.Length < arr2.Length)
+            //If you wish to write the shorter first:            
+            //if (firstArray.Length < secondArray.Length)
             //{
-            //    Console.WriteLine(str1);
-            //    Console.WriteLine(str2);
+            //    Console.WriteLine(firstString);
+            //    Console.WriteLine(secondString);
             //}
-            //else if (arr1.Length > arr2.Length)
+            //else if (firstArray.Length > secondArray.Length)
             //{
-            //    Console.WriteLine(str2);
-            //    Console.WriteLine(str1);
+            //    Console.WriteLine(secondString);
+            //    Console.WriteLine(firstString);
             //}
             //else
             //{
-            //    if (str1.CompareTo(str2) <= 0)
+            //    if (firstString.CompareTo(secondString) <= 0)
             //    {
-            //        Console.WriteLine(str1);
-            //        Console.WriteLine(str2);
+            //        Console.WriteLine(firstString);
+            //        Console.WriteLine(secondString);
             //    }
             //    else
             //    {
-            //        Console.WriteLine(str2);
-            //        Console.WriteLine(str1);
+            //        Console.WriteLine(secondString);
+            //        Console.WriteLine(firstString);
             //    }
             //}
         }
