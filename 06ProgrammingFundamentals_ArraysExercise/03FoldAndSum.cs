@@ -7,23 +7,23 @@ namespace _03FoldAndSum
     {
         static void Main(string[] args)
         {
-            int[] primordial = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            int[] primordial = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
 
-            int k = primordial.Length / 4;
-            int[] leftQuart = primordial.Take(k).ToArray();
-            int[] middleHalf = primordial.Skip(k).Take(k * 2).ToArray();
-            int[] rightQuart = primordial.Skip(k * 3).Take(k).ToArray();
-            Array.Reverse(leftQuart);
-            rightQuart = rightQuart.Reverse().ToArray(); //The same result with two methods.
+            int oneQuarter = primordial.Length / 4;
+            int[] leftQuarter = primordial.Take(oneQuarter).ToArray();
+            int[] middleHalf = primordial.Skip(oneQuarter).Take(oneQuarter * 2).ToArray();
+            int[] rightQuarter = primordial.Skip(oneQuarter * 3).Take(oneQuarter).ToArray();
+            
+            //The same result with two methods:
+            Array.Reverse(leftQuarter);
+            rightQuarter = rightQuarter.Reverse().ToArray();
 
-            int[] folded = new int[k * 2];
-            for (int i = 0; i < k; i++)
+            int[] folded = new int[oneQuarter * 2];
+            for (int i = 0; i < oneQuarter; i++)
             {
                 folded[i] = middleHalf[i] + leftQuart[i];
-                folded[i + k] = middleHalf[i + k] + rightQuart[i];
+                folded[i + oneQuarter] = middleHalf[i + oneQuarter] + rightQuart[i];
             }
 
             Console.WriteLine(string.Join(" ", folded));
