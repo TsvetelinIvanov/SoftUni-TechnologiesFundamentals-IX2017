@@ -7,39 +7,39 @@ namespace _04SieveOfErathostenes
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            int[] arrInput = new int[n + 1];
-            bool[] primes = new bool[n + 1];
-            string primeNumbers = null;
-            for (int i = 0; i < primes.Length; i++)
+            int[] inputArray = new int[n + 1];
+            bool[] arePrimes = new bool[n + 1];
+            string primeNumbersString = null;
+            for (int i = 0; i < arePrimes.Length; i++)
             {
-                arrInput[i] = i;
-                primes[i] = true;
+                inputArray[i] = i;
+                arePrimes[i] = true;
             }
 
-            primeNumbers = DoSieveOfErathosten(arrInput, primes, primeNumbers);
-            Console.WriteLine(primeNumbers.Trim());                      
+            primeNumbersString = MakeSieveOfErathosten(inputArray, arePrimes, primeNumbersString);
+            Console.WriteLine(primeNumbersString.Trim());                      
         }
 
-        private static string DoSieveOfErathosten(int[] ArrInput, bool[] checkNumbers, string primeNumbers)
+        private static string MakeSieveOfErathosten(int[] inputArray, bool[] arePrimes, string primeNumbersString)
         {
-            checkNumbers[0] = false;
-            checkNumbers[1] = false;
-            for (int i = 0; i < ArrInput.Length; i++)
+            arePrimes[0] = false;
+            arePrimes[1] = false;
+            for (int i = 0; i < inputArray.Length; i++)
             {
-                if (checkNumbers[i])
+                if (arePrimes[i])
                 {
-                    primeNumbers += $"{ArrInput[i]} ";
-                    for (int j = i + 1; j < ArrInput.Length; j++)
+                    primeNumbersString += $"{inputArray[i]} ";
+                    for (int j = i + 1; j < inputArray.Length; j++)
                     {
-                        if (ArrInput[j] % i == 0 && checkNumbers[j] == true)
+                        if (inputArray[j] % i == 0 && arePrimes[j] == true)
                         {
-                            checkNumbers[j] = false;
+                            arePrimes[j] = false;
                         }
                     }
                 }
             }
 
-            return primeNumbers;
+            return primeNumbersString;
         }
     }
 }
