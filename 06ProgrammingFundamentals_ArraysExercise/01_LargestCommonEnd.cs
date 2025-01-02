@@ -6,26 +6,32 @@ namespace _01_LargestCommonEnd
     {
         static void Main(string[] args)
         {
-            string[] array1 = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            string[] array2 = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            int leftLength = 0;
-            int rightLength = 0;
-
-            for (int i = 0; i < Math.Min(array1.Length, array2.Length); i++)
+            string[] firstArray = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] secondArray = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            
+            int leftCount = 0;
+            int rightCount = 0;
+            for (int i = 0; i < Math.Min(firstArray.Length, secondArray.Length); i++)
             {
-                if (array1[i] == array2[i])
-                    leftLength++;
+                if (firstArray[i] == secondArray[i])
+                {
+                    leftCount++;
+                }
 
-                if (array1[array1.Length - 1 - i] == array2[array2.Length - 1 - i])
-                    rightLength++;
+                if (firstArray[firstArray.Length - 1 - i] == secondArray[secondArray.Length - 1 - i])
+                {
+                    rightCount++;
+                }
             }
 
-            if (leftLength >= rightLength)
-                Console.WriteLine(leftLength);
+            if (leftCount >= rightCount)
+            {
+                Console.WriteLine(leftCount);
+            }
             else
-                Console.WriteLine(rightLength);
+            {
+                Console.WriteLine(rightCount);
+            }
         }
     }
 }
