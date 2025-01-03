@@ -7,10 +7,9 @@ namespace _11EqualSums
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            int[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            
             bool isFound = false;
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -24,7 +23,9 @@ namespace _11EqualSums
             }
 
             if (!isFound)
+            {
                 Console.WriteLine("no");
+            }
         }
     }
 }
