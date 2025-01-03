@@ -7,15 +7,13 @@ namespace _08_MostFrequentNumber
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            int[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            
             int number = 0;
             int max = 0;
             int counter = 0;
             int frequence = 0;
-
             for (int i = 0; i <= numbers.Length - 1; i++)
             {
                 counter = 0;
