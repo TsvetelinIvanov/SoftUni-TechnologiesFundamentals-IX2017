@@ -7,21 +7,20 @@ namespace _08MostFrequentNumber
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            int[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            
             int number = 0;
-            int[] occurence = new int[65535];
+            int[] occurrences = new int[65535];
             int min = 0;
             int frequence = 0;
             for (int i = 0; i < numbers.Length; i++)
             {
-                occurence[numbers[i]]++;                
+                occurrences[numbers[i]]++;                
             }
 
-            int max = occurence.Max();
-            for (int i = 0; i < occurence.Length; i++)
+            int max = occurrences.Max();
+            for (int i = 0; i < occurrences.Length; i++)
             {
                 if (max == occurence[i])
                 {
