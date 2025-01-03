@@ -7,13 +7,11 @@ namespace _10PairsByDifference
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            int[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
             int difference = int.Parse(Console.ReadLine());
-            int counter = 0;            
-
+            
+            int counter = 0;
             for (int i = 0; i <= numbers.Length - 1; i++)
             {
                 for (int j = 0; j <= numbers.Length - 1; j++)
@@ -26,7 +24,9 @@ namespace _10PairsByDifference
             }
 
             if (difference == 0)
+            {
                 counter -= numbers.Length;
+            }
 
             Console.WriteLine(counter);
         }
