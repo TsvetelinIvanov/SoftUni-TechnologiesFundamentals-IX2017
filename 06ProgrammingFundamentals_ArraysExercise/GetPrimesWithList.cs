@@ -9,6 +9,7 @@ namespace GetPrimesWithList
         {
             int start = int.Parse(Console.ReadLine());
             int end = int.Parse(Console.ReadLine());
+            
             List<int> primes = GetPrimes(start, end);
             foreach(int prime in primes)
             {
@@ -22,8 +23,8 @@ namespace GetPrimesWithList
             for (int number = start; number <= end; number++)
             {
                 bool isPrime = true;
-                double numberSqrt = Math.Sqrt(number);
-                for (int divider = 2; divider <= numberSqrt; divider++)
+                double numberSquart = Math.Sqrt(number);
+                for (int divider = 2; divider <= numberSquart; divider++)
                 {
                     if (number % divider == 0)
                     {
