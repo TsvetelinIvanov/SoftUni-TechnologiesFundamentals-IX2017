@@ -7,8 +7,8 @@ namespace _05RoundingNumbersAwayFromZero
     {
         static void Main(string[] args)
         {
-            string values = Console.ReadLine();
-            double[] numbers = values.Split(' ').Select(double.Parse).ToArray();
+            string numbersString = Console.ReadLine();
+            double[] numbers = numbersString.Split(' ').Select(double.Parse).ToArray();
 
             foreach (double number in numbers)
             {
