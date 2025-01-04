@@ -7,9 +7,8 @@ namespace _09ExtractMiddleElements
     {
         static void Main(string[] args)
         {
-            int[] nums = Console.ReadLine().Split().Select(int.Parse).ToArray();
-            ExtractMiddleElements(nums);
-
+            int[] numbers = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            ExtractMiddleElements(numbers);
         }
 
         static void ExtractMiddleElements(int[] numbers)
@@ -25,8 +24,7 @@ namespace _09ExtractMiddleElements
             }
             else
             {
-                Console.WriteLine("{" + $" {numbers[numbers.Length / 2 - 1]}, {numbers[numbers.Length / 2]}, " +
-                    $"{numbers[numbers.Length / 2 + 1]} " + "}");
+                Console.WriteLine("{" + $" {numbers[numbers.Length / 2 - 1]}, {numbers[numbers.Length / 2]}, {numbers[numbers.Length / 2 + 1]} " + "}");
             }
         }
     }
