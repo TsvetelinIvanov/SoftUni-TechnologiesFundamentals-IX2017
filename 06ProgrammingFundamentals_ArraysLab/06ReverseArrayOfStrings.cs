@@ -15,11 +15,11 @@ namespace _06ReverseArrayOfStrings
             Console.WriteLine(string.Join(" ", elements));
         }
 
-        static void SwapElements(string[] arr, int i, int j)
+        static void SwapElements(string[] elements, int i, int j)
         {
-            string oldElement = arr[i];
-            arr[i] = arr[j];
-            arr[j] = oldElement;
+            string oldElement = elements[i];
+            elements[i] = elements[j];
+            elements[j] = oldElement;
         }
     }
 }
