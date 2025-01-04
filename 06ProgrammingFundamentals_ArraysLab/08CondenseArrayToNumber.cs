@@ -7,19 +7,19 @@ namespace _08CondenseArrayToNumber
     {
         static void Main(string[] args)
         {
-            int[] nums = Console.ReadLine().Split().Select(int.Parse).ToArray();
-            int length = nums.Length;
+            int[] numbers = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            int length = numbers.Length;
             do
             {
                 for (int i = 0; i < length - 1; i++)
                 {
-                    nums[i] = nums[i] + nums[i + 1];
+                    numbers[i] = numbers[i] + numbers[i + 1];
                 }
 
                 length--;
             } while (length > 1);
 
-            Console.WriteLine(nums[0]);
+            Console.WriteLine(numbers[0]);
         }
     }
 }
