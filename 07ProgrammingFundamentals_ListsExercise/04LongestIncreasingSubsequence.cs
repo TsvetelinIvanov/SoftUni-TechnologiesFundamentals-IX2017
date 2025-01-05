@@ -8,8 +8,7 @@ namespace _04LongestIncreasingSubsequence
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] numbers = Console.ReadLine().Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)//Select(x => int.Parse(x))
                 .ToArray();
             int[] longestIncreasingSubsequence = FindLongestIncreasingSubsequence(numbers);
@@ -18,27 +17,26 @@ namespace _04LongestIncreasingSubsequence
 
         public static int[] FindLongestIncreasingSubsequence(int[] sequence)
         {
-            int[] length = new int[sequence.Length];
-            int[] previous = new int[sequence.Length];
+            int[] lengths = new int[sequence.Length];
+            int[] previouses = new int[sequence.Length];
             int maxLength = 0;
             int lastIndex = -1;
-
             for (int i = 0; i < sequence.Length; i++)
             {
-                length[i] = 1;
-                previous[i] = -1;
+                lengths[i] = 1;
+                previouses[i] = -1;
                 for (int j = 0; j < i; j++)
                 {
-                    if (sequence[j] < sequence[i] && length[j] >= length[i])
+                    if (sequence[j] < sequence[i] && lengths[j] >= lengths[i])
                     {
-                        length[i] = 1 + length[j];
-                        previous[i] = j;
+                        lengths[i] = 1 + lengths[j];
+                        previouses[i] = j;
                     }
                 }
 
-                if (length[i] > maxLength)
+                if (lengths[i] > maxLength)
                 {
-                    maxLength = length[i];
+                    maxLength = lengths[i];
                     lastIndex = i;
                 }
             }
@@ -50,7 +48,7 @@ namespace _04LongestIncreasingSubsequence
                 lastIndex = previous[lastIndex];
             }
 
-            longestSequence.Reverse();
+            //longestSequence = longestSequence.Reverse().ToList();
 
             return longestSequence.ToArray();
         }
