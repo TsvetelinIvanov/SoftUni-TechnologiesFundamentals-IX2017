@@ -7,6 +7,7 @@ namespace _06SumReversedNumbers
         static void Main(string[] args)
         {
             string[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            
             int sum = 0;// or long, or double, or decimal.
             for (int i = 0; i < numbers.Length; i++)
             {
