@@ -8,19 +8,14 @@ namespace _07_BombNumbers
     {
         static void Main(string[] args)
         {
-            List<int> numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToList();
-            int[] bomb = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            List<int> numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToList();
+            int[] bomb = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
             
             int sum = 0;
             int bombNumber = bomb[0];
-            int radius = bomb[1];            
-           
+            int radius = bomb[1];           
             for (int i = 0; i < numbers.Count; i++)
             {
                 if (numbers[i] == bombNumber)
