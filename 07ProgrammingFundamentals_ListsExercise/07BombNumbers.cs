@@ -8,15 +8,11 @@ namespace _07BombNumbers
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            int[] bomb = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            List<int> survivels = new List<int>();
+            int[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            int[] bomb = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            
             int sum = 0;
             int bombNumber = bomb[0];
             int radius = bomb[1];
@@ -29,7 +25,7 @@ namespace _07BombNumbers
                     {
                         if (j >= 0 && j < numbers.Length)
                         {
-                            numbers[j] = -1;//if -1 is in numbers[], it don't work - change with somting else!
+                            numbers[j] = -1;//if -1 is in numbers[], it doesn't work - change with somting else!
                         }
                     }
                 }
