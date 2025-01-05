@@ -7,45 +7,42 @@ namespace _01MaxSequenceOfEqualElements
     {
         static void Main(string[] args)
         {
-            long[] sequence = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(long.Parse)
-                .ToArray();
+            long[] sequence = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(long.Parse).ToArray();
+            
             int start = 0;
-            int lenght = 0;
-            int longestLenght = 0;
+            int length = 0;
+            int longestLength = 0;            
+            for (int i = 0; i < sequence.Length - 1; i++)
             {
-                for (int i = 0; i < sequence.Length - 1; i++)
+                if (sequence[i] == sequence[i + 1])
                 {
-                    if (sequence[i] == sequence[i + 1])
+                    length++;
+                    if (length > longestLength)
                     {
-                        lenght++;
-                        if (lenght > longestLenght)
-                        {
-                            start = i - lenght;
-                            longestLenght = lenght;
-                        }
+                        start = i - length;
+                        longestLength = length;
                     }
-                    else
-                    {
-                        lenght = 0;
-                    }
-                }
-
-                if (lenght == 0)
-                {
-                    Console.WriteLine(sequence[0]);
                 }
                 else
                 {
-                    for (int i = start + 1; i <= start + longestLenght + 1; i++)
-                    {
-                        Console.Write(sequence[i] + " ");
-                    }
-
-                    Console.WriteLine();
+                    length = 0;
                 }
             }
+
+            if (length == 0)
+            {
+                Console.WriteLine(sequence[0]);
+            }
+            else
+            {
+                for (int i = start + 1; i <= start + longestLength + 1; i++)
+                {
+                    Console.Write(sequence[i] + " ");
+                }
+
+                Console.WriteLine();
+            }            
         }
     }
 }
