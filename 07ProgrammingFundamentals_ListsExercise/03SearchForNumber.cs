@@ -7,15 +7,11 @@ namespace _03SearchForNumber
     {
         static void Main(string[] args)
         {
-            int[] commingNumbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            int[] instructionNumbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            int[] takedNumbers = commingNumbers.Take(instructionNumbers[0]).ToArray();
+            int[] comingNumbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            int[] instructionNumbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            int[] takedNumbers = comingNumbers.Take(instructionNumbers[0]).ToArray();
             int[] restNumbers = takedNumbers.Skip(instructionNumbers[1]).ToArray();
             if (restNumbers.Contains(instructionNumbers[2]))
             {
