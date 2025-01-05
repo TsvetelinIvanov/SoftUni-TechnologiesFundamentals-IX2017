@@ -8,20 +8,15 @@ namespace _02ChangeList
     {
         static void Main(string[] args)
         {
-            List<int> numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToList();
-            List<string> commands = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .ToList();
-
+            List<int> numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToList();
+            List<string> commands = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             while (commands[0] != "Odd" && commands[0] != "Even")
             {
                 if (commands[0] == "Delete")
                 {
                     int number = int.Parse(commands[1]);
-                    numbers.RemoveAll(i => i == number);
+                    numbers.RemoveAll(n => n == number);
                 }
                 else if (commands[0] == "Insert")
                 {
@@ -30,9 +25,7 @@ namespace _02ChangeList
                     numbers.Insert(position, element);
                 }
 
-                commands = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .ToList();
+                commands = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             }
 
             if (commands[0] == "Odd")
@@ -45,7 +38,7 @@ namespace _02ChangeList
                     }
                 }
             }
-            else
+            else if (commands[0] == "Even")
             {
                 foreach (int number in numbers)
                 {
