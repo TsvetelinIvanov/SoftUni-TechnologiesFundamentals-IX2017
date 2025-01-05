@@ -2,15 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace _05ArrayManipulator
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<string> list = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            string[] commandLine = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            List<string> list = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();            
+            string[] commandLine = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();            
             string command = commandLine[0];
             while (command != "print")
             {
@@ -43,8 +42,8 @@ namespace _05ArrayManipulator
 
                 if (command == "shift")
                 {
-                    int shift = int.Parse(commandLine[1]);
-                    for (int i = 0; i < shift; i++)
+                    int shiftsCount = int.Parse(commandLine[1]);
+                    for (int i = 0; i < shiftsCount; i++)
                     {
                         string old = list[0];
                         list.RemoveAt(0);
