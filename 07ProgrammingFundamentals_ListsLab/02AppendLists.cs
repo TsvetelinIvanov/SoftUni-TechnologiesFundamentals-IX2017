@@ -13,10 +13,8 @@ namespace _02AppendLists
             List<int> output = new List<int>();
             for (int i = input.Length - 1; i >= 0; i--)
             {
-                int[] onGoing = input[i]
-                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(int.Parse)
-                    .ToArray();
+                int[] onGoing = input[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse).ToArray();
                 output.AddRange(onGoing);                
             }
             
