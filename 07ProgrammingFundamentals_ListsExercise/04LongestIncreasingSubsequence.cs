@@ -48,7 +48,7 @@ namespace _04LongestIncreasingSubsequence
                 lastIndex = previous[lastIndex];
             }
 
-            //longestSequence = longestSequence.Reverse().ToList();
+            longestSequence.Reverse().ToList();
 
             return longestSequence.ToArray();
         }
