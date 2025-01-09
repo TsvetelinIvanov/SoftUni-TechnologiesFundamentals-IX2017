@@ -9,8 +9,7 @@ namespace _04SplitByWordCasing
         static void Main(string[] args)
         {
             List<string> words = Console.ReadLine()
-                .Split(new char[] { ' ', ',', ';', ':', '.', '!', '(', ')', '"', '\'', '/', '\\', '[', ']' }, 
-                StringSplitOptions.RemoveEmptyEntries)
+                .Split(new char[] { ' ', ',', ';', ':', '.', '!', '(', ')', '"', '\'', '/', '\\', '[', ']' }, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
             List<string> lowerCase = new List<string>();
             List<string> mixedCase = new List<string>();
@@ -34,8 +33,8 @@ namespace _04SplitByWordCasing
                         isAllLowerCase = false;
                         isAllUpperrCase = false;
                     }
-
                 }
+                
                 if (isAllLowerCase)
                 {
                     lowerCase.Add(word);
