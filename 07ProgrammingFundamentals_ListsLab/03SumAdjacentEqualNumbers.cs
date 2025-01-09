@@ -8,10 +8,8 @@ namespace _03SumAdjacentEqualNumbers
     {
         static void Main(string[] args)
         {
-            List<decimal> numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(decimal.Parse)
-                .ToList();
+            List<decimal> numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(decimal.Parse).ToList();
             for (int i = 1; i < numbers.Count; i++)
             {
                 if (numbers[i - 1] == numbers[i])
