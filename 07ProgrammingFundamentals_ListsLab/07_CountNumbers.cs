@@ -8,10 +8,8 @@ namespace _07_CountNumbers
     {
         static void Main(string[] args)
         {
-            List<int> numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToList();
+            List<int> numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToList();
             numbers.Sort();
             int next = 0;
             while (next < numbers.Count)
