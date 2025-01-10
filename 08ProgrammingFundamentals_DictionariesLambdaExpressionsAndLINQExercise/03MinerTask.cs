@@ -7,22 +7,22 @@ namespace _03MinerTask
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> resourses = new Dictionary<string, int>();
-            string resourse = Console.ReadLine();
-            while (resourse != "stop")
+            Dictionary<string, int> resources = new Dictionary<string, int>();
+            string resource = Console.ReadLine();
+            while (resource != "stop")
             {
                 int quantity = int.Parse(Console.ReadLine());
-                if (!resourses.ContainsKey(resourse))
+                if (!resources.ContainsKey(resource))
                 {
-                    resourses[resourse] = 0;
+                    resources[resource] = 0;
                 }
 
-                resourses[resourse] += quantity;
+                resources[resource] += quantity;
 
-                resourse = Console.ReadLine();
+                resource = Console.ReadLine();
             }
 
-            foreach (KeyValuePair<string, int> item in resourses)
+            foreach (KeyValuePair<string, int> item in resources)
             {
                 Console.WriteLine($"{item.Key} -> {item.Value}");
             }
