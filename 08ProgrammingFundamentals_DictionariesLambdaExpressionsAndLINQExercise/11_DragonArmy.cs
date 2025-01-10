@@ -21,8 +21,7 @@ namespace _11_DragonArmy
             int n = int.Parse(Console.ReadLine());
             for (int i = 0; i < n; i++)
             {
-                string[] dragonData = Console.ReadLine()
-                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] dragonData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 string dragonType = dragonData[0];
                 string dragonName = dragonData[1];
                 int damage = int.TryParse(dragonData[2], out damage) ? damage : 45;
@@ -32,11 +31,13 @@ namespace _11_DragonArmy
                 if (!dragons.Any(d => d.Type == dragonType && d.Name == dragonName))
                 {
                     Dragon dragon = new Dragon();
+                    
                     dragon.Type = dragonType;
                     dragon.Name = dragonName;
                     dragon.Damage = damage;
                     dragon.Health = health;
                     dragon.Armor = armor;
+                    
                     dragons.Add(dragon);
                 }
                 else
@@ -57,8 +58,7 @@ namespace _11_DragonArmy
 
                 foreach (Dragon dragon in dragons.OrderBy(d => d.Name).Where(d => d.Type == type))
                 {
-                    Console.WriteLine($"-{dragon.Name} -> damage: {dragon.Damage}, health: {dragon.Health}, " +
-                        $"armor: {dragon.Armor}");
+                    Console.WriteLine($"-{dragon.Name} -> damage: {dragon.Damage}, health: {dragon.Health}, armor: {dragon.Armor}");
                 }
             }           
         }
