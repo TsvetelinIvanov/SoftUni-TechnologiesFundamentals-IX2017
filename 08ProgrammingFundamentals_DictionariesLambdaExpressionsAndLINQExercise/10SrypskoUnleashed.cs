@@ -9,22 +9,22 @@ namespace _10SrypskoUnleashed
         static void Main(string[] args)
         {
             Dictionary<string, Dictionary<string, long>> concerts = new Dictionary<string, Dictionary<string, long>>();
-            string concertsData = string.Empty;
-            while ((concertsData = Console.ReadLine()) != "End")
+            string concertDataString = string.Empty;
+            while ((concertDataString = Console.ReadLine()) != "End")
             {
-                string[] rawConcertsData = concertsData.Split('@');
-                if (rawConcertsData[0].EndsWith(" ")) 
+                string[] rawConcertData = concertDataString.Split('@');
+                if (rawConcertData[0].EndsWith(" ")) 
                 {
-                    string singer = rawConcertsData[0].Trim();
+                    string singer = rawConcertData[0].Trim();
                     
-                    string[] venueData = rawConcertsData[1].Split();
-                    if (long.TryParse(venueData[venueData.Length - 1], out long ticketCount) 
+                    string[] venueData = rawConcertData[1].Split();
+                    if (long.TryParse(venueData[venueData.Length - 1], out long ticketsCount) 
                         && long.TryParse(venueData[venueData.Length - 2], out long ticketPrice) 
                         && venueData.Length >= 3)
                     {
-                        //long ticketCount = long.Parse(venueData[venueData.Length - 1]);
+                        //long ticketsCount = long.Parse(venueData[venueData.Length - 1]);
                         //long ticketPrice = long.Parse(venueData[venueData.Length - 2]);
-                        long ticketIncom = ticketCount * ticketPrice;
+                        long ticketsIncom = ticketsCount * ticketPrice;
                         string venue = string.Empty;
                         for (int i = 0; i < venueData.Length - 2; i++)
                         {
@@ -41,7 +41,7 @@ namespace _10SrypskoUnleashed
                             concerts[venue][singer] = 0;
                         }
 
-                        concerts[venue][singer] += ticketIncom;
+                        concerts[venue][singer] += ticketsIncom;
                     }
                 }
             }
