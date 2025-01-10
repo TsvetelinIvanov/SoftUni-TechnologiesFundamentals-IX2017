@@ -7,8 +7,7 @@ namespace _11DragonArmy
     {        
         static void Main(string[] args)
         {
-            Dictionary<string, SortedDictionary<string, Dictionary<string, int>>> dragons = 
-                new Dictionary<string, SortedDictionary<string, Dictionary<string, int>>>();
+            Dictionary<string, SortedDictionary<string, Dictionary<string, int>>> dragons = new Dictionary<string, SortedDictionary<string, Dictionary<string, int>>>();
             int n = int.Parse(Console.ReadLine());
             for (int i = 0; i < n; i++)
             {
@@ -46,22 +45,22 @@ namespace _11DragonArmy
             {
                 long typeTotalDamage = 0;
                 long typeTotalHealth = 0;
-                long typeTotalArmour = 0;
-                int dragonCount = 0;
+                long typeTotalArmor = 0;
+                int dragonsCount = 0;
                 dragonStats[dragonType.Key] = string.Empty;
                 foreach (KeyValuePair<string, Dictionary<string, int>> dragonName in dragonType.Value)
                 {
-                    dragonCount++;
+                    dragonsCount++;
                     typeTotalDamage += dragonName.Value["damage"];
                     typeTotalHealth += dragonName.Value["health"];
-                    typeTotalArmour += dragonName.Value["armor"];                   
+                    typeTotalArmor += dragonName.Value["armor"];                   
                 }
 
-                double typeAverageDamage = (double)typeTotalDamage / dragonCount;
-                double typeAverageHealth = (double)typeTotalHealth / dragonCount;
-                double typeAverageArmour = (double)typeTotalArmour / dragonCount;
-                string typeAverageStats = $"{typeAverageDamage:f2}/{typeAverageHealth:f2}/{typeAverageArmour:f2}";
-                dragonStats[dragonType.Key] = typeAverageStats;
+                double typeAverageDamage = (double)typeTotalDamage / dragonsCount;
+                double typeAverageHealth = (double)typeTotalHealth / dragonsCount;
+                double typeAverageArmor = (double)typeTotalArmor / dragonsCount;
+                string typeAverageStatsString = $"{typeAverageDamage:f2}/{typeAverageHealth:f2}/{typeAverageArmor:f2}";
+                dragonStats[dragonType.Key] = typeAverageStatsString;
             }
 
             foreach (KeyValuePair<string, SortedDictionary<string, Dictionary<string, int>>> dragonType in dragons)
@@ -70,14 +69,14 @@ namespace _11DragonArmy
                 foreach (KeyValuePair<string, Dictionary<string, int>> dragonName in dragonType.Value)
                 {
                     Console.Write($"-{dragonName.Key} -> ");
-                    string stats = string.Empty;
+                    string statsString = string.Empty;
                     foreach (KeyValuePair<string, int> stat in dragonName.Value)
                     {
-                        stats += $"{stat.Key}: {stat.Value}, ";
+                        statsString += $"{stat.Key}: {stat.Value}, ";
                     }
 
-                    stats = stats.Remove(stats.Length - 2, 2);
-                    Console.WriteLine(stats);
+                    statsString = statsString.Remove(stats.Length - 2, 2);
+                    Console.WriteLine(statsString);
                 }
             }
         }
