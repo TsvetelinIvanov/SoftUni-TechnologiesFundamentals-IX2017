@@ -22,7 +22,6 @@ namespace _02PhonebookUpgrade
                 {
                     string command = line[0];
                     string name = line[1];
-
                     if (command == "A")
                     {
                         string number = line[2];
@@ -43,9 +42,7 @@ namespace _02PhonebookUpgrade
                         {
                             Console.WriteLine($"Contact {name} does not exist.");
                         }
-
                     }
-
                 }
 
                 line = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
