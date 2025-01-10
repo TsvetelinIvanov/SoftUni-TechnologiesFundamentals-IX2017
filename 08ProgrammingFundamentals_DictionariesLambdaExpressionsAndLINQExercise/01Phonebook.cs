@@ -13,11 +13,9 @@ namespace _01Phonebook
             {
                 string command = line[0];
                 string name = line[1];
-
                 if (command == "A")
                 {
                     string number = line[2];
-
                     if (phonebook.ContainsKey(name))
                     {
                         phonebook.Remove(name);
@@ -35,7 +33,6 @@ namespace _01Phonebook
                     {
                         Console.WriteLine($"Contact {name} does not exist.");
                     }
-
                 }
 
                 line = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
