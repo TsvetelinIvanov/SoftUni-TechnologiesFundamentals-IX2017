@@ -9,13 +9,13 @@ namespace _08LogsAggregator
         static void Main(string[] args)
         {
             SortedDictionary<string, SortedDictionary<string, int>> logs = new SortedDictionary<string, SortedDictionary<string, int>>();
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; i < n; i++)
+            int logsCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < logsCount; i++)
             {
-                string[] input = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                string user = input[1];
-                string IP = input[0];
-                int duration = int.Parse(input[2]);
+                string[] logData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string user = logData[1];
+                string IP = logData[0];
+                int duration = int.Parse(logData[2]);
 
                 if (!logs.ContainsKey(user))
                 {
