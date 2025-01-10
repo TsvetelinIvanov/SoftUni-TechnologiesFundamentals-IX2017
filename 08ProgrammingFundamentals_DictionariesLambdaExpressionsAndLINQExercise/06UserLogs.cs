@@ -32,18 +32,20 @@ namespace _06UserLogs
                 input = Console.ReadLine();
             }
 
-            foreach (KeyValuePair<string, Dictionary<string, int>> user in users.OrderBy(x => x.Key))
+            foreach (KeyValuePair<string, Dictionary<string, int>> user in users.OrderBy(u => u.Key))
             {
                 Console.WriteLine($"{user.Key}:");
-                StringBuilder userIPsAndMessgesCountsBuilder = new StringBuilder();
-                foreach (KeyValuePair<string, int> userIPs in user.Value)
+                StringBuilder userIPsAndMessagesCountsBuilder = new StringBuilder();
+                foreach (KeyValuePair<string, int> userIP in user.Value)
                 {
-                    userIPsAndMessgesCountsBuilder.Append(userIPs.Key).Append(" => ").Append(userIPs.Value + ", ");
+                    userIPsAndMessagesCountsBuilder.Append(userIP.Key)
+                        .Append(" => ")
+                        .Append(userIP.Value + ", ");
                 }
 
-                userIPsAndMessgesCountsBuilder.Remove(userIPsAndMessgesCountsBuilder.Length - 2, 2);
-                userIPsAndMessgesCountsBuilder.Append(".");
-                Console.WriteLine(userIPsAndMessgesCountsBuilder);
+                userIPsAndMessagesCountsBuilder.Remove(userIPsAndMessagesCountsBuilder.Length - 2, 2);
+                userIPsAndMessagesCountsBuilder.Append(".");
+                Console.WriteLine(userIPsAndMessagesCountsBuilder);
             }
         }
     }
