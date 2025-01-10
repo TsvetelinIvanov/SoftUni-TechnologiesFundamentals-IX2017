@@ -10,22 +10,22 @@ namespace _09LegendaryFarming
         {
             Dictionary<string, int> legendaryMaterials = new Dictionary<string, int>();
             SortedDictionary<string, int> junkMaterials = new SortedDictionary<string, int>();
+            
             legendaryMaterials["shards"] = 0;
             legendaryMaterials["fragments"] = 0;
             legendaryMaterials["motes"] = 0;
+            
             bool isObtainedShadowmourne = false;
             bool isObtainedValanyr = false;
             bool isObtainedDragonwrath = false;
 
             while (true)
             {
-                string[] materials = Console.ReadLine().ToLower()
-                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] materials = Console.ReadLine().ToLower().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < materials.Length; i += 2)
                 {
                     int quantity = int.Parse(materials[i]);
                     string material = materials[i + 1];
-
                     if (material == "shards")
                     {
                         legendaryMaterials["shards"] += quantity;
@@ -65,11 +65,12 @@ namespace _09LegendaryFarming
 
                         junkMaterials[material] += quantity;
                     }
-
                 }
 
                 if (isObtainedShadowmourne || isObtainedValanyr || isObtainedDragonwrath)
+                {
                     break;
+                }
             }
 
             if (isObtainedShadowmourne)
@@ -87,8 +88,7 @@ namespace _09LegendaryFarming
                 Console.WriteLine("Dragonwrath obtained!");
             }
 
-            foreach (KeyValuePair<string, int> legendaryMaterial in legendaryMaterials.OrderByDescending(x => x.Value)
-                    .ThenBy(x => x.Key))
+            foreach (KeyValuePair<string, int> legendaryMaterial in legendaryMaterials.OrderByDescending(m => m.Value).ThenBy(m => m.Key))
             {
                 Console.WriteLine(legendaryMaterial.Key + ": " + legendaryMaterial.Value);
             }
