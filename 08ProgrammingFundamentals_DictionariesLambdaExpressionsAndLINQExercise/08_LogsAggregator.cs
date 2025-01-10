@@ -20,15 +20,13 @@ namespace _08_LogsAggregator
 
         private static void GetUserIPs(Dictionary<string, List<string>> userIPs, SortedDictionary<string, double> users)
         {
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; i < n; i++)
+            int logsCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < logsCount; i++)
             {
-                List<string> inputIP = Console.ReadLine()
-                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                    .ToList();
-                string userName = inputIP[1];
-                string userIP = inputIP[0];
-                double duration = double.Parse(inputIP[2]);
+                List<string> logData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                string userName = logData[1];
+                string userIP = logData[0];
+                double duration = double.Parse(logData[2]);
 
                 if (!userIPs.ContainsKey(userName))
                 {
@@ -37,7 +35,7 @@ namespace _08_LogsAggregator
                 }
 
                 userIPs[userName].Add(userIP);
-                userIPs[userName] = userIPs[userName].Distinct().OrderBy(x => x).ToList();
+                userIPs[userName] = userIPs[userName].Distinct().OrderBy(u => u).ToList();
                 users[userName] += duration;
             }
         }
