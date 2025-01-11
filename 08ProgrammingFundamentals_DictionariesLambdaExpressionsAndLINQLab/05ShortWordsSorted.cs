@@ -11,6 +11,7 @@ namespace _05ShortWordsSorted
             char[] separators = { '.', ',', ':', ';', '(', ')', '[', ']', '\\', '\"', '\'', '/', '!', '?', ' ' };
             string sentence = Console.ReadLine().ToLower();
             string[] words = sentence.Split(separators);
+            
             IEnumerable<string> result = words.Where(w => w != "").Where(w => w.Length < 5).OrderBy(w => w).Distinct();
             Console.WriteLine(string.Join(", ", result));
         }
