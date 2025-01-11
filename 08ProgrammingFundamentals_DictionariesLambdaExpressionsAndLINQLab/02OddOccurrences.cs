@@ -22,16 +22,16 @@ namespace _02OddOccurrences
                 }
             }
 
-            List<string> oddCountOccurrenciesWords = new List<string>();
+            List<string> oddOccurrencies = new List<string>();
             foreach (KeyValuePair<string, int> word in counts)
             {
                 if (word.Value % 2 != 0)
                 {
-                    oddCountOccurrenciesWords.Add(word.Key);
+                    oddOccurrencies.Add(word.Key);
                 }
             }
 
-            Console.WriteLine(string.Join(", ", oddCountOccurrenciesWords));
+            Console.WriteLine(string.Join(", ", oddOccurrencies));
         }
     }
 }
