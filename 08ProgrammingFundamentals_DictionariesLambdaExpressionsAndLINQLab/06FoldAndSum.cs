@@ -8,15 +8,16 @@ namespace _06FoldAndSum
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToArray();
-            int k = numbers.Length / 4;
-            int[] upperRowLeft = numbers.Take(k).Reverse().ToArray();
-            int[] upperRowRight = numbers.Reverse().Take(k).ToArray();
-            int[] upperRow = upperRowLeft.Concat(upperRowRight).ToArray();
-            int[] downRow = numbers.Skip(k).Take(2 * k).ToArray();
-            IEnumerable<int> foldetAndSummed = upperRow.Select((x, index) => x + downRow[index]);
+            
+            int quarter = numbers.Length / 4;
+            int[] upperRowLeft = numbers.Take(quarter).Reverse().ToArray();
+            int[] upperRowRight = numbers.Reverse().Take(quarter).ToArray();
+            int[] upperRow = upperRowLeft.Concat(upperRowRight).ToArray();            
+            int[] downRow = numbers.Skip(quarter).Take(2 * quarter).ToArray();
+            
+            IEnumerable<int> foldetAndSummed = upperRow.Select((number, index) => number + downRow[index]);
             Console.WriteLine(string.Join(" ", foldetAndSummed));
         }
     }
