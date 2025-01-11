@@ -8,10 +8,10 @@ namespace _04LargestThreeNumbers
     {
         static void Main(string[] args)
         {
-            List<int> numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            List<int> numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToList();
-            IOrderedEnumerable<int> sortedNumbers = numbers.OrderByDescending(x => x);
+            IOrderedEnumerable<int> sortedNumbers = numbers.OrderByDescending(n => n);
+            
             IEnumerable<int> largestThreeNumbers = sortedNumbers.Take(3);
             Console.WriteLine(string.Join(" ", largestThreeNumbers));
         }
