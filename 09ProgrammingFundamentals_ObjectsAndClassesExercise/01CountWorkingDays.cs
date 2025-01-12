@@ -12,6 +12,7 @@ namespace _01CountWorkingDays
             string endDateString = Console.ReadLine();
             DateTime startDate = DateTime.ParseExact(startDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             DateTime endDate = DateTime.ParseExact(endDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            
             DateTime[] holidays = new DateTime[11];
             holidays[0] = new DateTime(01, 01, 1);
             holidays[1] = new DateTime(03, 03, 1);
@@ -30,8 +31,7 @@ namespace _01CountWorkingDays
             {
                 DayOfWeek currentDay = date.DayOfWeek;
                 DateTime currentDate = new DateTime(date.Day, date.Month, 1);
-                if (!holidays.Contains(currentDate) && !currentDay.Equals(DayOfWeek.Saturday) 
-                    && !currentDay.Equals(DayOfWeek.Sunday))
+                if (!holidays.Contains(currentDate) && !currentDay.Equals(DayOfWeek.Saturday) && !currentDay.Equals(DayOfWeek.Sunday))
                 {
                     workingDaysCounter++;
                 }
