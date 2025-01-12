@@ -5,44 +5,54 @@ using System.Linq;
 
 namespace _05BookLibrary
 {
-    class Library
-    {
-        public string Name { get; set; }
-        public List<Book> Books { get; set; }
-    }
-
     class Book
     {
         public string Title { get; set; }
+        
         public string Author { get; set; }
+        
         public string Publisher { get; set; }
+        
         public DateTime ReleaseDate { get; set; }
+        
         public string ISBN { get; set; }
+        
         public decimal Price { get; set; }
     }
+    
+    class Library
+    {
+        public string Name { get; set; }
+        
+        public List<Book> Books { get; set; }
+    }    
 
     class Program
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int booksCount = int.Parse(Console.ReadLine());
             Library library = new Library();
-            library.Books = new List<Book>();
-           
-            for (int i = 0; i < n; i++)
+            library.Books = new List<Book>();           
+            for (int i = 0; i < booksCount; i++)
             {
-                string[] bookIinfo = Console.ReadLine()
-                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] bookIinfo = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 Book book = ReadBook(bookIinfo);               
                 library.Books.Add(book);
             }
 
-            foreach (var author in library.Books.GroupBy(x => x.Author)
-                .Select(a => new { Author = a.Key, Prices = a.Sum(s => s.Price)})
-                .OrderByDescending(a => a.Prices)
-                .ThenBy(a => a.Author))
+            foreach (
+                        var authorWithPricesSum in library.Books.GroupBy(b => b.Author)
+                        .Select(b => new
+                                { 
+                                    Author = b.Key,
+                                    PricesSum = b.Sum(s => s.Price)
+                                })
+                        .OrderByDescending(aps => aps.PricesSum)
+                        .ThenBy(aps => aps.Author)
+                    )
             {
-                Console.WriteLine("{0} -> {1:f2}", author.Author, author.Prices);
+                Console.WriteLine("{0} -> {1:f2}", authorWithPricesSum.Author, authorWithPricesSum.PricesSum);
             }
         }
 
