@@ -19,14 +19,17 @@ namespace _03IntersectionOfCircles
     {        
         static void Main(string[] args)
         {
-            double[] circleInfo1 = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
-            double[] circleInfo2 = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
+            double[] circleInfo1 = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse).ToArray();
+            double[] circleInfo2 = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse).ToArray();
+            
             Point centre1 = ReadPoint(circleInfo1);
             Point centre2 = ReadPoint(circleInfo2);
+            
             Circle circle1 = ReadCircle(centre1, circleInfo1);
             Circle circle2 = ReadCircle(centre2, circleInfo2);
+            
             bool isIntersect = CheckIntersect(circle1, circle2);
             if (isIntersect)
             {
