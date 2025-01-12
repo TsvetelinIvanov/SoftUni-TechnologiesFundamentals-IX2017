@@ -7,8 +7,16 @@ namespace _04AverageGrades
     class Student
     {
         public string Name { get; set; }
+        
         public double[] Grades { get; set; }
-        public double AverageGrade { get { return Grades.Average(); } }
+        
+        public double AverageGrade
+        {
+            get
+            {
+                return Grades.Average();
+            }
+        }
     }
 
     class Program
@@ -17,8 +25,8 @@ namespace _04AverageGrades
         {
             List<Student> students = new List<Student>();
             Student student = new Student();
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; i < n; i++)
+            int studentsCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < studentsCount; i++)
             {
                 student = ReadStudent();
                 students.Add(student);
