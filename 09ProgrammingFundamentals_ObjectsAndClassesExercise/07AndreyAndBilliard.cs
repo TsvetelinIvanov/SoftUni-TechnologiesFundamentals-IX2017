@@ -17,19 +17,19 @@ namespace _07AndreyAndBilliard
     {
         static void Main(string[] args)
         {
-            Dictionary<string, decimal> prices = new Dictionary<string, decimal>();
-            int pricesCount = int.Parse(Console.ReadLine());
-            for (int i = 0; i < pricesCount; i++)
+            Dictionary<string, decimal> products = new Dictionary<string, decimal>();
+            int productsCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < productsCount; i++)
             {
-                string[] priceInfo = Console.ReadLine().Split('-');
-                string product = priceInfo[0];
-                decimal price = decimal.Parse(priceInfo[1]);
-                if (!prices.ContainsKey(product))
+                string[] productInfo = Console.ReadLine().Split('-');
+                string product = productInfo[0];
+                decimal price = decimal.Parse(productInfo[1]);
+                if (!products.ContainsKey(product))
                 {
-                    prices.Add(product, 0);
+                    products.Add(product, 0);
                 }
 
-                prices[product] = price;
+                products[product] = price;
             }
 
             List<Customer> customers = new List<Customer>();
@@ -41,7 +41,7 @@ namespace _07AndreyAndBilliard
                 string product = orderInfo[1];
                 int quantity = int.Parse(orderInfo[2]);
 
-                if (!prices.ContainsKey(product))
+                if (!products.ContainsKey(product))
                 {
                     continue;
                 }
@@ -55,7 +55,7 @@ namespace _07AndreyAndBilliard
                     }
 
                     customer.ShopList[product] += quantity;
-                    customer.Bill += prices[product] * quantity;                    
+                    customer.Bill += products[product] * quantity;                    
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace _07AndreyAndBilliard
                     customer.ShopList = new Dictionary<string, int>();
                     
                     customer.ShopList[product] = quantity;
-                    customer.Bill = prices[product] * quantity;
+                    customer.Bill = products[product] * quantity;
                     
                     customers.Add(customer);
                 }                
