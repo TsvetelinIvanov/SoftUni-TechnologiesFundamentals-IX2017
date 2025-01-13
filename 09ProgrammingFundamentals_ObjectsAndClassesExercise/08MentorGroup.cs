@@ -8,7 +8,9 @@ namespace _08MentorGroup
     class Student
     {
         public string Name { get; set; }
+        
         public List<string> Comments { get; set; }
+        
         public List<DateTime> Dates { get; set; }
     }
 
@@ -20,8 +22,7 @@ namespace _08MentorGroup
             string datesInfoString = string.Empty;
             while ((datesInfoString = Console.ReadLine()) != "end of dates")
             {
-                string[] datesInfo = datesInfoString
-                    .Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);                
+                string[] datesInfo = datesInfoString.Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);                
                 string name = datesInfo[0];               
                 if (!students.ContainsKey(name))
                 {
@@ -36,28 +37,27 @@ namespace _08MentorGroup
                     continue;
                 }
 
-                List<DateTime> dates = new List<DateTime>(datesInfo.Skip(1)
-                  .Select(d => DateTime.ParseExact(d, "dd/MM/yyyy", CultureInfo.InvariantCulture)));
+                List<DateTime> dates = new List<DateTime>(datesInfo.Skip(1).Select(d => DateTime.ParseExact(d, "dd/MM/yyyy", CultureInfo.InvariantCulture)));
                 students[name].Dates.AddRange(dates);
             }
 
-            string commentsInfoString = string.Empty;
-            while ((commentsInfoString = Console.ReadLine()) != "end of comments")
+            string commentInfoString = string.Empty;
+            while ((commentInfoString = Console.ReadLine()) != "end of comments")
             {
-                string[] commentsInfo = commentsInfoString.Split('-');
-                if (!students.ContainsKey(commentsInfo[0]))
+                string[] commentInfo = commentInfoString.Split('-');
+                if (!students.ContainsKey(commentInfo[0]))
                 {
                     continue;
                 }
                 else
                 {                
-                    string name = commentsInfo[0];
-                    string comment = commentsInfo[1];                    
+                    string name = commentInfo[0];
+                    string comment = commentInfo[1];                    
                     students[name].Comments.Add(comment);                    
                 }
             }
 
-            foreach (KeyValuePair<string, Student> student in students.OrderBy(x => x.Key))
+            foreach (KeyValuePair<string, Student> student in students.OrderBy(s => s.Key))
             {
                 Console.WriteLine(student.Key);
                 Console.WriteLine("Comments:");
@@ -67,7 +67,7 @@ namespace _08MentorGroup
                 }
 
                 Console.WriteLine("Dates attended:");
-                foreach (DateTime date in student.Value.Dates.OrderBy(x => x))
+                foreach (DateTime date in student.Value.Dates.OrderBy(d => d))
                 {
                     Console.WriteLine("-- {0:dd/MM/yyyy}", date);
                 }
