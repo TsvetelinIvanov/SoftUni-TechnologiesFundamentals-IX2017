@@ -8,20 +8,25 @@ namespace _10StudentGroups
     class Student
     {
         public string Name { get; set; }
+        
         public string Email { get; set; }
+        
         public DateTime Date { get; set; }
     }
 
     class Town
     {
         public string Name { get; set; }
+        
         public int SeatsCount { get; set; }
+        
         public List<Student> Students { get; set; }
     }
 
     class Group
     {
         public Town Town { get; set; }
+        
         public List<Student> Students { get; set; }
     }
 
@@ -34,8 +39,7 @@ namespace _10StudentGroups
             Console.WriteLine("Created {0} groups in {1} towns:", groups.Count, towns.Count);
             foreach (Group group in groups)
             {
-                Console.WriteLine(group.Town.Name + " => " 
-                    + string.Join(", ", group.Students.Select(g => g.Email)));
+                Console.WriteLine(group.Town.Name + " => " + string.Join(", ", group.Students.Select(s => s.Email)));
             }
         }        
 
@@ -48,9 +52,9 @@ namespace _10StudentGroups
             {
                 if (input.Contains("=>"))
                 {
-                    string[] townAndSeats = input.Split(new string[] { "=>" }, StringSplitOptions.None);
-                    string townName = townAndSeats[0].Trim();
-                    int seatsCount = int.Parse(townAndSeats[1].Trim().Split().First());
+                    string[] townAndSeatsCount = input.Split(new string[] { "=>" }, StringSplitOptions.None);
+                    string townName = townAndSeatsCount[0].Trim();
+                    int seatsCount = int.Parse(townAndSeatsCount[1].Trim().Split().First());
 
                     Town town = new Town();
                     town.Name = townName;
@@ -65,8 +69,7 @@ namespace _10StudentGroups
                     string[] studentInfo = input.Split('|');
                     string studentName = studentInfo[0].Trim();
                     string studentEmail = studentInfo[1].Trim();
-                    DateTime date = DateTime.ParseExact(studentInfo[2].Trim(), 
-                        "d-MMM-yyyy", CultureInfo.InvariantCulture);
+                    DateTime date = DateTime.ParseExact(studentInfo[2].Trim(), "d-MMM-yyyy", CultureInfo.InvariantCulture);
 
                     Student student = new Student();
                     student.Name = studentName;
@@ -85,8 +88,7 @@ namespace _10StudentGroups
             List<Group> groups = new List<Group>();
             foreach (Town town in towns.OrderBy(t => t.Name))
             {
-                List<Student> students = town.Students
-                    .OrderBy(t => t.Date).ThenBy(t => t.Name).ThenBy(t => t.Email).ToList();
+                List<Student> students = town.Students.OrderBy(s => s.Date).ThenBy(s => s.Name).ThenBy(s => s.Email).ToList();
                 while (students.Count > 0)
                 {
                     Group group = new Group();
