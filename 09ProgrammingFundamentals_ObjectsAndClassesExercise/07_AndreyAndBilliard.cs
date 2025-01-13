@@ -8,21 +8,20 @@ namespace _07_AndreyAndBilliard
     {
         static void Main(string[] args)
         {
-            Dictionary<string, Dictionary<string, int>> clients =
-                new Dictionary<string, Dictionary<string, int>>();
+            Dictionary<string, Dictionary<string, int>> clients = new Dictionary<string, Dictionary<string, int>>();
             Dictionary<string, double> products = new Dictionary<string, double>();
 
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; i < n; i++)
+            int productsCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < productsCount; i++)
             {
-                string[] productList = Console.ReadLine().Split('-');
-                if (products.ContainsKey(productList[0]))
+                string[] productInfo = Console.ReadLine().Split('-');
+                if (products.ContainsKey(productInfo[0]))
                 {
-                    products[productList[0]] = double.Parse(productList[1]);
+                    products[productInfo[0]] = double.Parse(productInfo[1]);
                 }
                 else
                 {
-                    products.Add(productList[0], double.Parse(productList[1]));
+                    products.Add(productInfo[0], double.Parse(productInfo[1]));
                 }
             }
 
@@ -53,11 +52,10 @@ namespace _07_AndreyAndBilliard
             }
 
             double totalSum = 0;
-            foreach (KeyValuePair<string, Dictionary<string, int>> client in clients.OrderBy(x => x.Key))
+            foreach (KeyValuePair<string, Dictionary<string, int>> client in clients.OrderBy(c => c.Key))
             {
                 Console.WriteLine(client.Key);
                 double sum = 0;
-
                 foreach (KeyValuePair<string, int> product in client.Value)
                 {
                     Console.WriteLine($"-- {product.Key} - {product.Value}");
