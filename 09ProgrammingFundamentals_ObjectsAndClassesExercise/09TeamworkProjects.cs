@@ -7,7 +7,9 @@ namespace _09TeamworkProjects
     class Team
     {
         public string Name { get; set; }
+        
         public string Creator { get; set; }
+        
         public List<string> Members { get; set; }
     }
 
@@ -16,12 +18,12 @@ namespace _09TeamworkProjects
         static void Main(string[] args)
         {
             List<Team> teams = new List<Team>();
-            int teamCount = int.Parse(Console.ReadLine());
-            for (int i = 0; i < teamCount; i++)
+            int teamsCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < teamsCount; i++)
             {
-                string[] creatingTeams = Console.ReadLine().Split('-');
-                string creator = creatingTeams[0];
-                string teamName = creatingTeams[1];
+                string[] teamInfo = Console.ReadLine().Split('-');
+                string creator = teamInfo[0];
+                string teamName = teamInfo[1];
 
                 if (teams.Any(t => t.Name == teamName))
                 {
@@ -38,6 +40,7 @@ namespace _09TeamworkProjects
                 }
 
                 Console.WriteLine("Team {0} has been created by {1}!", teamName, creator);
+                
                 Team team = new Team();
                 team.Name = teamName;
                 team.Creator = creator;
@@ -46,12 +49,12 @@ namespace _09TeamworkProjects
                 teams.Add(team);
             }
 
-            string teamMemberString = string.Empty;
-            while ((teamMemberString = Console.ReadLine()) != "end of assignment")
+            string teamMemberInfoString = string.Empty;
+            while ((teamMemberInfoString = Console.ReadLine()) != "end of assignment")
             {
-                string[] teamMember = teamMemberString.Split(new string[] { "->" }, StringSplitOptions.None);
-                string member = teamMember[0];
-                string wishedTeam = teamMember[1];
+                string[] teamMemberInfo = teamMemberInfoString.Split(new string[] { "->" }, StringSplitOptions.None);
+                string member = teamMemberInfo[0];
+                string wishedTeam = teamMemberInfo[1];
 
                 if (!teams.Any(t => t.Name == wishedTeam))
                 {
@@ -66,13 +69,13 @@ namespace _09TeamworkProjects
 
                     continue;
                 }
-
+                
+                //teams.Single(t => t.Name == wishedTeam).Members.Add(member);
                 Team team = teams.Single(t => t.Name == wishedTeam);
                 team.Members.Add(member);
-               // teams.Single(t => t.Name == wishedTeam).Members.Add(member);                
             }
 
-            List<Team> disbanddedTeams = new List<Team>();
+            List<Team> disbandedTeams = new List<Team>();
             foreach (Team team in teams.OrderByDescending(t => t.Members.Count).ThenBy(t => t.Name))
             {
                 if (team.Members.Count > 0)
@@ -86,17 +89,17 @@ namespace _09TeamworkProjects
                 }
                 else
                 {
-                    disbanddedTeams.Add(team);
+                    disbandedTeams.Add(team);
                 }
             }
 
             Console.WriteLine("Teams to disband:");
-            foreach (Team team in disbanddedTeams)
+            foreach (Team team in disbandedTeams)
             {
                 Console.WriteLine(team.Name);
             }
 
-            //foreach (var team in teams.OrderBy(t => t.Name))
+            //foreach (Team team in teams.OrderBy(t => t.Name))
             //{
             //    if (team.Members.Count == 0)
             //    {
