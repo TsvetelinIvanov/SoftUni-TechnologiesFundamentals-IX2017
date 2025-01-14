@@ -10,10 +10,10 @@ namespace _02RandomizeWords
             Random random = new Random();
             for (int i = 0; i < words.Length; i++)
             {
-                int newI = random.Next(words.Length);
+                int randomIndex = random.Next(words.Length);
                 string word = words[i];
-                words[i] = words[newI];
-                words[newI] = word;
+                words[i] = words[randomIndex];
+                words[randomIndex] = word;
             }
 
             Console.WriteLine(string.Join($"{Environment.NewLine}", words));
