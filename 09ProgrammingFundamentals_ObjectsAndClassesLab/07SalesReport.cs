@@ -6,8 +6,11 @@ namespace _07SalesReport
     class Sale
     {
         public string Town { get; set; }
+        
         public string Product { get; set; }
+        
         public decimal Price { get; set; }
+        
         public decimal Quantity { get; set; }
     }
 
@@ -35,9 +38,9 @@ namespace _07SalesReport
 
         static Sale[] ReadSales()
         {
-            int n = int.Parse(Console.ReadLine());
-            Sale[] sales = new Sale[n];
-            for (int i = 0; i < n; i++)
+            int salesCount = int.Parse(Console.ReadLine());
+            Sale[] sales = new Sale[salesCount];
+            for (int i = 0; i < salesCount; i++)
             {
                 sales[i] = ReadSale();
             }
@@ -47,14 +50,14 @@ namespace _07SalesReport
 
         static Sale ReadSale()
         {
-            string[] items = Console.ReadLine().Split();
+            string[] saleInfo = Console.ReadLine().Split();
 
             return new Sale()
             {
-                Town = items[0],
-                Product = items[1],
-                Price = decimal.Parse(items[2]),
-                Quantity = decimal.Parse(items[3])
+                Town = saleInfo[0],
+                Product = saleInfo[1],
+                Price = decimal.Parse(saleInfo[2]),
+                Quantity = decimal.Parse(saleInfo[3])
             };
         }               
     }
