@@ -7,8 +7,7 @@ namespace _01DayOfWeek
         static void Main(string[] args)
         {
             string dateAsText = Console.ReadLine();
-            DateTime date = DateTime.ParseExact(dateAsText, "d-M-yyyy", 
-                System.Globalization.CultureInfo.InvariantCulture);
+            DateTime date = DateTime.ParseExact(dateAsText, "d-M-yyyy", System.Globalization.CultureInfo.InvariantCulture);
             Console.WriteLine(date.DayOfWeek);
         }
     }
