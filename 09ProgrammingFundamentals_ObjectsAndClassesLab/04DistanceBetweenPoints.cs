@@ -6,6 +6,7 @@ namespace _04DistanceBetweenPoints
     class Point
     {
         public int X { get; set; }// or public double X { get; set; }
+        
         public int Y { get; set; }// or public double Y { get; set; }
     }
 
