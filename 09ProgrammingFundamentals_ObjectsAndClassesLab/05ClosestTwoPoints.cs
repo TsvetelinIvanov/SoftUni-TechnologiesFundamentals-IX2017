@@ -6,6 +6,7 @@ namespace _05ClosestTwoPoints
     class Point
     {
         public int X { get; set; }
+        
         public int Y { get; set; }
     }
 
@@ -15,6 +16,7 @@ namespace _05ClosestTwoPoints
         {
             Point[] points = ReadPoints();
             Point[] closestPoints = FindClosestTwoPoints(points);
+            
             PrintDistance(closestPoints);
             PrintPoint(closestPoints[0]);
             PrintPoint(closestPoints[1]);
@@ -22,9 +24,9 @@ namespace _05ClosestTwoPoints
 
         static Point[] ReadPoints()
         {
-            int n = int.Parse(Console.ReadLine());
-            Point[] points = new Point[n];
-            for (int i = 0; i < n; i++)
+            int pointsCount = int.Parse(Console.ReadLine());
+            Point[] points = new Point[pointsCount];
+            for (int i = 0; i < pointsCount; i++)
             {
                 points[i] = ReadPoint();
             }
@@ -35,6 +37,7 @@ namespace _05ClosestTwoPoints
         static Point ReadPoint()
         {
             int[] pointInfo = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            
             Point point = new Point();
             point.X = pointInfo[0];
             point.Y = pointInfo[1];
@@ -75,7 +78,7 @@ namespace _05ClosestTwoPoints
             double distance = Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
 
             return distance;
-        }        
+        }
 
         static void PrintPoint(Point point)
         {
