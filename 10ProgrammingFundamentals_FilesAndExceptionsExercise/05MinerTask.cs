@@ -7,30 +7,31 @@ namespace _05MinerTask
     {
         static void Main(string[] args)
         {
-            StreamReader file = new StreamReader("input.txt");
-            using (file)
+            StreamReader streamReader = new StreamReader("input.txt");
+            using (streamReader)
             {
-                Dictionary<string, int> resourses = new Dictionary<string, int>();
-                string resourse = file.ReadLine();
-                while (resourse != "stop")
+                Dictionary<string, int> resources = new Dictionary<string, int>();
+                string resource = streamReader.ReadLine();
+                while (resource != "stop")
                 {
-                    int quantity = int.Parse(file.ReadLine());
-                    if (!resourses.ContainsKey(resourse))
+                    int quantity = int.Parse(streamReader.ReadLine());
+                    if (!resources.ContainsKey(resource))
                     {
-                        resourses[resourse] = 0;
+                        resources[resource] = 0;
                     }
 
-                    resourses[resourse] += quantity;
-                    resourse = file.ReadLine();
+                    resources[resource] += quantity;
+                    
+                    resource = streamReader.ReadLine();
                 }
 
-                string text = string.Empty;
-                foreach (KeyValuePair<string, int> item in resourses)
+                string output = string.Empty;
+                foreach (KeyValuePair<string, int> item in resources)
                 {
-                    text += $"{item.Key} -> {item.Value}\r\n";
+                    output += $"{item.Key} -> {item.Value}\r\n";
                 }
 
-                File.WriteAllText("output", text);
+                File.WriteAllText("output", output);
             }
         }
     }
