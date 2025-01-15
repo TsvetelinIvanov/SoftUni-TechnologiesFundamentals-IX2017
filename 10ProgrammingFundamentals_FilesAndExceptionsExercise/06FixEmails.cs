@@ -7,29 +7,29 @@ namespace _06FixEmails
     {
         static void Main(string[] args)
         {
-            StreamReader file = new StreamReader("input.txt");
-            using (file)
+            StreamReader streamReader = new StreamReader("input.txt");
+            using (streamReader)
             {
                 Dictionary<string, string> emails = new Dictionary<string, string>();
-                string emailName = file.ReadLine();
+                string emailName = streamReader.ReadLine();
                 while (emailName != "stop")
                 {
-                    string email = file.ReadLine();
+                    string email = streamReader.ReadLine();
                     if (!emails.ContainsKey(emailName) && !email.EndsWith("us") && !email.EndsWith("uk"))
                     {
                         emails[emailName] = email;
                     }
 
-                    emailName = file.ReadLine();
+                    emailName = streamReader.ReadLine();
                 }
 
-                string text = string.Empty;
+                string output = string.Empty;
                 foreach (KeyValuePair<string, string> item in emails)
                 {
-                    text += $"{item.Key} -> {item.Value}\r\n";
+                    output += $"{item.Key} -> {item.Value}\r\n";
                 }
 
-                File.WriteAllText("output.txt", text);
+                File.WriteAllText("output.txt", output);
             }
         }
     }
