@@ -8,44 +8,43 @@ namespace _04MaxSequenceOfEqualElements
     {
         static void Main(string[] args)
         {
-            long[] sequence = File.ReadAllText("input.txt")
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(long.Parse)
-                .ToArray();
+            long[] sequence = File.ReadAllText("input.txt").Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(long.Parse).ToArray();
+            
             int start = 0;
-            int lenght = 0;
-            int longestLenght = 0;
+            int length = 0;
+            int longestLength = 0;
             for (int i = 0; i < sequence.Length - 1; i++)
             {
                 if (sequence[i] == sequence[i + 1])
                 {
-                    lenght++;
-                    if (lenght > longestLenght)
+                    length++;
+                    if (length > longestLength)
                     {
-                        start = i - lenght;
-                        longestLenght = lenght;
+                        start = i - length;
+                        longestLength = length;
                     }
                 }
                 else
                 {
-                    lenght = 0;
+                    length = 0;
                 }
             }
 
-            string number = sequence[0].ToString();
-            string numbers = string.Empty;
-            for (int i = start + 1; i <= start + longestLenght + 1; i++)
+            string numberString = sequence[0].ToString();
+            string numbersString = string.Empty;
+            for (int i = start + 1; i <= start + longestLength + 1; i++)
             {
-                numbers += sequence[i] + " ";
+                numbersString += sequence[i] + " ";
             }
 
-            if (lenght == 0)
+            if (length == 0)
             {
-                File.WriteAllText("output.txt", number);
+                File.WriteAllText("output.txt", numberString);
             }
             else
             {
-                File.WriteAllText("output.txt", numbers);
+                File.WriteAllText("output.txt", numbersString);
             }
         }
     }
