@@ -8,26 +8,25 @@ namespace _03EqualSums
     {
         static void Main(string[] args)
         {
-            int[] numbers = File.ReadAllText("input.txt")
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            int[] numbers = File.ReadAllText("input.txt").Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            
             bool isFound = false;
-            string number = string.Empty;
+            string numberString = string.Empty;
             for (int i = 0; i < numbers.Length; i++)
             {
                 int[] left = numbers.Take(i).ToArray();
                 int[] right = numbers.Skip(i + 1).ToArray();
                 if (left.Sum() == right.Sum())
                 {
-                    number = i.ToString();
+                    numberString = i.ToString();
                     isFound = true;
                 }
             }
 
             if (isFound)
             {
-                File.WriteAllText("output.txt", number);
+                File.WriteAllText("output.txt", numberString);
             }
             else
             {
