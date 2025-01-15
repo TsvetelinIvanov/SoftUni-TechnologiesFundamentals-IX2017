@@ -8,15 +8,13 @@ namespace _01MostFrequentNumber
     {
         static void Main(string[] args)
         {            
-            int[] numbers = File.ReadAllText("input.txt")
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            int[] numbers = File.ReadAllText("input.txt").Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            
             int number = 0;
-            int max = 0;
+            int mostFrequentNumber = 0;
             int counter = 0;
             int frequence = 0;
-
             for (int i = 0; i <= numbers.Length - 1; i++)
             {
                 counter = 0;
@@ -29,13 +27,13 @@ namespace _01MostFrequentNumber
                         if (frequence < counter)
                         {
                             frequence = counter;
-                            max = number;
+                            mostFrequentNumber = number;
                         }
                     }
                 }
             }
             
-            File.WriteAllText("output.txt", max.ToString());
+            File.WriteAllText("output.txt", mostFrequentNumber.ToString());
         }
     }
 }
