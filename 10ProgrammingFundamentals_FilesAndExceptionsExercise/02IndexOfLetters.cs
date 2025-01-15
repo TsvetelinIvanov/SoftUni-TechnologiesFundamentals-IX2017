@@ -14,19 +14,19 @@ namespace _02IndexOfLetters
                 alphabet[i - 'a'] = i;
             }
 
-            string text = String.Empty;
+            string output = String.Empty;
             for (int i = 0; i <= word.Length - 1; i++)
             {
                 for (int j = 0; j <= alphabet.Length - 1; j++)
                 {
                     if (word[i] == alphabet[j])
                     {
-                        text += $"{word[i]} -> {j}\r\n";
+                        output += $"{word[i]} -> {j}\r\n";
                     }
                 }
             }
 
-            File.WriteAllText("output.txt", text);
+            File.WriteAllText("output.txt", output);
         }
     }
 }
