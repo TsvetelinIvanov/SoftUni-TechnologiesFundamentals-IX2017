@@ -43,10 +43,10 @@ namespace _05BookLibrary
 
             foreach (
                         var authorWithPricesSum in library.Books.GroupBy(b => b.Author)
-                        .Select(b => new
+                        .Select(g => new
                                 { 
-                                    Author = b.Key,
-                                    PricesSum = b.Sum(s => s.Price)
+                                    Author = g.Key,
+                                    PricesSum = g.Sum(b => b.Price)
                                 })
                         .OrderByDescending(aps => aps.PricesSum)
                         .ThenBy(aps => aps.Author)
