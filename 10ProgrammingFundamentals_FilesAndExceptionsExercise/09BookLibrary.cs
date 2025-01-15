@@ -65,7 +65,7 @@ namespace _09BookLibrary
 
         private static void PrintBooks(Library library)
         {
-            var orderedAuthorsAndPrices = library.Books.GroupBy(b => b.Author)
+            var orderedAuthorsAndPricesSum = library.Books.GroupBy(b => b.Author)
                 .Select(g => new
                         { 
                             Author = g.Key,
@@ -76,9 +76,9 @@ namespace _09BookLibrary
                 .ToList();
             
             string text = string.Empty;
-            foreach (var authorAndPrices in orderedAuthorsAndPrices)
+            foreach (var authorAndPricesSum in orderedAuthorsAndPricesSum)
             {
-                text += ($"{authorAndPrices.Author} -> {authorAndPrices.Prices:f2}\r\n");
+                text += ($"{authorAndPricesSum.Author} -> {authorAndPricesSum.Prices:f2}\r\n");
             }
 
             File.WriteAllText("output.txt", text);
