@@ -7,24 +7,25 @@ namespace _04MergeFiles
     {
         static void Main(string[] args)
         {
-            string[] file1 = File.ReadAllLines("input1.txt");
-            string[] file2 = File.ReadAllLines("input2.txt");
+            string[] firstFileLines = File.ReadAllLines("input1.txt");
+            string[] secondFileLines = File.ReadAllLines("input2.txt");
+            
             string text = string.Empty;
-            for (int i = 0; i < Math.Min(file1.Length, file2.Length); i++)
+            for (int i = 0; i < Math.Min(firstFileLines.Length, secondFileLines.Length); i++)
             {
-               text += file1[i] + Environment.NewLine;
-               text += file2[i] + Environment.NewLine;
+               text += firstFileLines[i] + Environment.NewLine;
+               text += secondFileLines[i] + Environment.NewLine;
             }
 
-            for (int i = Math.Min(file1.Length, file2.Length); i < Math.Max(file1.Length, file2.Length); i++)
+            for (int i = Math.Min(firstFileLines.Length, secondFileLines.Length); i < Math.Max(firstFileLines.Length, secondFileLines.Length); i++)
             {
-                if (file1.Length > file2.Length)
+                if (firstFileLines.Length > secondFileLines.Length)
                 {
-                    text += file1[i] + Environment.NewLine;
+                    text += firstFileLines[i] + Environment.NewLine;
                 }
                 else
                 {
-                    text += file2[i] + Environment.NewLine;
+                    text += secondFileLines[i] + Environment.NewLine;
                 }
             }
 
