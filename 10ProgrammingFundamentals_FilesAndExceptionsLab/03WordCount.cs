@@ -11,29 +11,30 @@ namespace _03WordCount
         {
             string[] words = File.ReadAllText("words.txt").ToLower().Split();
             string[] text = File.ReadAllText("input.txt").ToLower()
-                .Split(new char[] { '\n', '\r', ' ', '.', ',', '!', '?', '-' },
-                StringSplitOptions.RemoveEmptyEntries);
-            Dictionary<string, int> wordCount = new Dictionary<string, int>();
+                .Split(new char[] { '\n', '\r', ' ', '.', ',', '!', '?', '-' }, StringSplitOptions.RemoveEmptyEntries);
+            Dictionary<string, int> wordsCount = new Dictionary<string, int>();
             foreach (string word in words)
             {
-                wordCount[word] = 0;
+                wordsCount[word] = 0;
             }
 
             foreach (string word in text)
             {
-                if (wordCount.ContainsKey(word))
+                if (wordsCount.ContainsKey(word))
                 {
-                    wordCount[word]++;
+                    wordsCount[word]++;
                 }
             }
 
             string output = string.Empty;
-            foreach (KeyValuePair<string, int> word in wordCount.OrderByDescending(w => w.Value))
+            foreach (KeyValuePair<string, int> word in wordsCount.OrderByDescending(wc => wc.Value))
             {
                 if (words.Contains(word.Key))
                 {
                     if (word.Value == 0)
+                    {
                         continue;
+                    }
 
                    output += $"{word.Key} - {word.Value}\r\n";
                 }
