@@ -6,31 +6,31 @@ namespace _04CharacterMultiplier
     {
         static void Main(string[] args)
         {
-            string[] strings = Console.ReadLine().Split(new char[] { ' ' },
-                StringSplitOptions.RemoveEmptyEntries);
-            string string1 = strings[0];
-            string string2 = strings[1];
-            int sum = MultiplyAndSumCharacters(string1, string2);            
+            string[] strings = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string firstString = strings[0];
+            string secondString = strings[1];
+            
+            int sum = MultiplyAndSumCharacters(string1, secondString);            
             Console.WriteLine(sum);
         }
 
-        static int MultiplyAndSumCharacters(string string1, string string2)
+        static int MultiplyAndSumCharacters(string firstString, string secondString)
         {
             int sum = 0;
-            for (int i = 0; i < Math.Min(string1.Length, string2.Length); i++)
+            for (int i = 0; i < Math.Min(firstString.Length, secondString.Length); i++)
             {
-                sum += string1[i] * string2[i];
+                sum += firstString[i] * secondString[i];
             }
 
-            for (int i = Math.Min(string1.Length, string2.Length); i < Math.Max(string1.Length, string2.Length); i++)
+            for (int i = Math.Min(firstString.Length, secondString.Length); i < Math.Max(firstString.Length, secondString.Length); i++)
             {
-                if (string1.Length > string2.Length)
+                if (firstString.Length > secondString.Length)
                 {
-                    sum += string1[i];
+                    sum += firstString[i];
                 }
                 else
                 {
-                    sum += string2[i];
+                    sum += secondString[i];
                 }                
             }
 
