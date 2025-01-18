@@ -8,14 +8,14 @@ namespace _06SumBigNumbers
     {
         static void Main(string[] args)
         {
-            StringBuilder sum = new StringBuilder("");
+            StringBuilder sumBuilder = new StringBuilder("");
             string firstNumber = Console.ReadLine();
             string secondNumber = Console.ReadLine();
-            string first = string.Empty;
-            string second = string.Empty;
-
+            
             if (firstNumber[0] == '0' || secondNumber[0] == '0')
             {
+                string first = string.Empty;
+                string second = string.Empty;
                 first = firstNumber.TrimStart(new char[] { '0' });
                 second = secondNumber.TrimStart(new char[] { '0' });
                 firstNumber = first;
@@ -24,50 +24,47 @@ namespace _06SumBigNumbers
 
             if (firstNumber.Length > secondNumber.Length)
             {
-                int diference = firstNumber.Length - secondNumber.Length;
-                secondNumber = new string('0', diference) + secondNumber;
+                int lengthDiference = firstNumber.Length - secondNumber.Length;
+                secondNumber = new string('0', lengthDiference) + secondNumber;
             }
             else if (secondNumber.Length > firstNumber.Length)
             {
-                int diference = secondNumber.Length - firstNumber.Length;
-                firstNumber = new string('0', diference) + firstNumber;
+                int lengthDiference = secondNumber.Length - firstNumber.Length;
+                firstNumber = new string('0', lengthDiference) + firstNumber;
             }
 
             int reminder = 0;
             for (int i = secondNumber.Length - 1; i >= 0; i--)
             {
-                int sumNumbers = Convert.ToInt32(firstNumber[i] - '0')
-                    + Convert.ToInt32(secondNumber[i] - '0') + reminder;
-                if (sumNumbers < 10)
+                int digitsSum = Convert.ToInt32(firstNumber[i] - '0') + Convert.ToInt32(secondNumber[i] - '0') + reminder;
+                if (digitsSum < 10)
                 {
-                    sum.Append(sumNumbers);
+                    sumBuilder.Append(digitsSum);
                     reminder = 0;
                 }
                 else
                 {
                     if (i != 0)
                     {
-                        if (Convert.ToInt32(firstNumber[i] - '0')
-                            + Convert.ToInt32(secondNumber[i] - '0') + reminder == 10)
+                        if (Convert.ToInt32(firstNumber[i] - '0') + Convert.ToInt32(secondNumber[i] - '0') + reminder == 10)
                         {
-                            sum.Append('0');
+                            sumBuilder.Append('0');
                             reminder = 1;
                         }
                         else
                         {
-                            sum.Append(sumNumbers - 10);
+                            sumBuilder.Append(digitsSum - 10);
                             reminder = 1;
                         }
                     }
                     else
                     {
-                        sum.Append(string.Join("", Convert.ToString(Convert.ToUInt32(firstNumber[i] - '0')
-                            + Convert.ToUInt32(secondNumber[i] - '0') + reminder).Reverse()));
+                        sumBuilder.Append(string.Join("", Convert.ToString(Convert.ToUInt32(firstNumber[i] - '0') + Convert.ToUInt32(secondNumber[i] - '0') + reminder).Reverse()));
                     }
                 }
             }
 
-            Console.WriteLine(String.Join("", sum.ToString().Reverse()));
+            Console.WriteLine(String.Join("", sumBuilder.ToString().Reverse()));
         }
     }
 }
