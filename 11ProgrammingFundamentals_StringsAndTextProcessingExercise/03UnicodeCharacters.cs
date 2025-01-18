@@ -9,8 +9,8 @@ namespace _03UnicodeCharacters
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            IEnumerable<string> chars = input.Select(c => (int)c).Select(c => $@"\u{c:x4}");
-            string result = string.Concat(chars);
+            IEnumerable<string> characters = input.Select(c => (int)c).Select(c => $@"\u{c:x4}");
+            string result = string.Concat(characters);
             Console.WriteLine(result);
         }
     }
