@@ -8,8 +8,7 @@ namespace _01ConvertFromBase10ToBaseN
     {
         static void Main(string[] args)
         {
-            BigInteger[] baseAndNumber = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            BigInteger[] baseAndNumber = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(BigInteger.Parse).ToArray();
             int toBase = (int)baseAndNumber[0];
             BigInteger number = baseAndNumber[1];
