@@ -7,19 +7,19 @@ namespace _05MagicExchangeableWords
     {
         static void Main(string[] args)
         {
-            string[] strings = Console.ReadLine().Split(new char[] { ' ' },
-                StringSplitOptions.RemoveEmptyEntries);
-            string string1 = strings[0];
-            string string2 = strings[1];
-            bool isMagicExchengeable = CheckIfMagicExchengeable(string1, string2);
+            string[] strings = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string firstString = strings[0];
+            string secondString = strings[1];
+            
+            bool isMagicExchengeable = CheckIfMagicExchengeable(firstString, secondString);
             Console.WriteLine(isMagicExchengeable.ToString().ToLower());
         }
 
-        static bool CheckIfMagicExchengeable(string string1, string string2)
+        static bool CheckIfMagicExchengeable(string firstString, string secondString)
         {
-            char[] charArr1 = string1.ToCharArray().Distinct().ToArray();
-            char[] charArr2 = string2.ToCharArray().Distinct().ToArray();
-            bool isMagicExchengeable = charArr1.Length == charArr2.Length;
+            char[] firstCharArray = firstString.ToCharArray().Distinct().ToArray();
+            char[] secondCharArray = secondString.ToCharArray().Distinct().ToArray();
+            bool isMagicExchengeable = firstCharArray.Length == secondCharArray.Length;
 
             return isMagicExchengeable;
         }
