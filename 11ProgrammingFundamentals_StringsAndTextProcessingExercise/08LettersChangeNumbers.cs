@@ -7,8 +7,7 @@ namespace _08LettersChangeNumbers
     {
         static void Main(string[] args)
         {
-            string[] input = Console.ReadLine().Split(new char[] { ' ', '\t' },
-                StringSplitOptions.RemoveEmptyEntries);
+            string[] input = Console.ReadLine().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             double sum = 0;
             foreach (string str in input)
             {
