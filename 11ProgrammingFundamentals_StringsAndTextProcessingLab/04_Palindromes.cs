@@ -8,8 +8,7 @@ namespace _04_Palindromes
     {
         static void Main(string[] args)
         {
-            string[] words = Console.ReadLine().Split(new char[] { ',', ' ', '?', '!', '.' },
-                StringSplitOptions.RemoveEmptyEntries).ToArray();
+            string[] words = Console.ReadLine().Split(new char[] { ',', ' ', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
             List<string> palindromes = new List<string>();
             foreach (string word in words)
             {
