@@ -8,8 +8,8 @@ namespace _01ReverseString
         static void Main(string[] args)
         {
             string str = Console.ReadLine();
-            char[] charArr = str.ToCharArray();                       
-            string reversed = new string(charArr.Reverse().ToArray());
+            char[] charArray = str.ToCharArray();                       
+            string reversed = new string(charArray.Reverse().ToArray());
             Console.WriteLine(reversed);
             //or
             //Console.WriteLine(Console.ReadLine().Reverse().ToArray());
