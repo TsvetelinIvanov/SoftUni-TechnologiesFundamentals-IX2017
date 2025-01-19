@@ -6,14 +6,13 @@ namespace _03TextFilter
     {
         static void Main(string[] args)
         {
-            string[] banWords = Console.ReadLine()
-                .Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] bannedWords = Console.ReadLine().Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             string text = Console.ReadLine();
-            foreach (string banWord in banWords)
+            foreach (string bannedWord in bannedWords)
             {
-                if (text.Contains(banWord))
+                if (text.Contains(bannedWord))
                 {
-                    text = text.Replace(banWord, new string('*', banWord.Length));
+                    text = text.Replace(bannedWord, new string('*', bannedWord.Length));
                 }
             }
 
