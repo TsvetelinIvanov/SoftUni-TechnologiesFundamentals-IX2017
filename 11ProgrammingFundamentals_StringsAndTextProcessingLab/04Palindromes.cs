@@ -8,16 +8,15 @@ namespace _04Palindromes
     {
         static void Main(string[] args)
         {
-            string[] words = Console.ReadLine().Split(new char[] { ',', ' ', '?', '!', '.' },
-                StringSplitOptions.RemoveEmptyEntries).ToArray();
+            string[] words = Console.ReadLine().Split(new char[] { ',', ' ', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
             List<string> palindromes = new List<string>();
             for (int wordIndex = 0; wordIndex < words.Length; wordIndex++)
             {
-                string myString = words[wordIndex];
-                bool isPalindrome = GetStatus(myString);
+                string word = words[wordIndex];
+                bool isPalindrome = CheckIfPalindrome(word);
                 if (isPalindrome)
                 {
-                    palindromes.Add(myString);
+                    palindromes.Add(word);
                 }
             }
 
@@ -25,13 +24,13 @@ namespace _04Palindromes
             Console.WriteLine(string.Join(", ", palindromes));
         }
 
-        public static bool GetStatus(string myString)
+        public static bool CheckIfPalindrome(string word)
         {
-            string firstHalf = myString.Substring(0, myString.Length / 2);
-            char[] charArray = myString.ToCharArray();
+            string firstHalf = word.Substring(0, word.Length / 2);
+            char[] charArray = word.ToCharArray();
             Array.Reverse(charArray);
-            string temp = new string(charArray);
-            string secondHalf = temp.Substring(0, temp.Length / 2);
+            string reversedWord = new string(charArray);
+            string secondHalf = reversedWord.Substring(0, temp.Length / 2);
 
             return firstHalf.Equals(secondHalf);
         }
