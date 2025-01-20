@@ -8,10 +8,10 @@ namespace _05KeyReplacer
     {
         static void Main(string[] args)
         {
-            string[] keys = Console.ReadLine()
-                 .Split(new char[] { '|', '<', '\\' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] keys = Console.ReadLine().Split(new char[] { '|', '<', '\\' }, StringSplitOptions.RemoveEmptyEntries);
             string text = Console.ReadLine();
             string patternKey = @"[A-Za-z]+";
+            
             string start = keys[0];
             string startKey = string.Empty;
             Match startMatch = Regex.Match(start, patternKey);
@@ -40,17 +40,21 @@ namespace _05KeyReplacer
 
             string pattern = $@"(?<={startKey}).*?(?={endKey})";
             MatchCollection matches = Regex.Matches(text, pattern);
-            StringBuilder resultStringBuilder = new StringBuilder();
+            StringBuilder resultBuilder = new StringBuilder();
             foreach (Match match in matches)
             {
-                resultStringBuilder.Append(match);
+                resultBuilder.Append(match);
             }
 
-            string result = resultStringBuilder.ToString();
+            string result = resultBuilder.ToString();
             if (result != string.Empty)
+            {
                 Console.WriteLine(result);
+            }
             else
+            {
                 Console.WriteLine("Empty result");
+            }
         }
     }
 }
