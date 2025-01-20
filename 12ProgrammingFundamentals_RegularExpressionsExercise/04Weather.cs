@@ -11,9 +11,9 @@ namespace _04Weather
         {
             string weatherPattern = @"([A-Z]{2})(-?\d+\.\d+)([A-Za-z]+)\|"; //or (?=\|) instead \|
             Regex regex = new Regex(weatherPattern);
-            string input = Console.ReadLine();
-            Dictionary<string, KeyValuePair<double, string>> weatherForecasts = 
-                new Dictionary<string, KeyValuePair<double, string>>();
+            Dictionary<string, KeyValuePair<double, string>> weatherForecasts = new Dictionary<string, KeyValuePair<double, string>>();
+            
+            string input = Console.ReadLine();            
             while (input != "end")
             {
                 bool validForecast = regex.IsMatch(input);
@@ -38,8 +38,7 @@ namespace _04Weather
 
             foreach (KeyValuePair<string, KeyValuePair<double, string>> weatherForecast in weatherForecasts.OrderBy(w => w.Value.Key))
             {
-                Console.WriteLine("{0} => {1:f2} => {2}", weatherForecast.Key, weatherForecast.Value.Key, 
-                    weatherForecast.Value.Value);
+                Console.WriteLine("{0} => {1:f2} => {2}", weatherForecast.Key, weatherForecast.Value.Key, weatherForecast.Value.Value);
             }
         }
     }
