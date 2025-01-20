@@ -19,6 +19,7 @@ namespace _07QueryMess
                     string key = match.Groups["key"].ToString().Trim();
                     string value = match.Groups["value"].ToString().Trim();
                     string replacePattern = @"(\s|\+|%20)+";
+                    
                     key = Regex.Replace(key, replacePattern, " ").Trim();
                     if (key.Contains("?"))
                     {
