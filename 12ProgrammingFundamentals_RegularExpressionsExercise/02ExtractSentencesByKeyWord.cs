@@ -7,14 +7,16 @@ namespace _02ExtractSentencesByKeyWord
     {
         static void Main(string[] args)
         {
-            string keyWord = $@"\b{Console.ReadLine()}\b";
+            string keyword = $@"\b{Console.ReadLine()}\b";
             string[] sentences = Console.ReadLine().Split('.', '!', '?');
-            Regex regex = new Regex(keyWord);
+            Regex regex = new Regex(keyword);
             foreach (string sentence in sentences)
             {
-                bool isContainsKeyWord = regex.IsMatch(sentence);
-                if (isContainsKeyWord)
+                bool containsKeyword = regex.IsMatch(sentence);
+                if (containsKeyword)
+                {
                     Console.WriteLine(sentence.Trim());
+                }
             }
         }
     }
