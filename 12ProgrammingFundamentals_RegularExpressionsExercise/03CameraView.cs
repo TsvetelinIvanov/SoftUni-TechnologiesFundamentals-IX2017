@@ -9,28 +9,27 @@ namespace _03CameraView
     {
         static void Main(string[] args)
         {
-            int[] skipAndTake = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] skipAndTake = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToArray();
             int skip = skipAndTake[0];
             int take = skipAndTake[1];
 
             string view = Console.ReadLine();
             string camera = @"\|<";            
-            string[] viewes = Regex.Split(view, camera);
+            string[] views = Regex.Split(view, camera);
 
-            List<string> camerasViewes = new List<string>();            
-            for (int i = 1; i <= viewes.Length - 1; i++)
+            List<string> cameraViews = new List<string>();            
+            for (int i = 1; i <= views.Length - 1; i++)
             {
-                string fullView = viewes[i];
+                string fullView = views[i];
                 if (skip < fullView.Length)
                 {
                     string cameraView = DoCameraViewFromFullView(fullView, skip, take);
-                    camerasViewes.Add(cameraView);
+                    cameraViews.Add(cameraView);
                 }
             }
 
-            Console.WriteLine(string.Join(", ", camerasViewes));
+            Console.WriteLine(string.Join(", ", cameraViews));
         }
 
         private static string DoCameraViewFromFullView(string fullView, int skip, int take)
