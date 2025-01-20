@@ -8,8 +8,7 @@ namespace _06ValidUsernames
     {
         static void Main(string[] args)
         {
-            string[] usernames = Console.ReadLine()
-                .Split(new char[] { ' ', '/', '\\', ')', '(' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] usernames = Console.ReadLine().Split(new char[] { ' ', '/', '\\', ')', '(' }, StringSplitOptions.RemoveEmptyEntries);
             string pattern = @"^[A-Za-z]\w{2,24}$";
             List<string> validUsernames = new List<string>();
             foreach (string username in usernames)
