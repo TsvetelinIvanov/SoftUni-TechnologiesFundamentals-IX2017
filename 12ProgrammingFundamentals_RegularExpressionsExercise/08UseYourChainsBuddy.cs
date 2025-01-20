@@ -10,14 +10,15 @@ namespace _08UseYourChainsBuddy
         static void Main(string[] args)
         {
             string encryptedManual = Console.ReadLine();
-            string patternForTags = @"(?<=<p>).*?(?=<\/p>)";
-            MatchCollection matchesBetweenTags = Regex.Matches(encryptedManual, patternForTags);
+            string patternForTag = @"(?<=<p>).*?(?=<\/p>)";
+            MatchCollection insideTagMatches = Regex.Matches(encryptedManual, patternForTag);
             List<string> manualWords = new List<string>();
-            foreach (Match matchBetweenTags in matchesBetweenTags)
+            foreach (Match insideTagMatch in insideTagMatches)
             {
-                string patternForCharacters = @"[^a-z0-9]";
-                string rawManualWord = Regex.Replace(matchBetweenTags.ToString(), patternForCharacters, " ");
+                string characterPattern = @"[^a-z0-9]";
+                string rawManualWord = Regex.Replace(insideTagMatch.ToString(), characterPattern, " ");
                 rawManualWord = Regex.Replace(rawManualWord, @"\s+", " ");
+                
                 string manualWord = DecodeLetters(rawManualWord);
                 manualWords.Add(manualWord);
             }
@@ -31,11 +32,17 @@ namespace _08UseYourChainsBuddy
             foreach (char letter in rawManualWord)
             {
                 if (Regex.IsMatch(letter.ToString(), "[a-m]"))
+                {
                     decoded.Append((char)(letter + 13));
+                }
                 else if (Regex.IsMatch(letter.ToString(), "[n-z]"))
+                {
                     decoded.Append((char)(letter - 13));
+                }
                 else
+                {
                     decoded.Append(letter);
+                }
             }
 
             return decoded.ToString();
