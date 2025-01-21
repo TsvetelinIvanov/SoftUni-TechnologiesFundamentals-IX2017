@@ -9,6 +9,7 @@ namespace _05MatchNumbers
         {
             string pattern = @"(^|(?<=\s))-?(\d+|\d+\.\d+)($|(?=\s))";
             string name = Console.ReadLine();
+            
             MatchCollection matches = Regex.Matches(name, pattern);
             foreach (Match match in matches)
             {
