@@ -9,11 +9,13 @@ namespace _06ReplaceATag
         {
             string pattern = @"<a.*?href=(.*?)>(.*?)<\/a>";
             string replacement = @"[URL href=$1]$2[/URL]";
+            
             string text = Console.ReadLine();
             while (text != "end")
             {
                 string result = Regex.Replace(text, pattern, replacement);
                 Console.WriteLine(result);
+                
                 text = Console.ReadLine();
             }
         }
