@@ -9,11 +9,11 @@ namespace _04MatchDates
         {
             string pattern = @"\b(?<day>\d{2})(\.|-|\/)(?<month>[A-Z][a-z]{2})\1(?<year>\d{4})\b";
             string name = Console.ReadLine();
+            
             MatchCollection matches = Regex.Matches(name, pattern);
             foreach (Match match in matches)
             {
-                Console.WriteLine("Day: {0}, Month: {1}, Year: {2}",
-                    match.Groups["day"], match.Groups["month"], match.Groups["year"]);
+                Console.WriteLine("Day: {0}, Month: {1}, Year: {2}", match.Groups["day"], match.Groups["month"], match.Groups["year"]);
             }
         }
     }
