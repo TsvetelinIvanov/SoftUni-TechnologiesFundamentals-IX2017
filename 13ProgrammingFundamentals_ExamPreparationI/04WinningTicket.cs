@@ -7,9 +7,7 @@ namespace _04WinningTicket
     {
         static void Main(string[] args)
         {
-            string[] tickets = Console.ReadLine()
-                .Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            
+            string[] tickets = Console.ReadLine().Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);            
             for (int i = 0; i < tickets.Length; i++)
             {
                 if (tickets[i].Length != 20)
