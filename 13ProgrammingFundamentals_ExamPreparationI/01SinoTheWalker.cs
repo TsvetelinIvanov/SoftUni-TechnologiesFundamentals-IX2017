@@ -7,9 +7,9 @@ namespace _01SinoTheWalker
         static void Main(string[] args)
         { 
             string startTimeString = Console.ReadLine();
-            int steps = int.Parse(Console.ReadLine()) % 86400; //to rotate one or more days (86400 is count of seconds per one day)
-            int secondsPerStep = int.Parse(Console.ReadLine()) %86400; //to rotate one or more days
-            long timeInSeconds = (long)steps * secondsPerStep;
+            int stepsCount = int.Parse(Console.ReadLine()) % 86400; //to rotate one or more days (86400 is the count of seconds per one day)
+            int secondsPerStep = int.Parse(Console.ReadLine()) % 86400; //to rotate one or more days
+            long timeInSeconds = (long)stepsCount * secondsPerStep;
             
             TimeSpan startTime = TimeSpan.Parse(startTimeString);
             TimeSpan finishTime = startTime.Add(TimeSpan.FromSeconds(timeInSeconds));
