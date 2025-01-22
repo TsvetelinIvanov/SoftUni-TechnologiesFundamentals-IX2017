@@ -21,7 +21,6 @@ namespace _03SoftUniKaraoke
                 string participant = performings[0];
                 string song = performings[1];
                 string award = performings[2];
-
                 if (listedParticipants.Contains(participant) && listedSongs.Contains(song))
                 {
                     if (!listedAwards.ContainsKey(participant))
@@ -36,6 +35,7 @@ namespace _03SoftUniKaraoke
             if (listedAwards.Count == 0)
             {
                 Console.WriteLine("No awards");
+                
                 return;
             }                
 
