@@ -9,16 +9,15 @@ namespace _03NetherRealms
         static void Main(string[] args)
         {
             SortedDictionary<string, string> demons = new SortedDictionary<string, string>();
-            string[] demonNames = Console.ReadLine()
-                .Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] demonNames = Console.ReadLine().Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string demonName in demonNames)
             {
                 int demonHealth = GetDemonHealth(demonName);
                 double demonDamage = GetDemonDamage(demonName);
-                string demonStats = $" - {demonHealth} health, {demonDamage:f2} damage";
+                string demonStatsString = $" - {demonHealth} health, {demonDamage:f2} damage";
                 if (!demons.ContainsKey(demonName))
                 {
-                    demons[demonName] = demonStats;
+                    demons[demonName] = demonStatsString;
                 }
             }
 
@@ -52,17 +51,17 @@ namespace _03NetherRealms
             string pattern = @"([+-]?\d+(\.\d+)?)|(\*)|(\/)";
             MatchCollection matches = Regex.Matches(demonName, pattern);
             double damage = 0.0;
-            int multiplyings = 0;
-            int dividings = 0;
+            int multiplyingsCount = 0;
+            int dividingsCount = 0;
             foreach (Match match in matches)
             {                
                 if (match.Value == "*")
                 {
-                    multiplyings++;
+                    multiplyingsCount++;
                 }
                 else if (match.Value == "/")
                 {
-                    dividings++;
+                    dividingsCount++;
                 }
                 else
                 {
@@ -70,8 +69,8 @@ namespace _03NetherRealms
                 }
             }
 
-            damage *= Math.Pow(2, multiplyings);
-            damage /= Math.Pow(2, dividings);
+            damage *= Math.Pow(2, multiplyingsCount);
+            damage /= Math.Pow(2, dividingsCount);
 
             return damage;
         }        
