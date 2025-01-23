@@ -8,8 +8,7 @@ namespace _04RoliTheCoder
     {
         static void Main(string[] args) 
         {
-            Dictionary<string, Dictionary<string, SortedSet<string>>> eventsByIds =
-                new Dictionary<string, Dictionary<string, SortedSet<string>>>();
+            Dictionary<string, Dictionary<string, SortedSet<string>>> eventsByIds = new Dictionary<string, Dictionary<string, SortedSet<string>>>();
             
             string input = string.Empty;
             while ((input = Console.ReadLine()) != "Time for Code")
@@ -45,7 +44,7 @@ namespace _04RoliTheCoder
                 {
                     eventsByNames.Add(eventByName.Key, eventByName.Value);
                 }
-            }            
+            }
 
             foreach (KeyValuePair<string, SortedSet<string>> event1 in eventsByNames.OrderByDescending(e => e.Value.Count).ThenBy(e => e.Key))
             {
@@ -53,8 +52,8 @@ namespace _04RoliTheCoder
                 foreach (string participant in event1.Value)
                 {
                     Console.WriteLine(participant);
-                }               
+                }
             }
-        }        
-    }    
+        }
+    }
 }
