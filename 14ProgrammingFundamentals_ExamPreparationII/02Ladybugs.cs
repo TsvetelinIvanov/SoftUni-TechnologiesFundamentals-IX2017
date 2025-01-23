@@ -9,8 +9,7 @@ namespace _02Ladybugs
         {
             int fieldSize = int.Parse(Console.ReadLine());
             int[] field = new int[fieldSize];
-            int[] ladybugIndexes = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] ladybugIndexes = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToArray();
             for (int i = 0; i < field.Length; i++)
             {
@@ -30,10 +29,9 @@ namespace _02Ladybugs
                 string[] commandLine = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 int ladybugIndex = int.Parse(commandLine[0]);
                 string direction = commandLine[1];
-                long removal = long.Parse(commandLine[2]);
+                long movesCount = long.Parse(commandLine[2]);
 
-                if (ladybugIndex < 0 || ladybugIndex >= field.Length || field[ladybugIndex] == 0
-                    || removal == 0)
+                if (ladybugIndex < 0 || ladybugIndex >= field.Length || field[ladybugIndex] == 0 || movesCount == 0)
                 {
                     continue;
                 }
@@ -42,86 +40,86 @@ namespace _02Ladybugs
                 if (direction == "right")
                 {
 
-                    if (ladybugIndex + removal < 0 || ladybugIndex + removal >= field.Length)
+                    if (ladybugIndex + movesCount < 0 || ladybugIndex + movesCount >= field.Length)
                     {
                         continue;
                     }
 
-                    if (field[ladybugIndex + removal] == 0)
+                    if (field[ladybugIndex + movesCount] == 0)
                     {
-                        field[ladybugIndex + removal] = 1;
+                        field[ladybugIndex + movesCount] = 1;
                     }
                     else
                     {
-                        long step = removal;
-                        while (field[ladybugIndex + removal] == 1)
+                        long step = movesCount;
+                        while (field[ladybugIndex + movesCount] == 1)
                         {
-                            if (removal > 0)
+                            if (movesCount > 0)
                             {
-                                removal += step;
+                                movesCount += step;
                             }
                             else
                             {
-                                removal -= step;
+                                movesCount -= step;
                             }                                
 
-                            if (ladybugIndex + removal > field.Length - 1 || ladybugIndex + removal < 0)
+                            if (ladybugIndex + movesCount > field.Length - 1 || ladybugIndex + movesCount < 0)
                             {
                                 break;
                             }                                
                         }
 
-                        if (ladybugIndex + removal > field.Length - 1 || ladybugIndex + removal < 0)
+                        if (ladybugIndex + movesCount > field.Length - 1 || ladybugIndex + movesCount < 0)
                         {
                             continue;
                         }                            
 
-                        if (field[ladybugIndex + removal] == 0)
+                        if (field[ladybugIndex + movesCount] == 0)
                         {
-                            field[ladybugIndex + removal] = 1;
+                            field[ladybugIndex + movesCount] = 1;
                         }                        
                     }
                 }
                 else if (direction == "left")
                 {
 
-                    if (ladybugIndex - removal < 0 || ladybugIndex - removal >= field.Length)
+                    if (ladybugIndex - movesCount < 0 || ladybugIndex - movesCount >= field.Length)
                     {
                         continue;
                     }
 
-                    if (field[ladybugIndex - removal] == 0)
+                    if (field[ladybugIndex - movesCount] == 0)
                     {
-                        field[ladybugIndex - removal] = 1;
+                        field[ladybugIndex - movesCount] = 1;
                     }
                     else
                     {
-                        long step = removal;
-                        while (field[ladybugIndex - removal] == 1)
+                        long step = movesCount;
+                        while (field[ladybugIndex - movesCount] == 1)
                         {                            
-                            if (removal > 0)
+                            if (movesCount > 0)
                             {
-                                removal += step;
+                                movesCount += step;
                             }
                             else
                             {
-                                removal -= step;
+                                movesCount -= step;
                             }                                
 
-                            if (ladybugIndex - removal > field.Length - 1 || ladybugIndex - removal < 0)
+                            if (ladybugIndex - movesCount > field.Length - 1 || ladybugIndex - movesCount < 0)
                             {
                                 break;
                             }                                
                         }
 
-                        if (ladybugIndex - removal > field.Length - 1 || ladybugIndex - removal < 0)
+                        if (ladybugIndex - movesCount > field.Length - 1 || ladybugIndex - movesCount < 0)
                         {
                             continue;
                         }                            
 
-                        if (field[ladybugIndex - removal] == 0)
+                        if (field[ladybugIndex - movesCount] == 0)
                         {
-                            field[ladybugIndex - removal] = 1;
+                            field[ladybugIndex - movesCount] = 1;
                         }
                     }
                 }
