@@ -7,27 +7,27 @@ namespace _01CharityMarathon
     {
         static void Main(string[] args)
         {
-            int marathonLengthInDays = int.Parse(Console.ReadLine());
-            int volunteerForRuners = int.Parse(Console.ReadLine());
+            int marathonDurationInDays = int.Parse(Console.ReadLine());
+            int volunteersCount = int.Parse(Console.ReadLine());
             int averageLapsByRuner = int.Parse(Console.ReadLine());
             int trackLengthInMeters = int.Parse(Console.ReadLine());
             int trackCapacityPerDay = int.Parse(Console.ReadLine());
             double moneyPerKilometer = double.Parse(Console.ReadLine());
 
-            long trackCapacity = (long)marathonLengthInDays * trackCapacityPerDay;
-            long runers = 0;
-            if (trackCapacity <= volunteerForRuners)
+            long trackCapacity = (long)marathonDurationInDays * trackCapacityPerDay;
+            long runersCount = 0;
+            if (trackCapacity <= volunteersCount)
             {
-                runers = trackCapacity;
+                runersCount = trackCapacity;
             }
             else
             {
-                runers = volunteerForRuners;
+                runersCount = volunteersCount;
             }
 
-            long totalMeters = runers * averageLapsByRuner * trackLengthInMeters;
-            long totalKilometers = totalMeters / 1000;
-            double raisedMoney = moneyPerKilometer * totalKilometers;
+            long totalDistanceInMeters = runersCount * averageLapsByRuner * trackLengthInMeters;
+            long totalDistanceInKilometers = totalDistanceInMeters / 1000;
+            double raisedMoney = moneyPerKilometer * totalDistanceInKilometers;
             Console.WriteLine($"Money raised: {raisedMoney:f2}");
         }
     }
