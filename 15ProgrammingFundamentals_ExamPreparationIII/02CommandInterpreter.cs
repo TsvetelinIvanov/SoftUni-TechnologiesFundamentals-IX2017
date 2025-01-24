@@ -12,11 +12,11 @@ namespace _02CommandInterpreter
             string input = Console.ReadLine();
             while (input != "end")
             {
-                string[] inputs = input.Split(' ');
-                if (inputs[0] == "reverse")
+                string[] commandLine = input.Split(' ');
+                if (commandLine[0] == "reverse")
                 {
-                    bool isParsedStart = int.TryParse(inputs[2], out int start);
-                    bool isParsedCount = int.TryParse(inputs[4], out int count);
+                    bool isParsedStart = int.TryParse(commandLine[2], out int start);
+                    bool isParsedCount = int.TryParse(commandLine[4], out int count);
                     if (!isParsedStart || !isParsedCount || count < 0 || count > items.Count - start || start < 0 || start >= items.Count)
                     {
                         Console.WriteLine("Invalid input parameters.");
@@ -28,10 +28,10 @@ namespace _02CommandInterpreter
                     items.RemoveRange(start, count);
                     items.InsertRange(start, reversed);
                 }
-                else if (inputs[0] == "sort")
+                else if (commandLine[0] == "sort")
                 {
-                    bool isParsedStart = int.TryParse(inputs[2], out int start);
-                    bool isParsedCount = int.TryParse(inputs[4], out int count);
+                    bool isParsedStart = int.TryParse(commandLine[2], out int start);
+                    bool isParsedCount = int.TryParse(commandLine[4], out int count);
                     if (!isParsedStart || !isParsedCount || count < 0 || count > items.Count - start || start < 0 || start >= items.Count)
                     {
                         Console.WriteLine("Invalid input parameters.");
@@ -39,13 +39,13 @@ namespace _02CommandInterpreter
                         continue;
                     }
 
-                    List<string> sorted = items.Skip(start).Take(count).OrderBy(x => x).ToList();
+                    List<string> sorted = items.Skip(start).Take(count).OrderBy(i => i).ToList();
                     items.RemoveRange(start, count);
                     items.InsertRange(start, sorted);
                 }
-                else if (inputs[0] == "rollLeft")
+                else if (commandLine[0] == "rollLeft")
                 {
-                    bool isParsedCount = int.TryParse(inputs[1], out int count);
+                    bool isParsedCount = int.TryParse(commandLine[1], out int count);
                     if (!isParsedCount || count < 0)
                     {
                         Console.WriteLine("Invalid input parameters.");
@@ -60,9 +60,9 @@ namespace _02CommandInterpreter
                         items.Add(element);
                     }
                 }
-                else if (inputs[0] == "rollRight")
+                else if (commandLine[0] == "rollRight")
                 {
-                    bool isParsedCount = int.TryParse(inputs[1], out int count);
+                    bool isParsedCount = int.TryParse(commandLine[1], out int count);
                     if (!isParsedCount || count < 0)
                     {
                         Console.WriteLine("Invalid input parameters.");
