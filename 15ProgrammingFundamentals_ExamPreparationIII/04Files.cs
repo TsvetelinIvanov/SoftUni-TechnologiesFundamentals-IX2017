@@ -9,14 +9,14 @@ namespace _04Files
         static void Main(string[] args)
         {
             int filesCount = int.Parse(Console.ReadLine());
-            Dictionary<string, SortedDictionary<string, long>> allFiles = 
-                new Dictionary<string, SortedDictionary<string, long>>();
+            Dictionary<string, SortedDictionary<string, long>> allFiles = new Dictionary<string, SortedDictionary<string, long>>();
             for (int i = 0; i < filesCount; i++)
             {
                 string[] fileData = Console.ReadLine().Split(';');
                 long size = long.Parse(fileData[1]);
                 int index = fileData[0].LastIndexOf('\\');
                 string name = fileData[0].Substring(index + 1);
+                
                 index = fileData[0].IndexOf('\\');
                 string root = fileData[0].Substring(0, index);
                 if (!allFiles.ContainsKey(root))
