@@ -22,8 +22,8 @@ namespace _03RageQuit
                 }
             }
 
-            int uniqueSumbolsCount = result.ToString().Distinct().Count();
-            Console.WriteLine("Unique symbols used: " + uniqueSumbolsCount);
+            int uniqueSymbolsCount = result.ToString().Distinct().Count();
+            Console.WriteLine("Unique symbols used: " + uniqueSymbolsCount);
             Console.WriteLine(result.ToString());
         }
     }
