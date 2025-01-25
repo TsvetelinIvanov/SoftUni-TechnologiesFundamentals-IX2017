@@ -10,12 +10,12 @@ namespace _03_FootballLeague
         {
             string key = Console.ReadLine();
             Dictionary<string, List<long>> teams = new Dictionary<string, List<long>>();
+            
             string command = Console.ReadLine();
-
             while (command.ToLower() != "final")
             {
-                string[] tokens = command.Split(' ');
-                string decryptedHomeTeam = tokens[0];
+                string[] teamsInfo = command.Split(' ');
+                string decryptedHomeTeam = teamsInfo[0];
                 int startIndex = decryptedHomeTeam.IndexOf(key);
                 int endIndex = decryptedHomeTeam.LastIndexOf(key);
                 string homeTeam = decryptedHomeTeam.Substring(startIndex + key.Length, endIndex - startIndex - key.Length);
@@ -23,7 +23,7 @@ namespace _03_FootballLeague
                 Array.Reverse(homeTeamArray);
                 homeTeam = new string(homeTeamArray);
 
-                string decryptedAwayTeam = tokens[1];
+                string decryptedAwayTeam = teamsInfo[1];
                 startIndex = decryptedAwayTeam.IndexOf(key);
                 endIndex = decryptedAwayTeam.LastIndexOf(key);
                 string awayTeam = decryptedAwayTeam.Substring(startIndex + key.Length, endIndex - startIndex - key.Length);
@@ -31,50 +31,50 @@ namespace _03_FootballLeague
                 Array.Reverse(awayTeamArray);
                 awayTeam = new string(awayTeamArray);
 
-                long[] goals = tokens[2].Split(':').Select(long.Parse).ToArray();
-                long homeTeamGoals = goals[0];
-                long awayTeamGoals = goals[1];
+                long[] goals = teamsInfo[2].Split(':').Select(long.Parse).ToArray();
+                long homeTeamGoalsCount = goals[0];
+                long awayTeamGoalsCount = goals[1];
 
-                long pointsForHomeTeam;
-                long pointsForAwayTeam;
-                if (homeTeamGoals > awayTeamGoals)
+                long homeTeamPointsCount;
+                long awayTeamPointsCount;
+                if (homeTeamGoalsCount > awayTeamGoalsCount)
                 {
-                    pointsForHomeTeam = 3;
-                    pointsForAwayTeam = 0;
+                    homeTeamPointsCount = 3;
+                    awayTeamPointsCount = 0;
                 }
-                else if (homeTeamGoals < awayTeamGoals)
+                else if (homeTeamGoalsCount < awayTeamGoalsCount)
                 {
-                    pointsForHomeTeam = 0;
-                    pointsForAwayTeam = 3;
+                    homeTeamPointsCount = 0;
+                    awayTeamPointsCount = 3;
                 }
                 else
                 {
-                    pointsForHomeTeam = 1;
-                    pointsForAwayTeam = 1;
+                    homeTeamPointsCount = 1;
+                    awayTeamPointsCount = 1;
                 }
 
                 if (teams.ContainsKey(homeTeam))
                 {
-                    teams[homeTeam][0] += pointsForHomeTeam;
-                    teams[homeTeam][1] += homeTeamGoals;
+                    teams[homeTeam][0] += homeTeamPointsCount;
+                    teams[homeTeam][1] += homeTeamGoalsCount;
                 }
                 else
                 {
                     teams[homeTeam] = new List<long>();
-                    teams[homeTeam].Add(pointsForHomeTeam);
-                    teams[homeTeam].Add(homeTeamGoals);
+                    teams[homeTeam].Add(homeTeamPointsCount);
+                    teams[homeTeam].Add(homeTeamGoalsCount);
                 }
 
                 if (teams.ContainsKey(awayTeam))
                 {
-                    teams[awayTeam][0] += pointsForAwayTeam;
-                    teams[awayTeam][1] += awayTeamGoals;
+                    teams[awayTeam][0] += awayTeamPointsCount;
+                    teams[awayTeam][1] += awayTeamGoalsCount;
                 }
                 else
                 {
                     teams[awayTeam] = new List<long>();
-                    teams[awayTeam].Add(pointsForAwayTeam);
-                    teams[awayTeam].Add(awayTeamGoals);
+                    teams[awayTeam].Add(awayTeamPointsCount);
+                    teams[awayTeam].Add(awayTeamGoalsCount);
                 }
 
                 command = Console.ReadLine();
@@ -82,17 +82,16 @@ namespace _03_FootballLeague
 
             Console.WriteLine("League standings:");
             int counter = 1;
-
-            foreach (KeyValuePair<string, List<long>> pair in teams.OrderByDescending(t => t.Value[0]).ThenBy(t => t.Key))
+            foreach (KeyValuePair<string, List<long>> team in teams.OrderByDescending(t => t.Value[0]).ThenBy(t => t.Key))
             {
-                Console.WriteLine("{0}. {1} {2}", counter, pair.Key, pair.Value[0]);
+                Console.WriteLine("{0}. {1} {2}", counter, team.Key, team.Value[0]);
                 counter++;
             }
 
             Console.WriteLine("Top 3 scored goals:");
-            foreach (var pair in teams.OrderByDescending(t => t.Value[1]).ThenBy(t => t.Key).Take(3))
+            foreach (KeyValuePair<string, List<long>> team in teams.OrderByDescending(t => t.Value[1]).ThenBy(t => t.Key).Take(3))
             {
-                Console.WriteLine("- {0} -> {1}", pair.Key, pair.Value[1]);
+                Console.WriteLine("- {0} -> {1}", team.Key, team.Value[1]);
             }
         }
     }
