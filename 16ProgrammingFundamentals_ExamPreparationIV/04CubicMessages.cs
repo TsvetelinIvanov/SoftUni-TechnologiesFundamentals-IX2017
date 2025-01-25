@@ -11,8 +11,8 @@ namespace _04CubicMessages
             string input = Console.ReadLine();
             while (input != "Over!")
             {
-                int m = int.Parse(Console.ReadLine());
-                string pattern = @"^(\d+)([a-zA-Z]{" + m + @"})([^a-zA-Z]*)$";
+                int lettersCount = int.Parse(Console.ReadLine());
+                string pattern = @"^(\d+)([a-zA-Z]{" + lettersCount + @"})([^a-zA-Z]*)$";
                 Match match = Regex.Match(input, pattern);
                 if (match.Success)
                 {
@@ -23,14 +23,14 @@ namespace _04CubicMessages
                         indexesString += matchIndexes[i];
                     }
 
-                    string indexesStringAndSpaces = string.Empty;
+                    string indexesAndSpacesString = string.Empty;
                     for (int i = 0; i < indexesString.Length; i++)
                     {
-                        indexesStringAndSpaces += indexesString[i] + " ";
+                        indexesAndSpacesString += indexesString[i] + " ";
                     }
 
-                    indexesStringAndSpaces = indexesStringAndSpaces.Trim();
-                    int[] indexes = indexesStringAndSpaces.Split().Select(int.Parse).ToArray();
+                    indexesAndSpacesString = indexesAndSpacesString.Trim();
+                    int[] indexes = indexesAndSpacesString.Split().Select(int.Parse).ToArray();
                     string message = match.Groups[2].Value;
                     Console.Write(message + " == ");
                     for (int i = 0; i < indexes.Length; i++)
