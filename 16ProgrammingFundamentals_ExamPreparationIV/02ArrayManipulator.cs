@@ -2,14 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _02ArrayManipulator//in this case the zero is an even number (in Judge tests), without zero - (//) use comments!
+namespace _02ArrayManipulator//in this case a zero is an even number (in Judge tests), without zero - (//) use comments!
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] array = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] array = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToArray();
             string input = string.Empty;
             while ((input = Console.ReadLine()) != "end")
@@ -18,14 +17,14 @@ namespace _02ArrayManipulator//in this case the zero is an even number (in Judge
                 switch (commands[0])
                 {
                     case "exchange":
-                        int indexExchange = int.Parse(commands[1]);
-                        if (indexExchange < 0 || indexExchange >= array.Length)
+                        int exchangeIndex = int.Parse(commands[1]);
+                        if (exchangeIndex < 0 || exchangeIndex >= array.Length)
                         {
                             Console.WriteLine("Invalid index");
                         }
                         else
                         {
-                            array = ExchangeArray(array, indexExchange);
+                            array = ExchangeArray(array, exchangeIndex);
                         }
 
                         break;
@@ -61,11 +60,11 @@ namespace _02ArrayManipulator//in this case the zero is an even number (in Judge
                         {
                             if (commands[2] == "even")
                             {
-                                PrintNFirstEvenElements(array, firstElementsCount);
+                                PrintFirstEvenElements(array, firstElementsCount);
                             }
                             else if (commands[2] == "odd")
                             {
-                                PrintNFirstOddElements(array, firstElementsCount);
+                                PrintFirstOddElements(array, firstElementsCount);
                             }
                         }
 
@@ -80,11 +79,11 @@ namespace _02ArrayManipulator//in this case the zero is an even number (in Judge
                         {
                             if (commands[2] == "even")
                             {
-                                PrintNLastEvenElements(array, lastElementsCount);
+                                PrintLastEvenElements(array, lastElementsCount);
                             }
                             else if (commands[2] == "odd")
                             {
-                                PrintNLastOddElements(array, lastElementsCount);
+                                PrintLastOddElements(array, lastElementsCount);
                             }
                         }
 
@@ -95,18 +94,18 @@ namespace _02ArrayManipulator//in this case the zero is an even number (in Judge
             Console.WriteLine($"[{string.Join(", ", array)}]");
         }
 
-        private static int[] ExchangeArray(int[] array, int indexExchange)
+        private static int[] ExchangeArray(int[] array, int exchangeIndex)
         {
-            int[] arrayTaked = array.Take(indexExchange + 1).ToArray();
-            int[] arrayRest = array.Skip(indexExchange + 1).ToArray();
-            for (int i = 0; i < arrayRest.Length; i++)
+            int[] tacked = array.Take(exchangeIndex + 1).ToArray();
+            int[] rest = array.Skip(exchangeIndex + 1).ToArray();
+            for (int i = 0; i < rest.Length; i++)
             {
-                array[i] = arrayRest[i];
+                array[i] = rest[i];
             }
 
-            for (int i = 0; i < arrayTaked.Length; i++)
+            for (int i = 0; i < taked.Length; i++)
             {
-                array[i + arrayRest.Length] = arrayTaked[i];
+                array[i + rest.Length] = taked[i];
             }
 
             return array;
@@ -204,72 +203,72 @@ namespace _02ArrayManipulator//in this case the zero is an even number (in Judge
             }                
         }
 
-        private static void PrintNFirstEvenElements(int[] array, int countOfNFirstElements)
+        private static void PrintFirstEvenElements(int[] array, int firstElementsCount)
         {
-            List<int> firstNEvenElementsInArray = new List<int>();
-            int[] evenElementsInArray = array.Where(x => x % 2 == 0).ToArray();
-            for (int i = 0; i < Math.Min(countOfNFirstElements, evenElementsInArray.Length); i++)
+            List<int> firstEvenElements = new List<int>();
+            int[] evenElements = array.Where(e => e % 2 == 0).ToArray();
+            for (int i = 0; i < Math.Min(firstElementsCount, evenElements.Length); i++)
             {
-                //if (evenElementsInArray[i] != 0)
+                //if (evenElements[i] != 0)
                 //{
-                firstNEvenElementsInArray.Add(evenElementsInArray[i]);
+                firstEvenElements.Add(evenElements[i]);
                 //}
                 //else
                 //{
-                //    countOfNFirstElements++;
+                //    firstElementsCount++;
                 //}                    
             }
 
-            Console.WriteLine($"[{string.Join(", ", firstNEvenElementsInArray)}]");
+            Console.WriteLine($"[{string.Join(", ", firstEvenElements)}]");
         }
 
-        private static void PrintNFirstOddElements(int[] array, int countOfNFirstElements)
+        private static void PrintFirstOddElements(int[] array, int firstElementsCount)
         {
-            List<int> firstNOddElementsInArray = new List<int>();
-            int[] oddElementsInArray = array.Where(x => x % 2 != 0).ToArray();
-            for (int i = 0; i < Math.Min(countOfNFirstElements, oddElementsInArray.Length); i++)
+            List<int> firstOddElements = new List<int>();
+            int[] oddElements = array.Where(e => e % 2 != 0).ToArray();
+            for (int i = 0; i < Math.Min(firstElementsCount, oddElements.Length); i++)
             {
-                firstNOddElementsInArray.Add(oddElementsInArray[i]);
+                firstOddElements.Add(oddElements[i]);
             }
 
-            Console.WriteLine($"[{string.Join(", ", firstNOddElementsInArray)}]");
+            Console.WriteLine($"[{string.Join(", ", firstOddElements)}]");
         }
 
-        private static void PrintNLastEvenElements(int[] array, int countOfNLastElements)
+        private static void PrintLastEvenElements(int[] array, int lastElementsCount)
         {
-            List<int> lastNEvenElementsInArray = new List<int>();
-            int[] evenElementsInArray = array.Where(x => x % 2 == 0).ToArray();
-            Array.Reverse(evenElementsInArray);
-            for (int i = 0; i < Math.Min(countOfNLastElements, evenElementsInArray.Length); i++)
+            List<int> lastEvenElements = new List<int>();
+            int[] evenElements = array.Where(e => e % 2 == 0).ToArray();
+            Array.Reverse(evenElements);
+            for (int i = 0; i < Math.Min(lastElementsCount, evenElements.Length); i++)
             {
-                //if (evenElementsInArray[i] != 0)
+                //if (evenElements[i] != 0)
                 //{
-                lastNEvenElementsInArray.Add(evenElementsInArray[i]);
+                lastEvenElements.Add(evenElements[i]);
                 //}
                 //else
                 //{
-                //    countOfNLastElements++;
+                //    lastElementsCount++;
                 //}
             }
 
-            int[] arrayOfLastNEvenElementsInArray = lastNEvenElementsInArray.ToArray();
-            arrayOfLastNEvenElementsInArray = arrayOfLastNEvenElementsInArray.Reverse().ToArray();
-            Console.WriteLine($"[{string.Join(", ", arrayOfLastNEvenElementsInArray)}]");
+            int[] arrayOfLastEvenElements = lastEvenElements.ToArray();
+            arrayOfLastEvenElements = arrayOfLastEvenElements.Reverse().ToArray();
+            Console.WriteLine($"[{string.Join(", ", arrayOfLastEvenElements)}]");
         }
 
-        private static void PrintNLastOddElements(int[] array, int countOfNLastElements)
+        private static void PrintLastOddElements(int[] array, int lastElementsCount)
         {
-            List<int> LastNOddElementsInArray = new List<int>();
-            int[] oddElementsInArray = array.Where(x => x % 2 != 0).ToArray();
-            Array.Reverse(oddElementsInArray);
-            for (int i = 0; i < Math.Min(countOfNLastElements, oddElementsInArray.Length); i++)
+            List<int> lastOddElements = new List<int>();
+            int[] oddElements = array.Where(e => e % 2 != 0).ToArray();
+            Array.Reverse(oddElements);
+            for (int i = 0; i < Math.Min(lastElementsCount, oddElements.Length); i++)
             {
-                LastNOddElementsInArray.Add(oddElementsInArray[i]);
+                lastOddElements.Add(oddElements[i]);
             }
 
-            int[] arrayOfLastNOddElementsInArray = LastNOddElementsInArray.ToArray();
-            arrayOfLastNOddElementsInArray = arrayOfLastNOddElementsInArray.Reverse().ToArray();
-            Console.WriteLine($"[{string.Join(", ", arrayOfLastNOddElementsInArray)}]");
+            int[] arrayOfLastOddElements = lastOddElements.ToArray();
+            arrayOfLastOddElements = arrayOfLastOddElements.Reverse().ToArray();
+            Console.WriteLine($"[{string.Join(", ", arrayOfLastOddElements)}]");
         }                                               
     }
 }
