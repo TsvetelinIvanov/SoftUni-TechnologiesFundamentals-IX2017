@@ -8,14 +8,15 @@ namespace _04TrifonsQuest
         static void Main(string[] args)
         {
             long health = long.Parse(Console.ReadLine());
-            int[] mapDimensions = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] dimensions = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToArray();
-            int rowsCount = mapDimensions[0];
-            int colsCount = mapDimensions[1];
+            int rowsCount = dimensions[0];
+            int colsCount = dimensions[1];
+            
             char[][] map = new char[rowsCount][];
             int row = 0;
             int col = 0;
-            int turns = 0;
+            int turnsCount = 0;
             
             for (int i = 0; i < rowsCount; i++)
             {
@@ -29,7 +30,7 @@ namespace _04TrifonsQuest
                     switch (map[j][i])
                     {
                         case 'F':
-                            health -= turns / 2;
+                            health -= turnsCount / 2;
                             if (health <= 0)
                             {
                                 row = j;
@@ -37,34 +38,38 @@ namespace _04TrifonsQuest
                                 break;
                             }
 
-                            turns++;
+                            turnsCount++;
                             break;
                         case 'H':
-                            health += turns / 3;
-                            turns++;
+                            health += turnsCount / 3;
+                            turnsCount++;
                             break;
                         case 'T':
-                            turns += 2;
-                            turns++;
+                            turnsCount += 2;
+                            turnsCount++;
                             break;
                         case 'E':
-                            turns++;
+                            turnsCount++;
                             break;
                     }
 
                     if (health <= 0)
+                    {
                         break;
+                    }
                 }
 
                 if (health <= 0)
+                {
                     break;
-            }            
+                }
+            }
 
             if (health > 0)
             {
                 Console.WriteLine("Quest completed!");
                 Console.WriteLine("Health: " + health);
-                Console.WriteLine("Turns: " + turns);
+                Console.WriteLine("Turns: " + turnsCount);
             }
             else
             {
