@@ -25,6 +25,7 @@ namespace _02SoftUniCoffeeOrders
             DateTime date = DateTime.ParseExact(dateString, "d/M/yyyy", CultureInfo.InvariantCulture);
             decimal daysInMoth = DateTime.DaysInMonth(date.Year, date.Month);
             decimal capsulesCount = decimal.Parse(Console.ReadLine());
+            
             decimal price = (daysInMoth * capsulesCount) * pricePerCapsule;
             Console.WriteLine($"The price for the coffee is: ${price:f2}");
 
