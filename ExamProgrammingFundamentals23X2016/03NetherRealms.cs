@@ -9,16 +9,15 @@ namespace _03NetherRealms
         static void Main(string[] args)
         {
             SortedDictionary<string, string> demons = new SortedDictionary<string, string>();
-            string[] demonNames = Console.ReadLine()
-                .Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] demonNames = Console.ReadLine().Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string demonName in demonNames)
             {
                 int demonHealth = GetDemonHealth(demonName);
                 double demonDamage = GetDemonDamage(demonName);
-                string demonStats = $" - {demonHealth} health, {demonDamage:f2} damage";
+                string demonStatsString = $" - {demonHealth} health, {demonDamage:f2} damage";
                 if (!demons.ContainsKey(demonName))
                 {
-                    demons[demonName] = demonStats;
+                    demons[demonName] = demonStatsString;
                 }
             }
 
