@@ -7,24 +7,24 @@ namespace _01CharityMarathon
         static void Main(string[] args)
         {
             int marathonLengthInDaysCount = int.Parse(Console.ReadLine());
-            int volunteerForRunersCount = int.Parse(Console.ReadLine());
-            int averageLapsByRuner = int.Parse(Console.ReadLine());
+            int volunteersCount = int.Parse(Console.ReadLine());
+            int averageLapsByRunner = int.Parse(Console.ReadLine());
             int trackLengthInMetersCount = int.Parse(Console.ReadLine());
             int trackCapacityPerDay = int.Parse(Console.ReadLine());
             double moneyPerKilometer = double.Parse(Console.ReadLine());
 
             long trackCapacity = (long)marathonLengthInDaysCount * trackCapacityPerDay;
-            long runersCount = 0;
-            if (trackCapacity <= volunteerForRunersCount)
+            long runnersCount = 0;
+            if (trackCapacity <= volunteersCount)
             {
-                runersCount = trackCapacity;
+                runnersCount = trackCapacity;
             }
             else
             {
-                runersCount = volunteerForRunersCount;
+                runnersCount = volunteersCount;
             }
 
-            long totalMeters = runersCount * averageLapsByRuner * trackLengthInMetersCount;
+            long totalMeters = runnersCount * averageLapsByRunner * trackLengthInMetersCount;
             long totalKilometers = totalMeters / 1000;
             double raisedMoney = moneyPerKilometer * totalKilometers;
 
