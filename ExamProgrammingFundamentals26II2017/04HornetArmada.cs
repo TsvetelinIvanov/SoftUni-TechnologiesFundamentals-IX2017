@@ -8,32 +8,31 @@ namespace _04HornetArmada
     {
         static void Main(string[] args)
         {
-            Dictionary<string, Dictionary<string, long>> soldierTypeAndCountLegions =
-                new Dictionary<string, Dictionary<string, long>>();
+            Dictionary<string, Dictionary<string, long>> legions = new Dictionary<string, Dictionary<string, long>>();
             Dictionary<string, int> legionLastActivities = new Dictionary<string, int>();
+            
             int legionDataCount = int.Parse(Console.ReadLine());
             for (int i = 0; i < legionDataCount; i++)
             {
-                string[] legionData = Console.ReadLine()
-                    .Split(new char[] { ' ', '=', '-', '>', ':' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] legionData = Console.ReadLine().Split(new char[] { ' ', '=', '-', '>', ':' }, StringSplitOptions.RemoveEmptyEntries);
                 int activity = int.Parse(legionData[0]);
                 string name = legionData[1];
                 string type = legionData[2];
                 long count = long.Parse(legionData[3]);
-                if (!soldierTypeAndCountLegions.ContainsKey(name))
+                if (!legions.ContainsKey(name))
                 {
-                    soldierTypeAndCountLegions.Add(name, new Dictionary<string, long>());
-                    soldierTypeAndCountLegions[name].Add(type, count);
+                    legions.Add(name, new Dictionary<string, long>());
+                    legions[name].Add(type, count);
                 }
                 else
                 {
-                    if (!soldierTypeAndCountLegions[name].ContainsKey(type))
+                    if (!legions[name].ContainsKey(type))
                     {
-                        soldierTypeAndCountLegions[name].Add(type, count);
+                        legions[name].Add(type, count);
                     }
                     else
                     {
-                        soldierTypeAndCountLegions[name][type] += count;
+                        legions[name][type] += count;
                     }
                 }
 
@@ -50,15 +49,15 @@ namespace _04HornetArmada
                 }
             }
 
-            string comandLine = Console.ReadLine();
-            if (comandLine.Contains("\\"))
+            string commandLine = Console.ReadLine();
+            if (commandLine.Contains("\\"))
             {
-                string[] comands = comandLine.Split('\\');
-                int activity = int.Parse(comands[0]);
-                string soldierType = comands[1];
-                foreach (KeyValuePair<string, Dictionary<string, long>> legion in soldierTypeAndCountLegions.Where(x => x.Value.ContainsKey(soldierType)).OrderByDescending(x => x.Value[soldierType]))
+                string[] commandData = comandLine.Split('\\');
+                int activity = int.Parse(commandData[0]);
+                string soldierType = commandData[1];
+                foreach (KeyValuePair<string, Dictionary<string, long>> legion in legions.Where(l => l.Value.ContainsKey(soldierType)).OrderByDescending(l => l.Value[soldierType]))
                 {
-                    if (legionLastActivities[legion.Key] < activity && soldierTypeAndCountLegions[legion.Key].ContainsKey(soldierType))
+                    if (legionLastActivities[legion.Key] < activity && legions[legion.Key].ContainsKey(soldierType))
                     {
                         Console.WriteLine("{0} -> {1}", legion.Key, legion.Value[soldierType]);
                     }
@@ -67,9 +66,9 @@ namespace _04HornetArmada
             else
             {
                 string soldierType = comandLine;
-                foreach (KeyValuePair<string, int> lastActivity in legionLastActivities.OrderByDescending(x => x.Value))
+                foreach (KeyValuePair<string, int> lastActivity in legionLastActivities.OrderByDescending(a => a.Value))
                 {
-                    if (soldierTypeAndCountLegions[lastActivity.Key].ContainsKey(soldierType))
+                    if (legions[lastActivity.Key].ContainsKey(soldierType))
                     {
                         Console.WriteLine($"{lastActivity.Value} : {lastActivity.Key}");
                     }
