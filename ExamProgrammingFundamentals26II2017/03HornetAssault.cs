@@ -8,11 +8,9 @@ namespace _03HornetAssault
     {
         static void Main(string[] args)
         {
-            long[] beehives = Console.ReadLine()
-                 .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            long[] beehives = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                  .Select(long.Parse).ToArray();
-            List<long> hornets = Console.ReadLine()
-                  .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            List<long> hornets = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                   .Select(long.Parse).ToList();
 
             for (int i = 0; i < beehives.Length; i++)
