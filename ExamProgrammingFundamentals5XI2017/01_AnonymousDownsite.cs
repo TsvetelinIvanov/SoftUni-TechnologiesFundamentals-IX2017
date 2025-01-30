@@ -11,15 +11,16 @@ namespace _01_AnonymousDownsite
             int n = int.Parse(Console.ReadLine());
             int key = int.Parse(Console.ReadLine());
             BigInteger securityToken = BigInteger.Pow(new BigInteger(key), n);
+            
             List<string> websiteNames = new List<string>();
             decimal totalLoss = 0;
             for (int i = 0; i < n; i++)
             {
-                string[] websitesData = Console.ReadLine().Split(new char[] { ' ' },
-                    StringSplitOptions.RemoveEmptyEntries);
-                string websiteName = websitesData[0];
+                string[] websiteData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string websiteName = websiteData[0];
                 websiteNames.Add(websiteName);
-                decimal loss = CalculateLoss(websitesData);
+                
+                decimal loss = CalculateLoss(websiteData);
                 totalLoss += loss;
             }
 
@@ -28,9 +29,9 @@ namespace _01_AnonymousDownsite
             Console.WriteLine("Security Token: " + securityToken);
         }
                 
-        private static decimal CalculateLoss(string[] websitesData)
+        private static decimal CalculateLoss(string[] websiteData)
         {
-            decimal loss = decimal.Parse(websitesData[1]) * decimal.Parse(websitesData[2]);
+            decimal loss = decimal.Parse(websiteData[1]) * decimal.Parse(websiteData[2]);
 
             return loss;
         }
