@@ -9,17 +9,17 @@ namespace _04AnonymousCache
         static void Main(string[] args)
         {
             List<string> dataSets = new List<string>();
-            Dictionary<string, Dictionary<string, long>> dataCaches =
-                new Dictionary<string, Dictionary<string, long>>();
+            Dictionary<string, Dictionary<string, long>> dataCaches = new Dictionary<string, Dictionary<string, long>>();
+            
             string input = Console.ReadLine();
             while (input != "thetinggoesskrra")
             {
                 if (input.Contains("-") && input.Contains(">") && input.Contains("|"))
                 {
                     string[] data = input.Split(new string[] { " -> ", " | " }, StringSplitOptions.None);
-                    string set = data[2];
-                    long size = long.Parse(data[1]);
                     string key = data[0];
+                    long size = long.Parse(data[1]);
+                    string set = data[2];
                     if (!dataCaches.ContainsKey(set))
                     {
                         dataCaches.Add(set, new Dictionary<string, long>());
