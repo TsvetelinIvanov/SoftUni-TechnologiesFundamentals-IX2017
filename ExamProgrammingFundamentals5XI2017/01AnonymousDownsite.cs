@@ -8,9 +8,9 @@ namespace _01AnonymousDownsite
     {
         static void Main(string[] args)
         {
-            BigInteger power = BigInteger.Parse(Console.ReadLine());
+            BigInteger n = BigInteger.Parse(Console.ReadLine());
             BigInteger key = BigInteger.Parse(Console.ReadLine());
-            BigInteger securityToken = Power(key, power);
+            BigInteger securityToken = Power(key, n);
             
             List<string> websiteNames = new List<string>();
             decimal totalLoss = 0;
