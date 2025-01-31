@@ -54,7 +54,6 @@ namespace _04PokemonEvolution
                     string evolutionType = DoFormerEvolutionType(evolutionData.Key);
                     Console.WriteLine($"{evolutionType} <-> {evolutionData.Value}");
                 }
-
             }
         }
 
