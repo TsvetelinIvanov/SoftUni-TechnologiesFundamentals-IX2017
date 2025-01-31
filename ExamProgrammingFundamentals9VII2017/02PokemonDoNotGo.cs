@@ -8,35 +8,33 @@ namespace _02PokemonDoNotGo
     {
         static void Main(string[] args)
         {
-            List<int> pokemons = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            List<int> pokemons = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToList();
             long sum = 0;
             while (pokemons.Count > 0)
             {
                 int index = int.Parse(Console.ReadLine());
-                int value = 0;
+                int pokemon = 0;
                 if (index < 0)
                 {
-                    value = pokemons[0];
+                    pokemon = pokemons[0];
                     sum += pokemons[0];
                     pokemons[0] = pokemons[pokemons.Count - 1];
                 }
                 else if (index >= pokemons.Count)
                 {
-                    value = pokemons[pokemons.Count - 1];
+                    pokemon = pokemons[pokemons.Count - 1];
                     sum += pokemons[pokemons.Count - 1];
                     pokemons[pokemons.Count - 1] = pokemons[0];
                 }
                 else
                 {
-                    value = pokemons[index];
+                    pokemon = pokemons[index];
                     sum += pokemons[index];
                     pokemons.RemoveAt(index);
                 }
 
-                IncreaseOrDecrease(pokemons, value);
-
+                IncreaseOrDecrease(pokemons, pokemon);
             }
 
             Console.WriteLine(sum);
