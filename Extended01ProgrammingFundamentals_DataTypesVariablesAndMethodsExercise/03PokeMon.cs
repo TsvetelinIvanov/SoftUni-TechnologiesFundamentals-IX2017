@@ -6,23 +6,24 @@ namespace _03PokeMon
     {
         static void Main(string[] args)
         {
-            int N = int.Parse(Console.ReadLine());
-            int M = int.Parse(Console.ReadLine());
-            int Y = int.Parse(Console.ReadLine());
-            int targets = 0;
-            int originalN = N;
-            while (N >= M)
+            int n = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
+            int y = int.Parse(Console.ReadLine());
+            
+            int targetsCount = 0;
+            int originalN = n;
+            while (n >= m)
             {              
-                N = N - M;
-                targets++;
-                if (N == originalN / 2.0 && Y > 0)
+                n = n - m;
+                targetsCount++;
+                if (n == originalN / 2.0 && y > 0)
                 {
-                    N = N / Y;
+                    n = n / y;
                 }
             }
 
-            Console.WriteLine(N);
-            Console.WriteLine(targets);
+            Console.WriteLine(n);
+            Console.WriteLine(targetsCount);
         }
     }
 }
