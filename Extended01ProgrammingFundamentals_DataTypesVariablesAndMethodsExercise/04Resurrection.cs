@@ -9,19 +9,19 @@ namespace _04Resurrection
             int n = int.Parse(Console.ReadLine());            
             for (int i = 0; i < n; i++)
             {
-                decimal totalYears = ReadPhoenixDataAndFindTotalYears();
-                Console.WriteLine("{0}", totalYears);
+                decimal yearsCount = ReadPhoenixDataAndCalculateYears();
+                Console.WriteLine("{0}", yearsCount);
             }
         }
 
-        private static decimal ReadPhoenixDataAndFindTotalYears()
+        private static decimal ReadPhoenixDataAndCalculateYears()
         {
             long bodyLength = long.Parse(Console.ReadLine());
             decimal bodyWidth = decimal.Parse(Console.ReadLine());
             long wingLength = long.Parse(Console.ReadLine());
-            decimal totalYears = (bodyLength * bodyLength) * (bodyWidth + (2 * wingLength));
+            decimal yearsCount = (bodyLength * bodyLength) * (bodyWidth + (2 * wingLength));
 
-            return totalYears;
+            return yearsCount;
         }
     }
 }
