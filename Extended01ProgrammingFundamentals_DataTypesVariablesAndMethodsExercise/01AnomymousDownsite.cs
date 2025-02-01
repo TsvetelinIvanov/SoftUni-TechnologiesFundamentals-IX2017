@@ -11,15 +11,16 @@ namespace _01AnomymousDownsite
             BigInteger n = BigInteger.Parse(Console.ReadLine());
             BigInteger key = BigInteger.Parse(Console.ReadLine());
             BigInteger securityToken = Power(key, n);
+            
             List<string> websiteNames = new List<string>();
             decimal totalLoss = 0;
             for (int i = 0; i < n; i++)
             {
-                string[] websitesData = Console.ReadLine().Split(new char[] { ' ' },
-                    StringSplitOptions.RemoveEmptyEntries);
-                string websiteName = websitesData[0];
+                string[] websiteData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string websiteName = websiteData[0];
                 websiteNames.Add(websiteName);
-                decimal loss = CalculateLoss(websitesData);
+                
+                decimal loss = CalculateLoss(websiteData);
                 totalLoss += loss;
             }
 
@@ -28,10 +29,10 @@ namespace _01AnomymousDownsite
             Console.WriteLine("Security Token: " + securityToken);
         }
 
-        private static BigInteger Power(BigInteger key, BigInteger n)
+        private static BigInteger Power(BigInteger key, BigInteger power)
         {
             BigInteger powered = 1;
-            for (int i = 1; i <= n; i++)
+            for (int i = 1; i <= power; i++)
             {
                 powered *= key;
             }
@@ -39,9 +40,9 @@ namespace _01AnomymousDownsite
             return powered;
         }
 
-        private static decimal CalculateLoss(string[] websitesData)
+        private static decimal CalculateLoss(string[] websiteData)
         {
-            decimal loss = decimal.Parse(websitesData[1]) * decimal.Parse(websitesData[2]);
+            decimal loss = decimal.Parse(websiteData[1]) * decimal.Parse(websiteData[2]);
 
             return loss;
         }
