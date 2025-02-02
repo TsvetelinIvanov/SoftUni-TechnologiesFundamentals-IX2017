@@ -8,11 +8,9 @@ namespace _04HornetAssault
     {
         static void Main(string[] args)
         {
-            long[] beehives = Console.ReadLine()
-                 .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            long[] beehives = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                  .Select(long.Parse).ToArray();
-            List<long> hornets = Console.ReadLine()
-                  .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            List<long> hornets = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                   .Select(long.Parse).ToList();
 
             for (int i = 0; i < beehives.Length; i++)
@@ -29,13 +27,19 @@ namespace _04HornetAssault
                 }
 
                 if (hornets.Sum() == 0)
+                {
                     break;
+                }
             }
 
             if (beehives.Sum() > 0)
-                Console.WriteLine(string.Join(" ", beehives.Where(x => x > 0)));
+            {
+                Console.WriteLine(string.Join(" ", beehives.Where(b => b > 0)));
+            }
             else
-                Console.WriteLine(string.Join(" ", hornets.Where(x => x > 0)));
+            {
+                Console.WriteLine(string.Join(" ", hornets.Where(h => h > 0)));
+            }
         }
     }
 }
