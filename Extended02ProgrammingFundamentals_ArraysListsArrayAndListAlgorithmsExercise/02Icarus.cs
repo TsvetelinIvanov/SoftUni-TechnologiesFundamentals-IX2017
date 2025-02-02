@@ -7,16 +7,15 @@ namespace _02Icarus
     {
         static void Main(string[] args)
         {
-            int[] plane = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] plane = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToArray();
             int startPosition = int.Parse(Console.ReadLine());
-            string[] command = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] commandData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             int damage = 1;
             while (command[0] != "Supernova")
             {                
-                string direction = command[0];
-                int stepsCount = int.Parse(command[1]);
+                string direction = commandData[0];
+                int stepsCount = int.Parse(commandData[1]);
                 if (direction == "left")
                 {
                     for (int i = stepsCount; i > 0; i--)
@@ -35,7 +34,7 @@ namespace _02Icarus
                 }
                 else if (direction == "right")
                 {
-                    while (stepsCount-- > 0)//== while (steps > 0) steps--;
+                    while (stepsCount-- > 0)//== while (stepsCount > 0) stepsCount--;
                     {
                         if (startPosition == plane.Length - 1)
                         {
@@ -50,7 +49,7 @@ namespace _02Icarus
                     }
                 }
 
-                command = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                commandData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             }
 
             Console.WriteLine(string.Join(" ", plane));
