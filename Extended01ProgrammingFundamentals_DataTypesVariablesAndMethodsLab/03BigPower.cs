@@ -7,17 +7,17 @@ namespace _03BigPower
     {
         static void Main(string[] args)
         {
-            BigInteger n = BigInteger.Parse(Console.ReadLine());
-            BigInteger poweredN = Power(n);
-            Console.WriteLine(poweredN);
+            BigInteger number = BigInteger.Parse(Console.ReadLine());
+            BigInteger poweredNumber = Power(number);
+            Console.WriteLine(poweredNumber);
         }
 
-        private static BigInteger Power(BigInteger n)
+        private static BigInteger Power(BigInteger number)
         {
             BigInteger powered = 1;
-            for (int i = 1; i <= n; i++)
+            for (int i = 1; i <= number; i++)
             {
-                powered *= n;
+                powered *= number;
             }
 
             return powered;
