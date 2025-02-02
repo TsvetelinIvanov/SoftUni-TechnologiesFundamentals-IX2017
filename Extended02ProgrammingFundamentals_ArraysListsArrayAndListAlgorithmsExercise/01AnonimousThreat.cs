@@ -8,40 +8,43 @@ namespace _01AnonimousThreat
     {
         static void Main(string[] args)
         {
-            List<string> data = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .ToList();
+            List<string> data = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
            
             string commandLine = Console.ReadLine();
             while (commandLine != "3:1")
             {
-                string[] commands = commandLine.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (commands[0] == "merge")
+                string[] commandData = commandLine.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (commandData[0] == "merge")
                 {
-                    int startIndex = int.Parse(commands[1]);
-                    int endIndex = int.Parse(commands[2]);
-                    string indexSum = string.Empty;
+                    int startIndex = int.Parse(commandData[1]);
+                    int endIndex = int.Parse(commandData[2]);
+                    string merged = string.Empty;
                     if (startIndex < 0 || startIndex > data.Count - 1)
+                    {
                         startIndex = 0;
+                    }
 
                     if (endIndex < 0 || endIndex > data.Count - 1)
+                    {
                         endIndex = data.Count - 1;
+                    }
 
                     for (int i = startIndex; i <= endIndex; i++)
                     {                       
-                        indexSum += data[i];
+                        merged += data[i];
                     }
 
                     data.RemoveRange(startIndex, endIndex - startIndex + 1);
-                    data.Insert(startIndex, indexSum);
+                    data.Insert(startIndex, merged);
                 }
-                else if (commands[0] == "divide")
+                else if (commandData[0] == "divide")
                 {
-                    int index = int.Parse(commands[1]);
-                    int partitionsCount = int.Parse(commands[2]);
-                    List<string> resultByDividing = DivideElement(data[index], partitionsCount);
+                    int index = int.Parse(commandData[1]);
+                    int partitionsCount = int.Parse(commandData[2]);
+                    List<string> dividedElementPartitions = DivideElement(data[index], partitionsCount);
+                    
                     data.RemoveAt(index);
-                    data.InsertRange(index, resultByDividing);
+                    data.InsertRange(index, dividedElementPartitions);
                 }
 
                 commandLine = Console.ReadLine();
@@ -50,33 +53,37 @@ namespace _01AnonimousThreat
             Console.WriteLine(string.Join(" ", data));
         }
 
-        private static List<string> DivideElement(string word, int divide)
+        private static List<string> DivideElement(string word, int partitionsCount)
         {
-            int partitionLength = word.Length / divide;
-            List<string> resultByDividing = new List<string>();
-            //while (word.Length >= partitionsCount)
+            int partitionLength = word.Length / partitionsCount;
+            List<string> dividedElementPartitions = new List<string>();
+            //while (word.Length >= partitionLength)
             //{
-            //    string element = word.Substring(0, partitionsCount);
-            //    resultByDividing.Add(element);
-            //    word = word.Substring(partitionsCount);
+            //    string partition = word.Substring(0, partitionLenght);
+            //    dividedElementPartitions.Add(partition);
+            //    word = word.Substring(partitionLength);
             //}
-            for (int i = 0; i < divide; i++)
+            for (int i = 0; i < partitionsCount; i++)
             {
-                string element = word.Substring(0, partitionLength);
-                resultByDividing.Add(element);
+                string partition = word.Substring(0, partitionLength);
+                resultByDividing.Add(partition);
                 word = word.Substring(partitionLength);
             }
 
-            resultByDividing[resultByDividing.Count - 1] += word;
+            dividedElementPartitions[dividedElementPartitions.Count - 1] += word;
 
-            return resultByDividing;
+            return dividedElementPartitions;
             //or
-            //if (word == string.Empty)         
-            //return resultByDividing;
+            //if (word == string.Empty)
+            //{
+            //    return dividedElementPartitions;
+            //}
+        
             //else
             //{
-            //    resultByDividing[resultByDividing.Count - 1] += word;
-            //    return resultByDividing;                
+            //    dividedElementPartitions[dividedElementPartitions.Count - 1] += word;
+            
+            //    return dividedElementPartitions;                
             //}
         }
     }
