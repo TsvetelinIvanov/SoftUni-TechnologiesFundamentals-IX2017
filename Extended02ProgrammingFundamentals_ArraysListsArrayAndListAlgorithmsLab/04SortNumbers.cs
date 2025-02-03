@@ -8,13 +8,10 @@ namespace _04SortNumbers
     {
         static void Main(string[] args)
         {
-            List<double> numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(double.Parse)
-                .ToList();
+            List<double> numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse).ToList();
 
-            numbers.Sort();
-            
+            numbers.Sort();            
             Console.WriteLine(string.Join(" <= ", numbers));
         }
     }
