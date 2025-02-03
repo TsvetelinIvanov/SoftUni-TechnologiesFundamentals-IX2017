@@ -7,31 +7,29 @@ namespace _01RotateArrayOfStrings
     {
         static void Main(string[] args)
         {
-            string[] array = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
-            string[] rotated = new string[array.Length];
+            string[] array = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            string[] rotatedArray = new string[array.Length];
             for (int i = 0; i < array.Length - 1; i++)
             {
-                rotated[i + 1] = array[i];
+                rotatedArray[i + 1] = array[i];
             }
 
-            string lastElement = array[array.Length - 1];
-            rotated[0] = lastElement;
-            Console.WriteLine(string.Join(" ", rotated));
+            string rotatedElement = array[array.Length - 1];
+            rotated[0] = rotatedElement;
+            Console.WriteLine(string.Join(" ", rotatedArray));
 
-            // if we wont to rotate more times:
-            //string[] array = Console.ReadLine()
-            //     .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
-            //int rotations = int.Parse(Console.ReadLine());
-            //for (int i = 0; i < rotations % array.Length; i++)
+            // If we wont to rotate more times:
+            //string[] array = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            //int rotationsCount = int.Parse(Console.ReadLine());
+            //for (int i = 0; i < rotationsCount % array.Length; i++)
             //{
-            //    string temp = array[array.Length - 1];
+            //    string rotatedElement = array[array.Length - 1];
             //    for (int j = array.Length - 1; j >= 1; j--)
             //    {
             //        array[j] = array[j - 1];
             //    }
 
-            //    array[0] = temp;
+            //    array[0] = rotatedElement;
             //}
 
             //Console.WriteLine(string.Join(" ", array));
