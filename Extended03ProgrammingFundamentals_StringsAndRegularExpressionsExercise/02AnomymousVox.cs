@@ -9,14 +9,14 @@ namespace _02AnomymousVox
         {
             string pattern = @"([A-Za-z]+)(.*)(\1)";
             string text = Console.ReadLine();
-            string[] placeholders = Console.ReadLine().Split("{}".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            //string[] placeholders = Regex.Split(Console.ReadLine(), "[{}]").Where(e => e != "").ToArray();
+            string[] replacements = Console.ReadLine().Split("{}".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            //string[] replacements = Regex.Split(Console.ReadLine(), "[{}]").Where(r => r != "").ToArray();
             MatchCollection matches = Regex.Matches(text, pattern);
             int count = 0;
-            foreach (Match item in matches)
+            foreach (Match match in matches)
             {
-                string newValue = item.Groups[1] + placeholders[count++] + item.Groups[3];
-                text = text.Replace(item.Value, newValue);                
+                string replacement = match.Groups[1] + replacements[count++] + match.Groups[3];
+                text = text.Replace(match.Value, replacement);                
             }
 
             Console.WriteLine(text);
