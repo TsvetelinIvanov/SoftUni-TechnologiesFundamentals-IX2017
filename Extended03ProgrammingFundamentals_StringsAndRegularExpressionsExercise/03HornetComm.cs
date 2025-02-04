@@ -14,29 +14,31 @@ namespace _03HornetComm
             List<string> messages = new List<string>();
             List<string> broadcasts = new List<string>();
 
-            string queries = Console.ReadLine();
-            while (queries != "Hornet is Green")
+            string query = Console.ReadLine();
+            while (query != "Hornet is Green")
             {
-                if (Regex.IsMatch(queries, messagePattern))
+                if (Regex.IsMatch(query, messagePattern))
                 {
-                    Match match = Regex.Match(queries, messagePattern);
+                    Match match = Regex.Match(query, messagePattern);
                     string recipient = match.Groups[1].Value;
                     recipient = Reverse(recipient);
                     string message = match.Groups[2].Value;
+                    
                     string privateMessage = recipient + " -> " + message;
                     messages.Add(privateMessage);
                 }
-                else if (Regex.IsMatch(queries, broadcastPattern))
+                else if (Regex.IsMatch(query, broadcastPattern))
                 {
-                    Match match = Regex.Match(queries, broadcastPattern);
+                    Match match = Regex.Match(query, broadcastPattern);
                     string frequency = match.Groups[2].Value;
                     frequency = SwapCapitalAndSmallLetters(frequency);
                     string message = match.Groups[1].Value;
+                    
                     string broadcast = frequency + " -> " + message;
                     broadcasts.Add(broadcast);
                 }                
 
-                queries = Console.ReadLine();
+                query = Console.ReadLine();
             }            
             
             Console.WriteLine("Broadcasts:");
@@ -62,9 +64,9 @@ namespace _03HornetComm
 
         private static string Reverse(string recipient)
         {
-            char[] recipientChar = recipient.ToCharArray();
-            Array.Reverse(recipientChar);
-            recipient = new String(recipientChar);
+            char[] recipientCharacters = recipient.ToCharArray();
+            Array.Reverse(recipientCharacters);
+            recipient = new String(recipientCharacters);
 
             return recipient;
         }
