@@ -8,14 +8,14 @@ namespace PhoenixGird
         static void Main(string[] args)
         {
             string pattern = @"^[^\s_]{3}(\.[^\s_]{3})*$";
-            string phrases = Console.ReadLine();
-            while (phrases != "ReadMe")
+            string phrase = Console.ReadLine();
+            while (phrase != "ReadMe")
             {
-                //or if (Regex.IsMatch(phrases, pattern))
-                Match match = Regex.Match(phrases, pattern);
+                //if (Regex.IsMatch(phrase, pattern))
+                Match match = Regex.Match(phrase, pattern);
                 if (match.Success)
                 {
-                    //or if (IsPalindrome(phrases))
+                    //if (IsPalindrome(phrase))
                     if (IsPalindrome(match.Value))
                     {
                         Console.WriteLine("YES");
@@ -30,11 +30,11 @@ namespace PhoenixGird
                     Console.WriteLine("NO");
                 }
 
-                phrases = Console.ReadLine();
+                phrase = Console.ReadLine();
             }
         }
 
-        static bool IsPalindrome(string phrase)
+        private static bool IsPalindrome(string phrase)
         {
             bool isPalindrome = true;
             for (int i = 0; i < phrase.Length / 2; i++)
@@ -53,7 +53,7 @@ namespace PhoenixGird
             return isPalindrome;
         }
 
-        //static bool IsPalindrome(string phrase)
+        //private static bool IsPalindrome(string phrase)
         //{
         //    for (int i = 0; i < phrase.Length / 2; i++)
         //    {
