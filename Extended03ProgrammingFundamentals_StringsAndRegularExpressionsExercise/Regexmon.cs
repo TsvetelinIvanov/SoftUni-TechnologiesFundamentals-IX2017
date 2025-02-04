@@ -9,6 +9,7 @@ namespace Regexmon
         {
             string bojoPattern = @"([A-Za-z]+\-[A-Za-z]+)";
             string didiPattern = @"([^A-Za-z-]+)";
+            
             string input = Console.ReadLine();
             while (true)
             {                
@@ -34,7 +35,7 @@ namespace Regexmon
                     break;
                 }
 
-                //if we wish to remove the match and remain the remainder before the match:
+                //If we wish to remove the match and remain the remainder before the match:
                 //Match didiMatch = Regex.Match(input, didiPattern);
                 //if (didiMatch.Success)
                 //{
