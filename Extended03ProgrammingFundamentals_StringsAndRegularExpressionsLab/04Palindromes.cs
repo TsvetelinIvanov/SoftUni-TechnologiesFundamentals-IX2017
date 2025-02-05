@@ -8,14 +8,15 @@ namespace _04Palindromes
     {
         static void Main(string[] args)
         {
-            string[] words = Console.ReadLine()
-                .Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = Console.ReadLine().Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
             List<string> palindromes = new List<string>();
             foreach (string word in words)
             {
                 string reversedWord = ReverseWord(word);
                 if (word == reversedWord)
+                {
                     palindromes.Add(word);
+                }
             }
 
             palindromes = palindromes.Distinct().ToList();
@@ -25,9 +26,9 @@ namespace _04Palindromes
 
         private static string ReverseWord(string word)
         {
-            char[] chars = word.ToCharArray();
-            chars = chars.Reverse().ToArray();
-            string reversedWord = new string(chars);
+            char[] characters = word.ToCharArray();
+            characters = characters.Reverse().ToArray();
+            string reversedWord = new string(characters);
 
             return reversedWord;
         }
