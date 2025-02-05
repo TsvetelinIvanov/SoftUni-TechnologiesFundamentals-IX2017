@@ -10,10 +10,7 @@ namespace _07MatchHexadecimalNumbers
         {
             string pattern = @"\b(0x)?[0-9A-F]+\b";
             string numbers = Console.ReadLine();
-            string[] hexadecimalNumbers = Regex.Matches(numbers, pattern)
-                .Cast<Match>()
-                .Select(x => x.Value)
-                .ToArray();
+            string[] hexadecimalNumbers = Regex.Matches(numbers, pattern).Cast<Match>().Select(m => m.Value).ToArray();
             Console.WriteLine(string.Join(" ", hexadecimalNumbers));
         }
     }
