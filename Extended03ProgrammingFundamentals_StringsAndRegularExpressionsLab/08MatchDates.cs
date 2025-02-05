@@ -12,12 +12,9 @@ namespace _08MatchDates
             MatchCollection dates = Regex.Matches(datesString, pattern);
             foreach (Match date in dates)
             {                
-                Console.WriteLine($"Day: {date.Groups["day"]}, Month: {date.Groups["month"]}, " +
-                $"Year: {date.Groups["year"]}");
-                //Console.WriteLine($"Day: {date.Groups["day"].Value}, Month: {date.Groups["month"].Value}, " +
-                // $"Year: {date.Groups["year"].Value}");
-                //Console.WriteLine("Day: {0}, Month: {1}, Year: {2}", 
-                //date.Groups["day"].Value, date.Groups["month"].Value, date.Groups["year"].Value); 
+                Console.WriteLine($"Day: {date.Groups["day"]}, Month: {date.Groups["month"]}, Year: {date.Groups["year"]}");
+                //Console.WriteLine($"Day: {date.Groups["day"].Value}, Month: {date.Groups["month"].Value}, Year: {date.Groups["year"].Value}");
+                //Console.WriteLine("Day: {0}, Month: {1}, Year: {2}", date.Groups["day"].Value, date.Groups["month"].Value, date.Groups["year"].Value); 
                 //string day = date.Groups["day"].Value;
                 //string month = date.Groups["month"].Value;
                 //string year = date.Groups["year"].Value;
