@@ -11,10 +11,7 @@ namespace _06MatchPhoneNumber
             string pattern = @"(?:^| )\+359(-| )2\1\d{3}\1\d{4}\b"; 
             string phones = Console.ReadLine();
             MatchCollection phoneMatches = Regex.Matches(phones, pattern);
-            string[] matchedPhones = phoneMatches
-                .Cast<Match>()
-                .Select(x => x.Value.Trim())
-                .ToArray();
+            string[] matchedPhones = phoneMatches.Cast<Match>().Select(m => m.Value.Trim()).ToArray();
             Console.WriteLine(string.Join(", ", matchedPhones));
         }
     }
