@@ -6,8 +6,7 @@ namespace _03TextFilter
     {
         static void Main(string[] args)
         {
-            string[] bannedWords = Console.ReadLine()
-                .Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] bannedWords = Console.ReadLine().Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
             string text = Console.ReadLine();
             foreach (string bannedWord in bannedWords)
             {
