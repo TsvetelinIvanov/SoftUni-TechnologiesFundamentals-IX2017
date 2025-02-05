@@ -7,10 +7,11 @@ namespace _01ReverseString
         static void Main(string[] args)
         {
             string str = Console.ReadLine();
-            char[] charArr = str.ToCharArray();
-            Array.Reverse(charArr);
-            string reversedStr = new String(charArr);
-            Console.WriteLine(reversedStr);
+            char[] charArray = str.ToCharArray();
+            Array.Reverse(charArray);
+            
+            string reversedString = new String(charArray);
+            Console.WriteLine(reversedString);
         }
     }
 }
