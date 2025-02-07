@@ -16,9 +16,9 @@ namespace _01AnonymousCache
                 if (input.Contains("-") && input.Contains(">") && input.Contains("|"))
                 {
                     string[] data = input.Split(new string[] { " -> ", " | " }, StringSplitOptions.None);
-                    string set = data[2];
-                    long size = long.Parse(data[1]);
                     string key = data[0];
+                    long size = long.Parse(data[1]);
+                    string set = data[2];
                     if (!dataCaches.ContainsKey(set))
                     {
                         dataCaches.Add(set, new Dictionary<string, long>());
@@ -37,7 +37,7 @@ namespace _01AnonymousCache
                 input = Console.ReadLine();
             }
 
-            foreach (KeyValuePair<string, Dictionary<string, long>> dataSet in dataCaches.OrderByDescending(x => x.Value.Values.Sum())) 
+            foreach (KeyValuePair<string, Dictionary<string, long>> dataSet in dataCaches.OrderByDescending(ds => ds.Value.Values.Sum())) 
             {
                 if (dataSets.Contains(dataSet.Key))
                 {
