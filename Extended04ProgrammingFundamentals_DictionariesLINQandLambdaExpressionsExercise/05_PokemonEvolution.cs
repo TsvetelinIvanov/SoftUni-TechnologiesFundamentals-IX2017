@@ -7,6 +7,7 @@ namespace _05_PokemonEvolution
     class Evolution
     {
         public string Type { get; set; }
+        
         public long Index { get; set; }
     }
 
@@ -25,16 +26,16 @@ namespace _05_PokemonEvolution
                     string evolutionType = pokemonData[1];
                     long evolutionIndex = long.Parse(pokemonData[2]);
 
-                    Evolution newEvolution = new Evolution();
-                    newEvolution.Type = evolutionType;
-                    newEvolution.Index = evolutionIndex;
+                    Evolution evolution = new Evolution();
+                    evolution.Type = evolutionType;
+                    evolution.Index = evolutionIndex;
 
                     if (!pokemons.ContainsKey(pokemonName))
                     {
                         pokemons[pokemonName] = new List<Evolution>();
                     }
 
-                    pokemons[pokemonName].Add(newEvolution);
+                    pokemons[pokemonName].Add(evolution);
                 }
                 else
                 {
