@@ -8,44 +8,43 @@ namespace _02HornetArmada
     {
         static void Main(string[] args)
         {
-            Dictionary<string, Dictionary<string, long>> legionSoldierTypeAndCount = 
-                new Dictionary<string, Dictionary<string, long>>();
-            Dictionary<string, int> legionLastActivity = new Dictionary<string, int>();
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; i < n; i++)
+            Dictionary<string, Dictionary<string, long>> legions = new Dictionary<string, Dictionary<string, long>>();
+            Dictionary<string, int> legionsLastActivities = new Dictionary<string, int>();
+            
+            int dataCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < dataCount; i++)
             {
-                string[] legionData = Console.ReadLine()
-                    .Split(new char[] { ' ', '=', '-', '>', ':' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] legionData = Console.ReadLine().Split(new char[] { ' ', '=', '-', '>', ':' }, StringSplitOptions.RemoveEmptyEntries);
                 int activity = int.Parse(legionData[0]);
                 string name = legionData[1];
                 string type = legionData[2];
                 long count = long.Parse(legionData[3]);
-                if (!legionSoldierTypeAndCount.ContainsKey(name))
+                if (!legions.ContainsKey(name))
                 {
-                    legionSoldierTypeAndCount.Add(name, new Dictionary<string, long>());
-                    legionSoldierTypeAndCount[name].Add(type, count);
+                    legions.Add(name, new Dictionary<string, long>());
+                    legions[name].Add(type, count);
                 }
                 else
                 {
-                    if(!legionSoldierTypeAndCount[name].ContainsKey(type))
+                    if(!legions[name].ContainsKey(type))
                     {
-                        legionSoldierTypeAndCount[name].Add(type, count);
+                        legions[name].Add(type, count);
                     }
                     else
                     {
-                        legionSoldierTypeAndCount[name][type] += count;
+                        legions[name][type] += count;
                     }
                 }
 
-                if (!legionLastActivity.ContainsKey(name))
+                if (!legionsLastActivities.ContainsKey(name))
                 {
-                    legionLastActivity.Add(name, activity);
+                    legionsLastActivities.Add(name, activity);
                 }
                 else
                 {
-                    if (legionLastActivity[name] < activity)
+                    if (legionsLastActivities[name] < activity)
                     {
-                        legionLastActivity[name] = activity;
+                        legionsLastActivities[name] = activity;
                     }
                 }
             }
@@ -53,14 +52,12 @@ namespace _02HornetArmada
             string comandLine = Console.ReadLine();
             if (comandLine.Contains("\\"))
             {
-                string[] comands = comandLine.Split('\\');
-                int activity = int.Parse(comands[0]);
-                string soldierType = comands[1];
-                foreach (KeyValuePair<string, Dictionary<string, long>> legion in legionSoldierTypeAndCount.Where(x => x.Value.ContainsKey(soldierType))
-                .OrderByDescending(x => x.Value[soldierType]))
+                string[] comandData = comandLine.Split('\\');
+                int activity = int.Parse(comandData[0]);
+                string soldierType = comandData[1];
+                foreach (KeyValuePair<string, Dictionary<string, long>> legion in legions.Where(l => l.Value.ContainsKey(soldierType)).OrderByDescending(l => l.Value[soldierType]))
                 {                    
-                        if (legionLastActivity[legion.Key] < activity && 
-                        legionSoldierTypeAndCount[legion.Key].ContainsKey(soldierType))
+                        if (legionsLastActivities[legion.Key] < activity && legions[legion.Key].ContainsKey(soldierType))
                         {                            
                             Console.WriteLine("{0} -> {1}", legion.Key, legion.Value[soldierType]);
                         }                    
@@ -69,9 +66,9 @@ namespace _02HornetArmada
             else
             {
                 string soldierType = comandLine;                
-                foreach (KeyValuePair<string, int> lastActivity in legionLastActivity.OrderByDescending(x => x.Value))
+                foreach (KeyValuePair<string, int> lastActivity in legionsLastActivities.OrderByDescending(la => la.Value))
                 {
-                    if (legionSoldierTypeAndCount[lastActivity.Key].ContainsKey(soldierType))
+                    if (legions[lastActivity.Key].ContainsKey(soldierType))
                     {
                         Console.WriteLine($"{lastActivity.Value} : {lastActivity.Key}");
                     }
