@@ -49,12 +49,11 @@ namespace _05PokemonEvolution
             foreach (KeyValuePair<string, Dictionary<string, long>> pokemon in pokemons)
             {
                 Console.WriteLine($"# {pokemon.Key}");
-                foreach (KeyValuePair<string, long> evolutionData in pokemon.Value.OrderByDescending(x => x.Value))
+                foreach (KeyValuePair<string, long> evolutionData in pokemon.Value.OrderByDescending(ed => ed.Value))
                 {
                     string evolutionType = DoFormerEvolutionType(evolutionData.Key);
                     Console.WriteLine($"{evolutionType} <-> {evolutionData.Value}");
                 }
-
             }
         }
 
