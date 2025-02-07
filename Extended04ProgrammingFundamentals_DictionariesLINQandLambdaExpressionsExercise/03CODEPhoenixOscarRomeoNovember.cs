@@ -9,44 +9,46 @@ namespace _03CODEPhoenixOscarRomeoNovember
         static void Main(string[] args)
         {
             Dictionary<string, List<string>> squads = new Dictionary<string, List<string>>();
-            List<string> check = new List<string>();
+            List<string> checks = new List<string>();
+            
             string input = Console.ReadLine();
             while (input != "Blaze it!")
             {
-                string[] creatures = input.Split(new string[] { " -> " }, StringSplitOptions.None);
-                string creature = creatures[0];
-                string squadMate = creatures[1];
-                check.Add(squadMate + "" + creature);
-                if (!squads.ContainsKey(creature) && squadMate != creature)
+                string[] creatureData = input.Split(new string[] { " -> " }, StringSplitOptions.None);
+                string squadLeader = creatureData[0];
+                string squadMate = creatureData[1];
+                checks.Add(squadMate + "" + squadLeader);
+                
+                if (!squads.ContainsKey(squadLeader) && squadMate != squadLeader)
                 {
-                    squads.Add(creature, new List<string>());
-                    if (check.Contains(creature + "" + squadMate))
+                    squads.Add(squadLeader, new List<string>());
+                    if (checks.Contains(squadLeader + "" + squadMate))
                     {
-                        squads[squadMate].Remove(creature);
+                        squads[squadMate].Remove(squadLeader);
                         input = Console.ReadLine();
 
                         continue;
                     }
 
-                    squads[creature].Add(squadMate);
+                    squads[squadLeader].Add(squadMate);
                 }
-                else if (!squads[creature].Contains(squadMate) && squadMate != creature)
+                else if (!squads[squadLeader].Contains(squadMate) && squadMate != squadLeader)
                 {
-                    if (check.Contains(creature + "" + squadMate))
+                    if (checks.Contains(squadLeader + "" + squadMate))
                     {
-                        squads[squadMate].Remove(creature);
+                        squads[squadMate].Remove(squadLeader);
                         input = Console.ReadLine();
 
                         continue;
                     }
 
-                    squads[creature].Add(squadMate);
+                    squads[squadLeader].Add(squadMate);
                 }
 
                 input = Console.ReadLine();
             }
 
-            foreach (KeyValuePair<string, List<string>> squad in squads.OrderByDescending(x => x.Value.Count))
+            foreach (KeyValuePair<string, List<string>> squad in squads.OrderByDescending(s => s.Value.Count))
             {
                 Console.WriteLine("{0} : {1}", squad.Key, squad.Value.Count);
             }
