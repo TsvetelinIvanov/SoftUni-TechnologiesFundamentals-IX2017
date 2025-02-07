@@ -14,10 +14,10 @@ namespace _04Trainlands
             {
                 if (input.Contains("->") && input.Contains(" : "))
                 {
-                    string[] commingTrains = input.Split(new string[] { " -> ", " : " }, StringSplitOptions.None);
-                    string trainName = commingTrains[0];
-                    string wagonName = commingTrains[1];
-                    long wagonPower = long.Parse(commingTrains[2]);
+                    string[] trainData = input.Split(new string[] { " -> ", " : " }, StringSplitOptions.None);
+                    string trainName = trainData[0];
+                    string wagonName = trainData[1];
+                    long wagonPower = long.Parse(trainData[2]);
                     if (!trains.ContainsKey(trainName))
                     {
                         trains.Add(trainName, new Dictionary<string, long>());
@@ -27,9 +27,9 @@ namespace _04Trainlands
                 }
                 else if (input.Contains(" -> "))
                 {
-                    string[] commingTrains = input.Split(new string[] { " -> " }, StringSplitOptions.None);
-                    string trainName = commingTrains[0];
-                    string otherTrainName = commingTrains[1];
+                    string[] trainData = input.Split(new string[] { " -> " }, StringSplitOptions.None);
+                    string trainName = trainData[0];
+                    string otherTrainName = trainData[1];
                     if (!trains.ContainsKey(trainName))
                     {
                         trains.Add(trainName, new Dictionary<string, long>());
@@ -44,9 +44,9 @@ namespace _04Trainlands
                 }
                 else if (input.Contains(" = "))
                 {
-                    string[] commingTrains = input.Split(new string[] { " = " }, StringSplitOptions.None);
-                    string trainName = commingTrains[0];
-                    string otherTrainName = commingTrains[1];
+                    string[] trainData = input.Split(new string[] { " = " }, StringSplitOptions.None);
+                    string trainName = trainData[0];
+                    string otherTrainName = trainData[1];
                     if (!trains.ContainsKey(trainName))
                     {
                         trains.Add(trainName, new Dictionary<string, long>());
@@ -62,7 +62,7 @@ namespace _04Trainlands
                 input = Console.ReadLine();
             }
 
-            foreach (KeyValuePair<string, Dictionary<string, long>> train in trains.OrderByDescending(t => t.Value.Values.Sum()).ThenBy(w => w.Value.Count))
+            foreach (KeyValuePair<string, Dictionary<string, long>> train in trains.OrderByDescending(t => t.Value.Values.Sum()).ThenBy(t => t.Value.Count))
             {
                 Console.WriteLine("Train: " + train.Key);
                 foreach (KeyValuePair<string, long> wagon in train.Value.OrderByDescending(w => w.Value))
