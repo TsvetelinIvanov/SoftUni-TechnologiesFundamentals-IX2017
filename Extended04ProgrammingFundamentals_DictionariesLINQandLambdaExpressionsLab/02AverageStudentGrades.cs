@@ -8,9 +8,9 @@ namespace _02AverageStudentGrades
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int gradesCount = int.Parse(Console.ReadLine());
             Dictionary<string, List<double>> studentsGrades = new Dictionary<string, List<double>>();
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < gradesCount; i++)
             {
                 string[] studentAndGrade = Console.ReadLine().Split();
                 string student = studentAndGrade[0];
@@ -22,6 +22,7 @@ namespace _02AverageStudentGrades
 
                 studentsGrades[student].Add(grade);
             }
+            
             foreach (KeyValuePair<string, List<double>> studentGrades in studentsGrades)
             {
                 Console.Write($"{studentGrades.Key} -> ");
