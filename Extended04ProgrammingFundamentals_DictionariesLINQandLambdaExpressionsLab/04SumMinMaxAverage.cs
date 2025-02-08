@@ -8,9 +8,9 @@ namespace _04SumMinMaxAverage
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int numbersCount = int.Parse(Console.ReadLine());
             List<int> numbers = new List<int>();
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < numbersCount; i++)
             {
                 int number = int.Parse(Console.ReadLine());
                 numbers.Add(number);
@@ -25,7 +25,7 @@ namespace _04SumMinMaxAverage
             Console.WriteLine("Min = " + min);
             Console.WriteLine("Max = " + max);
             Console.WriteLine("Average = " + average);
-            //or
+            //or:
             //Console.WriteLine("Sum = " + numbers.Sum());
             //Console.WriteLine("Min = " + numbers.Min());
             //Console.WriteLine("Max = " + numbers.Max());
