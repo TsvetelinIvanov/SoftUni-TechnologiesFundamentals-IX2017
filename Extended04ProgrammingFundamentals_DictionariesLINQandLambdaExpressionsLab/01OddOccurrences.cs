@@ -16,7 +16,7 @@ namespace _01OddOccurrences
                     wordCounts.Add(word, 0);
                 }
 
-                wordsAndCount[word]++;
+                wordCounts[word]++;
             }
             
             List<string> oddOccurrences = new List<string>();
