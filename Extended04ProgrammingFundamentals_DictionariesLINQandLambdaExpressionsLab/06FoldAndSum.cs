@@ -7,21 +7,20 @@ namespace _06FoldAndSum
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            int[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToArray();
-            int k = numbers.Length / 4;
+            int quarter = numbers.Length / 4;
 
-            int[] left = numbers.Take(k).ToArray();
+            int[] left = numbers.Take(quarter).ToArray();
             Array.Reverse(left);
 
-            int[] right = numbers.Skip(k * 3).ToArray();
+            int[] right = numbers.Skip(quarter * 3).ToArray();
             right = right.Reverse().ToArray();
 
             int[] folded = left.Concat(right).ToArray();
-            int[] middle = numbers.Skip(k).Take(k * 2).ToArray();
+            int[] middle = numbers.Skip(quarter).Take(quarter * 2).ToArray();
 
-            int[] summed = folded.Select((x, i) => x + middle[i]).ToArray();
+            int[] summed = folded.Select((n, i) => n + middle[i]).ToArray();
             Console.WriteLine(string.Join(" ", summed));
         }
     }
