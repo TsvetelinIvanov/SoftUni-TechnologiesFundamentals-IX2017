@@ -7,10 +7,9 @@ namespace _05Largest3Numbers
     {
         static void Main(string[] args)
         {
-            double[] numbers = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            double[] numbers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(double.Parse).ToArray();
-            numbers = numbers.OrderByDescending(x => x).Take(3).ToArray();
+            numbers = numbers.OrderByDescending(n => n).Take(3).ToArray();
             Console.WriteLine(string.Join(" ", numbers));
         }
     }
