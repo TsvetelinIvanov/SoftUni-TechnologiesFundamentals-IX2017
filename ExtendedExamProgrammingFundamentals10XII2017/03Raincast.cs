@@ -8,9 +8,10 @@ namespace _03Raincast
     {
         static void Main(string[] args)
         {
-            string patternType = "^Type: ((Normal)|(Warning)|(Danger))$";
-            string patternSource = @"^Source: ([a-zA-Z0-9]+)$";
-            string patternForecast = @"^Forecast: ([^!.,?]+)$";            
+            string typePattern = "^Type: ((Normal)|(Warning)|(Danger))$";
+            string sourcePattern = @"^Source: ([a-zA-Z0-9]+)$";
+            string forecastPattern = @"^Forecast: ([^!.,?]+)$";
+            
             string type = string.Empty;
             string source = string.Empty;
             string forecast = string.Empty;
@@ -20,29 +21,29 @@ namespace _03Raincast
             string input = Console.ReadLine();
             while (input != "Davai Emo")
             {
-                Match matchType = Regex.Match(input, patternType);
-
-                if (matchType.Success && type == string.Empty)                
+                Match typeMatch = Regex.Match(input, typePattern);
+                if (typeMatch.Success && type == string.Empty)                
                 {
-                    type = matchType.Groups[1].Value;                    
+                    type = typeMatch.Groups[1].Value;                    
                 }
 
-                Match matchSource = Regex.Match(input, patternSource);
-                if (matchSource.Success && source == string.Empty && forecast == string.Empty && type != string.Empty)
+                Match sourceMatch = Regex.Match(input, sourcePattern);
+                if (sourceMatch.Success && source == string.Empty && forecast == string.Empty && type != string.Empty)
                 {
-                    source = matchSource.Groups[1].Value;                    
+                    source = sourceMatch.Groups[1].Value;                    
                 }
 
-                Match matchForecast = Regex.Match(input, patternForecast);
-                if (matchForecast.Success && type != string.Empty && source != string.Empty && forecast == string.Empty)                
+                Match forecastMatch = Regex.Match(input, forecastPattern);
+                if (forecastMatch.Success && forecast == string.Empty && type != string.Empty && source != string.Empty)                
                 {
-                    forecast = matchForecast.Groups[1].Value;                    
+                    forecast = forecastMatch.Groups[1].Value;                    
                 }
 
                 if (type != string.Empty && source != string.Empty && forecast != string.Empty)
                 {
                     validForecast = $@"({type}) {forecast} ~ {source}";
                     validForecasts.Add(validForecast);
+                    
                     type = string.Empty;
                     source = string.Empty;
                     forecast = string.Empty;
