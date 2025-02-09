@@ -8,13 +8,13 @@ namespace _02Rainer
     {
         static void Main(string[] args)
         {
-            List<int> inputTrackAndIndex = Console.ReadLine()
-                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            List<int> inputTrackAndIndex = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToList();
-            int index = inputTrackAndIndex[inputTrackAndIndex.Count - 1];            
-            inputTrackAndIndex.RemoveAt(inputTrackAndIndex.Count - 1);            
-            List<int> track = new List<int>(inputTrackAndIndex);            
-            int donaldSteps = 0;
+            int index = inputTrackAndIndex[inputTrackAndIndex.Count - 1];
+            inputTrackAndIndex.RemoveAt(inputTrackAndIndex.Count - 1);
+            
+            List<int> track = new List<int>(inputTrackAndIndex);
+            int donaldStepsCount = 0;
             bool isDonaldWet = false;
             while (true)
             {                
@@ -23,7 +23,7 @@ namespace _02Rainer
                     track[i]--;
                     if (track[i] == 0 && i == index)
                     {                       
-                            isDonaldWet = true;                       
+                        isDonaldWet = true;                       
                     }                    
                 }
                 
@@ -40,12 +40,12 @@ namespace _02Rainer
                     }
                 }
 
-                donaldSteps++;
+                donaldStepsCount++;
                 index = int.Parse(Console.ReadLine());                
             }           
                          
             Console.WriteLine(string.Join(" ", track));           
-            Console.WriteLine(donaldSteps);            
+            Console.WriteLine(donaldStepsCount);            
         }
     }
 }
