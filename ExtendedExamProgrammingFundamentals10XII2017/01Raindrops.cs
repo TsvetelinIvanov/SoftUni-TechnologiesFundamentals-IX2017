@@ -9,20 +9,20 @@ namespace _01Raindrops
         {
             int regionsAmount = int.Parse(Console.ReadLine());
             decimal density = decimal.Parse(Console.ReadLine());
+            
             decimal regionalCoefficient = 0;
             decimal regionalCoefficientSum = 0;
-
             for (int i = 0; i < regionsAmount; i++)
             {
-                decimal[] regionData = Console.ReadLine()
-                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                decimal[] regionData = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(decimal.Parse).ToArray();
                 decimal raindropsCount = regionData[0];
-                decimal squareMeters = regionData[1];
+                decimal squareMetersCount = regionData[1];
 
-                regionalCoefficient = raindropsCount / squareMeters;
+                regionalCoefficient = raindropsCount / squareMetersCount;
                 regionalCoefficientSum += regionalCoefficient;
             }
+            
             if (density != 0)
             {
                 decimal result = regionalCoefficientSum / density;
