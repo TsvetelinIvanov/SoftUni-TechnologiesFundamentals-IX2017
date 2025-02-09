@@ -30,14 +30,14 @@ namespace _04RainAir
                 {
                     string[] customerData = input.Split(new string[] { " = " }, StringSplitOptions.None);
                     string customerName = customerData[0];
-                    string otherCustomer = customerData[1];                    
+                    string otherCustomerName = customerData[1];                    
                     if (!customers.ContainsKey(customerName))
                     {
                         customers[customerName] = new List<int>();
                     }
                     
                     customers[customerName].Clear();                    
-                    foreach (int flight in customers[otherCustomer])
+                    foreach (int flight in customers[otherCustomerName])
                     {
                         customers[customerName].Add(flight);
                     }
@@ -48,7 +48,7 @@ namespace _04RainAir
 
             foreach (KeyValuePair<string, List<int>> customer in customers.OrderByDescending(c => c.Value.Count).ThenBy(c => c.Key))
             {                
-                Console.WriteLine($"#{customer.Key} ::: {string.Join(", ", customer.Value.OrderBy(x => x))}");
+                Console.WriteLine($"#{customer.Key} ::: {string.Join(", ", customer.Value.OrderBy(f => f))}");
             }
         }
     }
