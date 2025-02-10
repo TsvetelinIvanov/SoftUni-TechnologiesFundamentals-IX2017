@@ -9,22 +9,22 @@ namespace _01Snowballs
     {
         static void Main(string[] args)
         {
-            Dictionary<BigInteger, List<int>> snowballData = new Dictionary<BigInteger, List<int>>();
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; i < n; i++)
+            Dictionary<BigInteger, List<int>> snowballs = new Dictionary<BigInteger, List<int>>();
+            int snowballsCount = int.Parse(Console.ReadLine());
+            for (int i = 0; i < snowballsCount; i++)
             {
                 int snowballSnow = int.Parse(Console.ReadLine());
                 int snowballTime = int.Parse(Console.ReadLine());
                 int snowballQuality = int.Parse(Console.ReadLine());
-                BigInteger snowballValue =
-                    BigInteger.Pow(new BigInteger(snowballSnow / snowballTime), snowballQuality);
-                snowballData.Add(snowballValue, new List<int>());
-                snowballData[snowballValue].Add(snowballSnow);
-                snowballData[snowballValue].Add(snowballTime);
-                snowballData[snowballValue].Add(snowballQuality);
+                BigInteger snowballValue = BigInteger.Pow(new BigInteger(snowballSnow / snowballTime), snowballQuality);
+                
+                snowballs.Add(snowballValue, new List<int>());
+                snowballs[snowballValue].Add(snowballSnow);
+                snowballs[snowballValue].Add(snowballTime);
+                snowballs[snowballValue].Add(snowballQuality);
             }
 
-            foreach (KeyValuePair<BigInteger, List<int>> snowball in snowballData.OrderByDescending(x => x.Key))
+            foreach (KeyValuePair<BigInteger, List<int>> snowball in snowballs.OrderByDescending(s => s.Key))
             {
                 Console.WriteLine($"{snowball.Value[0]} : {snowball.Value[1]} = {snowball.Key} ({snowball.Value[2]})");
                 break;
