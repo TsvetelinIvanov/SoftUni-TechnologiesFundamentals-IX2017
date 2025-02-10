@@ -41,7 +41,7 @@ namespace _02Snowmen
                                 snowmen[i] = -1;
                             }
 
-                            List<int> currentSnowmen = new List<int>(snowmen.Where(x => x != -1));
+                            List<int> currentSnowmen = new List<int>(snowmen.Where(s => s != -1));
                             if (currentSnowmen.Count == 1)
                             {
                                 return;
@@ -50,7 +50,7 @@ namespace _02Snowmen
                     }
                 }
 
-                snowmen.RemoveAll(x => x == -1);
+                snowmen.RemoveAll(s => s == -1);
             }
         }
     }
