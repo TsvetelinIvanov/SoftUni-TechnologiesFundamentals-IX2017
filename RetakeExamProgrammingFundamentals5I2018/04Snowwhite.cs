@@ -12,10 +12,10 @@ namespace _04Snowwhite
             string input = Console.ReadLine();
             while (input != "Once upon a time")
             {
-                string[] dwarfsData = input.Split(new string[] { " <:> " }, StringSplitOptions.None);
-                string dwarfName = dwarfsData[0];
-                string dwarfHatColor = dwarfsData[1];
-                int dwarfPhysics = int.Parse(dwarfsData[2]);
+                string[] dwarfData = input.Split(new string[] { " <:> " }, StringSplitOptions.None);
+                string dwarfName = dwarfData[0];
+                string dwarfHatColor = dwarfData[1];
+                int dwarfPhysics = int.Parse(dwarfData[2]);
                 string dwarfIdetity = dwarfName + " " + dwarfHatColor;
                 if (!dwarfs.ContainsKey(dwarfIdetity))
                 {
@@ -42,8 +42,7 @@ namespace _04Snowwhite
                 dwarfHatColorCounts[dwarfHatColor]++;
             }
 
-            Dictionary<string, List<int>> dwarfsAndDwarfHatColorCounts =
-                new Dictionary<string, List<int>>();
+            Dictionary<string, List<int>> dwarfsAndDwarfHatColorCounts = new Dictionary<string, List<int>>();
             foreach (KeyValuePair<string, int> dwarf in dwarfs)
             {
                 string[] dwarfIdetity = dwarf.Key.Split();
